@@ -4,7 +4,10 @@
    cd jqmofuel
    Use rvm:
       <tt>echo "rvm --create 1.9.2@jqmofuel" > .rvmrc</tt>
-   rails new . -d mysql -T -J
+   cd ..
+   rvm use 1.9.2@jqmofuel
+   gem install rails -v=2.0.4
+   rails new jqmofuel -d mysql -T -J
 
 
 == Welcome to Rails
