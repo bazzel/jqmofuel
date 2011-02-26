@@ -10,7 +10,10 @@
    rails new jqmofuel -d mysql -T -J
 
 2. Install and setup cucumber as described in https://github.com/aslakhellesoy/cucumber-rails
+   rails generate cucumber:install
 
+3. Install and setup RSpec
+   rails generate rspec:install
 
 == Welcome to Rails
 
