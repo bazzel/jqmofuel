@@ -5,6 +5,13 @@ gem 'jquery-rails',         '~>0.2.7' # Rails generator to install jQuery and th
 gem 'mysql2',               '~>0.2.6'
 gem 'rails',                '3.0.4'
 
+
+group :test do
+  gem 'cucumber-rails',     '~>0.3.2'
+  gem 'capybara',           '~>0.4.1.2'
+  gem 'database_cleaner',   '~>0.6.4'
+end
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
