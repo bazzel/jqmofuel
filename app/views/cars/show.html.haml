@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Brand:
+  = @car.brand
+%p
+  %b Car model:
+  = @car.car_model
+
+= link_to 'Edit', edit_car_path(@car)
+\|
+= link_to 'Back', cars_path
