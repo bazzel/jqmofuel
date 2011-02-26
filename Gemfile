@@ -1,10 +1,18 @@
 source 'http://rubygems.org'
 
+gem 'compass',              '~>0.10.6'
+gem 'haml',                 '~>3.0.25'
 gem 'jquery-rails',         '~>0.2.7' # Rails generator to install jQuery and the jQuery-ujs driver into your Rails 3 application,
                                       # and then have them included automatically instead of Prototype.
 gem 'mysql2',               '~>0.2.6'
 gem 'rails',                '3.0.4'
 
+group :development do
+  gem 'cucumber-rails',           '~>0.3.2' # Cucumber Generators and Runtime for Rails
+  gem 'haml-rails',               '0.3.4' # Haml generators for Rails 3
+  gem 'mongrel',                  '1.2.0.pre2'  # Need this version when running Ruby 1.9.2
+  gem 'rails3-generators',        '~>0.17.4' # Rails 3 compatible generators for DataMapper, Factory-girl, Authlogic, Mongomapper, Mongoid, Shoulda, Formtastic, SimpleForm and Fabrication
+end
 
 group :development, :test do
   gem 'cucumber-rails',           '~>0.3.2'
@@ -20,8 +28,6 @@ group :development, :test do
   gem 'webrat',                   '~>0.7.3'
 end
 
-group :development, :test do
-end
 
 
 # Bundle edge Rails instead:
