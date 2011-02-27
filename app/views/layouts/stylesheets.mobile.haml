@@ -3,5 +3,7 @@
 - else
 = stylesheet_link_tag 'http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css'
 
+= stylesheet_link_tag 'compiled/jqm.css', :media => 'screen, projection'
+
 -# Append your own using content_for :stylesheets
 = yield :stylesheets

@@ -1,4 +1,5 @@
 = form_for car do |f|
+  = render "shared/error_messages", :target => car
   = f.text_field :brand, :placeholder => "Brand"
   = f.text_field :car_model, :placeholder => "Model"
   = f.submit 'Save'

@@ -3,4 +3,8 @@
   = link_to 'Edit', edit_car_path(@car), "class" => "ui-btn-right"
 
 = jqm_content do
-  = @car.car_model
+  %dl
+    %dt Brand
+    %dd= @car.brand
+    %dt Model
+    %dd= @car.car_model
