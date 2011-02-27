@@ -1,0 +1,23 @@
+%h1 Listing refuelings
+
+%table
+  %tr
+    %th Date
+    %th Amount
+    %th Liter
+    %th
+    %th
+    %th
+
+  - @refuelings.each do |refueling|
+    %tr
+      %td= refueling.date
+      %td= refueling.amount
+      %td= refueling.liter
+      %td= link_to 'Show', refueling
+      %td= link_to 'Edit', edit_refueling_path(refueling)
+      %td= link_to 'Destroy', refueling, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Refueling', new_refueling_path

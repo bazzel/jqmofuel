@@ -29,6 +29,11 @@ X. Validation
    });
    to invoke validation in a 'live' way.
 
+== Known issues
+  When a validation error occurs while entering a new object and the form is cancelled,
+  the entered data remains.
+  Since we're using jquery mobile 1.0a3 it might be fixed in future versions.
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create

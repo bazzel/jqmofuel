@@ -1,5 +1,9 @@
 Jqmofuel::Application.routes.draw do
-  resources :cars
+  resources :refuelings
+
+  resources :cars do
+    resources :refuelings
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

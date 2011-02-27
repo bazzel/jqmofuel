@@ -1,0 +1,17 @@
+= form_for [@car, refueling], :validations => true do |f|
+  = render "shared/error_messages", :target => refueling
+  %div{ :'data-role' => "fieldcontain" }
+    = f.number_field :mileage, :placeholder => "Mileage"
+
+  %div{ :'data-role' => "fieldcontain" }
+    = f.label :date
+    = f.date_select :date, {:start_year => Date.current.year - 1, :end_year => Date.current.year + 1, :order => [:day, :month, :year]}, {:'data-native-menu' => true}
+  %div{ :'data-role' => "fieldcontain" }
+    = f.label :amount
+    = f.range_field :amount_units, :min => 0, :max => 250
+    = f.range_field :amount_cents, :min => 0, :max => 99, :maxlength => 2
+  %div{ :'data-role' => "fieldcontain" }
+    = f.label :liter
+    = f.range_field :liter_units, :min => 0, :max => 250
+    = f.range_field :liter_cents, :min => 0, :max => 99, :maxlength => 2
+  = f.submit 'Save'

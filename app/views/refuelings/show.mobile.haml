@@ -1,0 +1,15 @@
+= jqm_header do
+  %h1= @refueling.date
+  = link_to 'Edit', edit_car_refueling_path(@car, @refueling), :class => "ui-btn-right"
+
+= jqm_content do
+  %dl
+    %dt Foo
+    %dd Bar
+
+%div{ :'data-role' => "footer" }
+  %div{ :'data-role' => "navbar" }
+    %ul
+      %li= link_to @car.brand, @car
+      %li= link_to "Refuelings", car_refuelings_path(@car), :class => "ui-btn-active"
+      %li= link_to "New refueling", new_car_refueling_path(@car)

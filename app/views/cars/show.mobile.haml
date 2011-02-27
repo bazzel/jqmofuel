@@ -1,6 +1,6 @@
 = jqm_header do
   %h1= @car.brand
-  = link_to 'Edit', edit_car_path(@car), "class" => "ui-btn-right"
+  = link_to 'Edit', edit_car_path(@car), :class => "ui-btn-right"
 
 = jqm_content do
   %dl
@@ -8,3 +8,24 @@
     %dd= @car.brand
     %dt Model
     %dd= @car.car_model
+    %dt Per day
+    %dd= number_to_currency(@car.amount_per_day)
+    %dt Per month
+    %dd= number_to_currency(@car.amount_per_month)
+    %dt Per year
+    %dd= number_to_currency(@car.amount_per_year)
+    %dt Per day
+    %dd= number_with_delimiter(@car.liter_per_day.to_i)
+    %dt Per month
+    %dd= number_with_delimiter(@car.liter_per_month.to_i)
+    %dt Per year
+    %dd= number_with_delimiter(@car.liter_per_year.to_i)
+    %dt Fuel consumption
+    %dd= "1/#{number_with_precision(@car.fuel_consumption, :precision => 1)}"
+
+%div{ :'data-role' => "footer" }
+  %div{ :'data-role' => "navbar" }
+    %ul
+      %li= link_to @car.brand, @car, :class => "ui-btn-active"
+      %li= link_to "Refuelings", car_refuelings_path(@car)
+      %li= link_to "New refueling", new_car_refueling_path(@car)

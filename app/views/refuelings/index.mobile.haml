@@ -1,0 +1,13 @@
+= jqm_header do
+  %h1 Refuelings
+
+= jqm_content do
+  %ul{ :'data-role' => "listview" }
+    = render @refuelings
+
+%div{ :'data-role' => "footer" }
+  %div{ :'data-role' => "navbar" }
+    %ul
+      %li= link_to @car.brand, @car
+      %li= link_to "Refuelings", car_refuelings_path(@car), :class => "ui-btn-active"
+      %li= link_to "New refueling", new_car_refueling_path(@car)

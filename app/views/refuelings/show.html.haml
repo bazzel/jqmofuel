@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Date:
+  = @refueling.date
+%p
+  %b Amount:
+  = @refueling.amount
+%p
+  %b Liter:
+  = @refueling.liter
+
+= link_to 'Edit', edit_refueling_path(@refueling)
+\|
+= link_to 'Back', refuelings_path
