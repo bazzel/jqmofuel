@@ -44,9 +44,11 @@ class CarsController < ApplicationController
 
     respond_to do |format|
       if @car.save
+        format.mobile { redirect_to(@car, :notice => 'Car was successfully created.') }
         format.html { redirect_to(@car, :notice => 'Car was successfully created.') }
         format.xml  { render :xml => @car, :status => :created, :location => @car }
       else
+        format.mobile { render :action => "new" }
         format.html { render :action => "new" }
         format.xml  { render :xml => @car.errors, :status => :unprocessable_entity }
       end
@@ -60,9 +62,11 @@ class CarsController < ApplicationController
 
     respond_to do |format|
       if @car.update_attributes(params[:car])
+        format.mobile { redirect_to(@car, :notice => 'Car was successfully updated.') }
         format.html { redirect_to(@car, :notice => 'Car was successfully updated.') }
         format.xml  { head :ok }
       else
+        format.mobile { render :action => "edit" }
         format.html { render :action => "edit" }
         format.xml  { render :xml => @car.errors, :status => :unprocessable_entity }
       end
@@ -76,6 +80,7 @@ class CarsController < ApplicationController
     @car.destroy
 
     respond_to do |format|
+      format.mobile { redirect_to(cars_url) }
       format.html { redirect_to(cars_url) }
       format.xml  { head :ok }
     end

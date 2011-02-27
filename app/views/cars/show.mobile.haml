@@ -1,0 +1,6 @@
+= jqm_header do
+  %h1= @car.brand
+  = link_to 'Edit', edit_car_path(@car), "class" => "ui-btn-right"
+
+= jqm_content do
+  = @car.car_model

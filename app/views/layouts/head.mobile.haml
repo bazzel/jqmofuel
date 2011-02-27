@@ -1,0 +1,16 @@
+%head
+  %meta{ :charset => "utf-8" }/
+
+  %title
+    == #{ controller.controller_name.titleize } - #{ controller.action_name.titleize }
+
+  %meta{ :content => "", :name => "description" }/
+  %meta{ :content => "", :name => "author" }/
+
+  -# Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references
+  -# %link{ :href => "/apple-touch-icon.png", :rel => "apple-touch-icon" }/
+
+  = render :template => 'layouts/stylesheets'
+  = render :template => 'layouts/javascripts'
+
+  = csrf_meta_tag

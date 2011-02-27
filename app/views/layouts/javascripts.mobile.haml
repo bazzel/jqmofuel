@@ -1,0 +1,7 @@
+- if Rails.env == 'development'
+  = javascript_include_tag('http://code.jquery.com/jquery-1.5.js', :defaults, 'http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.js')
+- else
+  = javascript_include_tag('http://code.jquery.com/jquery-1.5.min.js', :defaults, 'http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js')
+
+-#  Append your own using content_for :javascripts
+= yield :javascripts

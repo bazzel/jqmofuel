@@ -1,0 +1,7 @@
+- if Rails.env == 'development'
+  = stylesheet_link_tag 'http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.css'
+- else
+= stylesheet_link_tag 'http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css'
+
+-# Append your own using content_for :stylesheets
+= yield :stylesheets
