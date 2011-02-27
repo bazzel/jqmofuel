@@ -1,11 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'compass',              '~>0.10.6'
-gem 'haml',                 '~>3.0.25'
-gem 'jquery-rails',         '~>0.2.7' # Rails generator to install jQuery and the jQuery-ujs driver into your Rails 3 application,
-                                      # and then have them included automatically instead of Prototype.
-gem 'mysql2',               '~>0.2.6'
-gem 'rails',                '3.0.4'
+gem 'client_side_validations',  '2.9.9' # Client Side Validations for Rails 2.xand 3.x
+gem 'compass',                  '~>0.10.6'
+gem 'haml',                     '~>3.0.25'
+gem 'jquery-rails',             '~>0.2.7' # Rails generator to install jQuery and the jQuery-ujs driver into your Rails 3 application,
+                                          # and then have them included automatically instead of Prototype.
+gem 'mysql2',                   '~>0.2.6'
+gem 'rails',                    '3.0.4'
 
 group :development do
   gem 'cucumber-rails',           '~>0.3.2' # Cucumber Generators and Runtime for Rails

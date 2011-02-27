@@ -15,6 +15,20 @@
 3. Install and setup RSpec
    rails generate rspec:install
 
+4. haml, sass
+
+X. Validation
+   Download http://bassistance.de/jquery-plugins/jquery-plugin-validation/
+   # Gemfile
+   gem 'client_side_validations',  '2.9.9'
+   # application.js
+   jQuery(function($) {
+     $(':submit').live('click', function() {
+       $(this).parents('form').clientSideValidations();
+     });
+   });
+   to invoke validation in a 'live' way.
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create

@@ -44,7 +44,7 @@ class CarsController < ApplicationController
 
     respond_to do |format|
       if @car.save
-        format.mobile { redirect_to(@car, :notice => 'Car was successfully created.') }
+        format.mobile { redirect_to(cars_url) }
         format.html { redirect_to(@car, :notice => 'Car was successfully created.') }
         format.xml  { render :xml => @car, :status => :created, :location => @car }
       else

@@ -23,34 +23,42 @@
 }
 
 //http://www.jankoatwarpspeed.com/post/2008/05/22/CSS-Message-Boxes-for-different-message-types.aspx
-.info, .success, .warning, .error, .validation {
-  border: 1px solid;
-  margin: 10px 0px;
-  padding:15px 10px 15px 50px;
-  background-repeat: no-repeat;
-  background-position: 10px center;
+.ui-mobile {
+  #error_explanation {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding:15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('/images/error.png');
+  }
+
+  &.portrait label.error, &.landscape label.error {
+      color: red;
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 1.4;
+      margin-top: 0.5em;
+      width: 100%;
+      float: none;
+  }
+
+  &.landscape label.error {
+      display: inline-block;
+      margin-left: 22%;
+  }
+
+  &.portrait label.error {
+      margin-left: 0;
+      display: block;
+  }
+
+  em {
+      color: red;
+      font-weight: bold;
+      padding-right: .25em;
+  }
 }
 
-.info {
-  color: #00529B;
-  background-color: #BDE5F8;
-  background-image: url('/images/info.png');
-}
-
-.success {
-  color: #4F8A10;
-  background-color: #DFF2BF;
-  background-image:url('/images/success.png');
-}
-
-.warning {
-  color: #9F6000;
-  background-color: #FEEFB3;
-  background-image: url('/images/warning.png');
-}
-
-.error {
-  color: #D8000C;
-  background-color: #FFBABA;
-  background-image: url('/images/error.png');
-}

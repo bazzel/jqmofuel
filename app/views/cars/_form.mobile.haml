@@ -1,4 +1,4 @@
-= form_for car do |f|
+= form_for car, :validations => true do |f|
   = render "shared/error_messages", :target => car
   = f.text_field :brand, :placeholder => "Brand"
   = f.text_field :car_model, :placeholder => "Model"
