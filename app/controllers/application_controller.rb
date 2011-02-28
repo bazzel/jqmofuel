@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     if session[:mobile_param]
       session[:mobile_param] == "1"
     else
-      request.user_agent =~ /Mobile|webOS/
+      request.env['HTTP_USER_AGENT'] =~ /Mobile|webOS/
     end
   end
   helper_method :mobile_device?
