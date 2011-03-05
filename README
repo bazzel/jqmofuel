@@ -19,6 +19,10 @@
 
 X. Validation
    Download http://bassistance.de/jquery-plugins/jquery-plugin-validation/
+   Download https://github.com/bigfix/jquery-validation (instead of the original
+   https://github.com/jzaefferer/jquery-validation which doesn't work with jQuery 1.5,
+   see https://github.com/jzaefferer/jquery-validation/issues/36)
+
    # Gemfile
    gem 'client_side_validations',  '2.9.9'
    # application.js
@@ -28,6 +32,7 @@ X. Validation
      });
    });
    to invoke validation in a 'live' way.
+
 
 == Known issues
   When a validation error occurs while entering a new object and the form is cancelled,

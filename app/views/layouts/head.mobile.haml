@@ -9,8 +9,8 @@
 
   -# Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references
   -# %link{ :href => "/apple-touch-icon.png", :rel => "apple-touch-icon" }/
+  = csrf_meta_tag
 
   = render :template => 'layouts/stylesheets'
   = render :template => 'layouts/javascripts'
 
-  = csrf_meta_tag

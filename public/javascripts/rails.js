@@ -7,12 +7,24 @@
 
 (function($) {
 	// Make sure that every Ajax request sends the CSRF token
-	function CSRFProtection(xhr) {
+	function CSRFProtection(fn) {
 		var token = $('meta[name="csrf-token"]').attr('content');
-		if (token) xhr.setRequestHeader('X-CSRF-Token', token);
+		if (token) fn(function(xhr) { xhr.setRequestHeader('X-CSRF-Token', token) });
 	}
-	if ('ajaxPrefilter' in $) $.ajaxPrefilter(function(options, originalOptions, xhr){ CSRFProtection(xhr) });
-	else $(document).ajaxSend(function(e, xhr){ CSRFProtection(xhr) });
+	if ($().jquery == '1.5') { // gruesome hack
+		var factory = $.ajaxSettings.xhr;
+		$.ajaxSettings.xhr = function() {
+			var xhr = factory();
+			CSRFProtection(function(setHeader) {
+				var open = xhr.open;
+				xhr.open = function() { open.apply(this, arguments); setHeader(this) };
+			});
+			return xhr;
+		};
+	}
+	else $(document).ajaxSend(function(e, xhr) {
+		CSRFProtection(function(setHeader) { setHeader(xhr) });
+	});
 
 	// Triggers an event on an element and returns the event result
 	function fire(obj, name, data) {
@@ -71,10 +83,19 @@
 			csrf_token = $('meta[name=csrf-token]').attr('content'),
 			csrf_param = $('meta[name=csrf-param]').attr('content'),
 			form = $('<form method="post" action="' + href + '"></form>'),
-			metadata_input = '<input name="_method" value="' + method + '" type="hidden" />';
+			metadata_input = '<input name="_method" value="' + method + '" type="hidden" />',
+			form_params = link.data('form-params');
 
 		if (csrf_param !== undefined && csrf_token !== undefined) {
 			metadata_input += '<input name="' + csrf_param + '" value="' + csrf_token + '" type="hidden" />';
+		}
+		
+		// support non-nested JSON encoded params for links
+		if (form_params != undefined) {
+			var params = $.parseJSON(form_params);
+			for (key in params) {
+				form.append($("<input>").attr({"type": "hidden", "name": key, "value": params[key]}));
+			}
 		}
 
 		form.hide().append(metadata_input).appendTo('body');

@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Jqmofuel::Application.config.secret_token = '873416985feb7237a794f98712409a3fe32083f31434b246783d69dd4bad085cd895fc833f458d44d4bfba8f7e0ccbe157a9490ed2ebc07e36b9fad49972ff66'
+Jqmofuel::Application.config.secret_token = '621a161e3205a4dbaaad985a1faea1e2cf6c1c777148869a34d3d9b3243e942cb760173432fb6311236393d97b27e9ead13740276de4f4698dbe3827b40605ba'

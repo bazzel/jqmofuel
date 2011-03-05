@@ -2,17 +2,22 @@ source 'http://rubygems.org'
 
 gem 'client_side_validations',  '2.9.9' # Client Side Validations for Rails 2.xand 3.x
 gem 'compass',                  '~>0.10.6'
+gem 'devise',                   '~>1.1.7'
 gem 'haml',                     '~>3.0.25'
 gem 'jquery-rails',             '~>0.2.7' # Rails generator to install jQuery and the jQuery-ujs driver into your Rails 3 application,
                                           # and then have them included automatically instead of Prototype.
 gem 'mysql2',                   '~>0.2.6'
-gem 'rails',                    '3.0.4'
+gem 'rails',                    '3.0.5'
 
 group :development do
-  gem 'cucumber-rails',           '~>0.3.2' # Cucumber Generators and Runtime for Rails
-  gem 'haml-rails',               '0.3.4' # Haml generators for Rails 3
+  gem 'cucumber-rails',           '~>0.3.2'     # Cucumber Generators and Runtime for Rails
+  gem 'haml-rails',               '0.3.4'       # Haml generators for Rails 3
+  gem 'hpricot',                  '0.8.4'       # Needed to run html2haml
   gem 'mongrel',                  '1.2.0.pre2'  # Need this version when running Ruby 1.9.2
-  gem 'rails3-generators',        '~>0.17.4' # Rails 3 compatible generators for DataMapper, Factory-girl, Authlogic, Mongomapper, Mongoid, Shoulda, Formtastic, SimpleForm and Fabrication
+  gem 'rails3-generators',        '~>0.17.4'    # Rails 3 compatible generators for DataMapper,
+                                                # Factory-girl, Authlogic, Mongomapper, Mongoid,
+                                                # Shoulda, Formtastic, SimpleForm and Fabrication
+  gem 'ruby_parser',              '2.0.6'
 end
 
 group :development, :test do

@@ -1,4 +1,6 @@
 Jqmofuel::Application.routes.draw do
+  devise_for :users
+
   resources :refuelings
 
   resources :cars do

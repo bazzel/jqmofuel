@@ -1,4 +1,5 @@
 class CarsController < ApplicationController
+
   # GET /cars
   # GET /cars.xml
   def index

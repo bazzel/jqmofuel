@@ -24,15 +24,22 @@
 
 //http://www.jankoatwarpspeed.com/post/2008/05/22/CSS-Message-Boxes-for-different-message-types.aspx
 .ui-mobile {
-  #error_explanation {
+  #error_explanation, #flash_notice, #flash_error, #flash_alert {
     border: 1px solid;
     margin: 10px 0px;
     padding:15px 10px 15px 50px;
     background-repeat: no-repeat;
     background-position: 10px center;
+  }
+  #error_explanation, #flash_error, #flash_alert {
     color: #D8000C;
     background-color: #FFBABA;
     background-image: url('/images/error.png');
+  }
+  #flash_notice {
+  color: #00529B;
+  background-color: #BDE5F8;
+  background-image: url('/images/info.png');
   }
 
   &.portrait label.error, &.landscape label.error {
