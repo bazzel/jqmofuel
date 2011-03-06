@@ -56,3 +56,12 @@ if defined?(ActiveRecord::Base)
   rescue LoadError => ignore_if_database_cleaner_not_present
   end
 end
+
+# Capybara.register_driver :iphone do |app|
+  # require 'selenium/webdriver'
+  # profile = Selenium::WebDriver::Firefox::Profile.new
+  # profile['general.useragent.override'] = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_1 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8B117 Safari/6531.22.7"
+  # #
+  # Capybara::Driver::Selenium.new(app, :profile => profile)
+  # Capybara::Driver::Selenium.new(app, :browser => :chrome, :profile => profile)
+# end

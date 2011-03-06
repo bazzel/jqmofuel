@@ -7,8 +7,12 @@ module JqueryMobileHelper
   #   <div data-role="header">
   #       <h1>Page Title</h1>
   #   </div>
-  def jqm_header(&block)
-    content_tag(:div, :'data-role' => "header", &block)
+  def jqm_header(options = {}, &block)
+    default_options = {
+      :'data-role' => "header"
+    }
+
+    content_tag(:div, default_options.merge(options), &block)
   end
 
   # = jqm_content do

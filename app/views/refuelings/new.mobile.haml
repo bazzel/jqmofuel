@@ -4,9 +4,9 @@
 = jqm_content do
   = render 'form', :refueling => @refueling
 
-%div{ :'data-role' => "footer" }
-  %div{ :'data-role' => "navbar" }
+%div{ :'data-role' => 'footer', :'data-position' => "fixed" }
+  %div{ :'data-role' => 'navbar' }
     %ul
-      %li= link_to @car.brand, @car
-      %li= link_to "Refuelings", car_refuelings_path(@car)
-      %li= link_to "New refueling", new_car_refueling_path(@car), :class => "ui-btn-active"
+      %li= link_to('Refueling', new_refueling_path, :class => "ui-btn-active", :'data-ajax' => false)
+      %li= link_to('Cars', cars_path, :'data-ajax' => false)
+      %li= link_to('My Info', edit_user_registration_path, :'data-ajax' => false)
