@@ -136,6 +136,24 @@ describe CarsController do
 
     end
   end
+
+  describe "GET edit" do
+    describe "iphone" do
+      use_iphone
+
+      def do_get
+        get :edit, :id => "37"
+      end
+
+      it "assigns the requested car as @car" do
+        @current_user.should_receive(:cars).and_return(@cars)
+        @cars.should_receive(:find).with("37").and_return(@car)
+        do_get
+        assigns(:car).should be(@car)
+      end
+    end
+  end
+
     # before(:each) do
     #   @slideshow = Slideshow.new
     #   Slideshow.stub(:new).and_return(@slideshow)
@@ -165,60 +183,6 @@ describe CarsController do
 #       Car.stub(:all) { [mock_car] }
 #       get :index
 #       assigns(:cars).should eq([mock_car])
-#     end
-#   end
-#
-#   describe "GET show" do
-#     it "assigns the requested car as @car" do
-#       Car.stub(:find).with("37") { mock_car }
-#       get :show, :id => "37"
-#       assigns(:car).should be(mock_car)
-#     end
-#   end
-#
-#   describe "GET new" do
-#     it "assigns a new car as @car" do
-#       Car.stub(:new) { mock_car }
-#       get :new
-#       assigns(:car).should be(mock_car)
-#     end
-#   end
-#
-#   describe "GET edit" do
-#     it "assigns the requested car as @car" do
-#       Car.stub(:find).with("37") { mock_car }
-#       get :edit, :id => "37"
-#       assigns(:car).should be(mock_car)
-#     end
-#   end
-#
-#   describe "POST create" do
-#     describe "with valid params" do
-#       it "assigns a newly created car as @car" do
-#         Car.stub(:new).with({'these' => 'params'}) { mock_car(:save => true) }
-#         post :create, :car => {'these' => 'params'}
-#         assigns(:car).should be(mock_car)
-#       end
-#
-#       it "redirects to the created car" do
-#         Car.stub(:new) { mock_car(:save => true) }
-#         post :create, :car => {}
-#         response.should redirect_to(car_url(mock_car))
-#       end
-#     end
-#
-#     describe "with invalid params" do
-#       it "assigns a newly created but unsaved car as @car" do
-#         Car.stub(:new).with({'these' => 'params'}) { mock_car(:save => false) }
-#         post :create, :car => {'these' => 'params'}
-#         assigns(:car).should be(mock_car)
-#       end
-#
-#       it "re-renders the 'new' template" do
-#         Car.stub(:new) { mock_car(:save => false) }
-#         post :create, :car => {}
-#         response.should render_template("new")
-#       end
 #     end
 #   end
 #

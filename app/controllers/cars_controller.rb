@@ -31,10 +31,11 @@ class CarsController < ApplicationController
     @car = current_user.cars.find(params[:id])
   end
 
-  # # GET /cars/1/edit
-  # def edit
-  #   @car = Car.find(params[:id])
-  # end
+  # GET /cars/1/edit
+  def edit
+    @car = current_user.cars.find(params[:id])
+  end
+
   #
   # # POST /cars
   # # POST /cars.xml

@@ -1,7 +1,13 @@
 class Car < ActiveRecord::Base
+  # == Validations
   validates_presence_of :brand
 
-  # has_many :refuelings
+  # == Associations
+  has_many :refuelings
+
+  def last_refueling
+    refuelings.order(:date).last
+  end
   #
   # def amount_per_day
   #   if refuelings.size > 1
