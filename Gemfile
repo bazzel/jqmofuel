@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'client_side_validations',  '2.9.9' # Client Side Validations for Rails 2.xand 3.x
+gem 'capistrano',               '2.5.19'
 gem 'compass',                  '~>0.10.6'
 gem 'devise',                   '~>1.1.7'
 gem 'haml',                     '~>3.0.25'
