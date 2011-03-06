@@ -3,7 +3,7 @@
 
   %div{ :'data-role' => "fieldcontain" }
     = f.label :date
-    = f.date_select :date, {:start_year => Date.current.year - 1, :end_year => Date.current.year + 1, :order => [:day, :month, :year]}, {:'data-native-menu' => true}
+    = f.date_select :date, {:start_year => Date.current.year - 2, :end_year => Date.current.year + 1, :order => [:day, :month, :year]}, {:'data-native-menu' => true}
 
   %div{ :'data-role' => "fieldcontain" }
     = f.number_field :mileage, :placeholder => "Mileage"
