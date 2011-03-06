@@ -3,11 +3,12 @@
   =link_to "Sign Out", destroy_user_session_path, :class => "ui-btn-right", :'data-ajax' => false
 
 = jqm_content do
-  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validations => true, :html => { :method => :put }) do |f|
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'validate' }) do |f|
     = render "shared/error_messages", :target => resource
-    = f.email_field :email, :placeholder => "Email"
+    = f.email_field :email, :placeholder => "Email", :class => "required"
     = f.password_field :password, :placeholder => "Password"
     = f.password_field :password_confirmation, :placeholder => "Repeat"
+    = f.password_field :current_password, :placeholder => "Current password", :class => "required"
     = f.submit "Update"
 
 %div{ :'data-role' => 'footer', :'data-position' => "fixed" }
@@ -15,4 +16,4 @@
     %ul
       %li= link_to('Refueling', new_refueling_path, :'data-ajax' => false)
       %li= link_to('Cars', cars_path, :'data-ajax' => false)
-      %li= link_to('My Info', edit_user_registration_path, :class => "ui-btn-active", :'data-ajax' => false)
+      %li= link_to('My Info', edit_user_registration_path, :class => "ui-btn-active", :'data-transition' => "none")
