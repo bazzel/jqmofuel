@@ -1,6 +1,6 @@
 = jqm_header do
   %h1 Edit refueling
-  = link_to 'Delete', [@car, @refueling], :method => :delete, :confirm => 'Are you sure?', :"data-icon" => "delete", :class => "ui-btn-right"
+  = link_to 'Delete', @refueling, :method => :delete, :confirm => 'Are you sure?', :"data-icon" => "delete", :class => "ui-btn-right"
 
 = jqm_content do
   = render 'form', :refueling => @refueling

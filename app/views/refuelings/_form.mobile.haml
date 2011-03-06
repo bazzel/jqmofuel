@@ -1,4 +1,4 @@
-= form_for [@car, refueling], :validations => true do |f|
+= form_for refueling, :validations => true do |f|
   = render "shared/error_messages", :target => refueling
 
   %div{ :'data-role' => "fieldcontain" }

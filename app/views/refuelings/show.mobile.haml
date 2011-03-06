@@ -1,8 +1,14 @@
-= jqm_header do
+= jqm_header(:'data-backbtn' => false) do
   %h1= @refueling.date
   = link_to 'Edit', edit_refueling_path(@refueling), :class => "ui-btn-right"
 
 = jqm_content do
   %dl
-    %dt Foo
-    %dd Bar
+    %dt Date
+    %dd= l(@refueling.date.to_date)
+    %dt Liters
+    %dd= number_with_precision(@refueling.liter, :precision => 2)
+    %dt Amount
+    %dd= number_to_currency(@refueling.amount)
+    %dt Mileage
+    %dd= number_with_delimiter(@refueling.mileage)

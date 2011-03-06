@@ -24,6 +24,7 @@ class RefuelingsController < ApplicationController
   # GET /refuelings/1
   def show
     @refueling = current_user.refuelings.find(params[:id])
+    @cars = current_user.cars
   end
 
   # GET /refuelings/1/edit
@@ -31,6 +32,26 @@ class RefuelingsController < ApplicationController
     @refueling = current_user.refuelings.find(params[:id])
   end
 
+  # DELETE /refuelings/1
+  def destroy
+    @refueling = current_user.refuelings.find(params[:id])
+    @refueling.destroy
+    @car = @refueling.car
+
+    redirect_to(@car)
+  end
+
+  # PUT /refuelings/1
+  def update
+    @refueling = current_user.refuelings.find(params[:id])
+
+    if @refueling.update_attributes(params[:refueling])
+      redirect_to @refueling
+    else
+      render :action => "new"
+    end
+
+  end
   # # before_filter :find_car
   #
   # # GET /refuelings
@@ -107,17 +128,6 @@ class RefuelingsController < ApplicationController
   #   end
   # end
   #
-  # # DELETE /refuelings/1
-  # # DELETE /refuelings/1.xml
-  # def destroy
-  #   @refueling = @car.refuelings.find(params[:id])
-  #   @refueling.destroy
-  #
-  #   respond_to do |format|
-  #     format.html { redirect_to(refuelings_url) }
-  #     format.xml  { head :ok }
-  #   end
-  # end
   #
   # # private
   # # def find_car

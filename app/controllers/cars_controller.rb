@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
 
+  # GET /cars
   def index
     @cars = current_user.cars
 
@@ -10,6 +11,7 @@ class CarsController < ApplicationController
     end
   end
 
+  # GET /cars/new
   def new
     @car = current_user.cars.build
   end
@@ -24,42 +26,11 @@ class CarsController < ApplicationController
     end
   end
 
+  # GET /cars/1
   def show
     @car = current_user.cars.find(params[:id])
   end
-  # # GET /cars
-  # # GET /cars.xml
-  # def index
-  #   @cars = Car.all
-  #
-  #   respond_to do |format|
-  #     format.html # index.html.erb
-  #     format.xml  { render :xml => @cars }
-  #   end
-  # end
-  #
-  # # GET /cars/1
-  # # GET /cars/1.xml
-  # def show
-  #   @car = Car.find(params[:id])
-  #
-  #   respond_to do |format|
-  #     format.html # show.html.erb
-  #     format.xml  { render :xml => @car }
-  #   end
-  # end
-  #
-  # # GET /cars/new
-  # # GET /cars/new.xml
-  # def new
-  #   @car = Car.new
-  #
-  #   respond_to do |format|
-  #     format.html # new.html.erb
-  #     format.xml  { render :xml => @car }
-  #   end
-  # end
-  #
+
   # # GET /cars/1/edit
   # def edit
   #   @car = Car.find(params[:id])

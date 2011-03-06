@@ -1,4 +1,4 @@
-= jqm_header do
+= jqm_header(:'data-backbtn' => false) do
   %h1= @car.brand
   = link_to 'Edit', edit_car_path(@car), :class => "ui-btn-right"
 
@@ -9,3 +9,9 @@
     %dt Model
     %dd= @car.car_model
 
+%div{ :'data-role' => 'footer', :'data-position' => "fixed" }
+  %div{ :'data-role' => 'navbar' }
+    %ul
+      %li= link_to('Refueling', new_refueling_path, :class => "ui-btn-active", :'data-ajax' => false)
+      %li= link_to('Cars', cars_path, :'data-ajax' => false)
+      %li= link_to('My Info', edit_user_registration_path, :'data-ajax' => false)
