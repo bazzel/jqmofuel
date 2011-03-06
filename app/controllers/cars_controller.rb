@@ -36,43 +36,17 @@ class CarsController < ApplicationController
     @car = current_user.cars.find(params[:id])
   end
 
-  #
-  # # POST /cars
-  # # POST /cars.xml
-  # def create
-  #   @car = Car.new(params[:car])
-  #
-  #   respond_to do |format|
-  #     if @car.save
-  #       format.mobile { redirect_to(cars_url) }
-  #       format.html { redirect_to(@car, :notice => 'Car was successfully created.') }
-  #       format.xml  { render :xml => @car, :status => :created, :location => @car }
-  #     else
-  #       format.mobile { render :action => "new" }
-  #       format.html { render :action => "new" }
-  #       format.xml  { render :xml => @car.errors, :status => :unprocessable_entity }
-  #     end
-  #   end
-  # end
-  #
-  # # PUT /cars/1
-  # # PUT /cars/1.xml
-  # def update
-  #   @car = Car.find(params[:id])
-  #
-  #   respond_to do |format|
-  #     if @car.update_attributes(params[:car])
-  #       format.mobile { redirect_to(@car, :notice => 'Car was successfully updated.') }
-  #       format.html { redirect_to(@car, :notice => 'Car was successfully updated.') }
-  #       format.xml  { head :ok }
-  #     else
-  #       format.mobile { render :action => "edit" }
-  #       format.html { render :action => "edit" }
-  #       format.xml  { render :xml => @car.errors, :status => :unprocessable_entity }
-  #     end
-  #   end
-  # end
-  #
+  # PUT /cars/1
+  def update
+    @car = current_user.cars.find(params[:id])
+
+    if @car.update_attributes(params[:car])
+      redirect_to @car
+    else
+      render :action => "edit"
+    end
+  end
+
   # # DELETE /cars/1
   # # DELETE /cars/1.xml
   # def destroy

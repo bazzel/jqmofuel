@@ -9,6 +9,7 @@ describe CarsController do
     @car = mock_model(Car)
     @cars = [@car]
     @cars.stub(:build).and_return(@car)
+    @cars.stub(:find).and_return(@car)
 
     @current_user.stub(:cars).and_return(@cars)
   end
@@ -153,6 +154,51 @@ describe CarsController do
       end
     end
   end
+
+  describe "PUT update" do
+    describe "iphone" do
+      use_iphone
+
+      def do_put
+        put :update, :id => "37", :car => {'these' => 'params'}
+      end
+
+      describe "with valid params" do
+        before(:each) do
+          @car.stub(:update_attributes).and_return(true)
+        end
+
+        it "assigns the requested car as @car" do
+          @current_user.should_receive(:cars).and_return(@cars)
+          @cars.should_receive(:find).with("37").and_return(@car)
+          do_put
+          assigns(:car).should be(@car)
+        end
+
+        it "updates the car" do
+          @car.should_receive(:update_attributes).with({'these' => 'params'})
+          do_put
+        end
+
+        it "redirects to car" do
+          do_put
+          response.should redirect_to(@car)
+        end
+      end
+
+      describe "with invalid params" do
+        before(:each) do
+          @car.stub(:update_attributes).and_return(false)
+        end
+
+        it "re-renders the 'edit' template" do
+          do_put
+          response.should render_template("edit")
+        end
+      end
+    end
+  end
+
 
     # before(:each) do
     #   @slideshow = Slideshow.new
