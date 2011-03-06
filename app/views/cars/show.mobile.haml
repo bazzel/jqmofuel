@@ -4,13 +4,22 @@
 
 = jqm_content do
   %dl
-    %dt Brand
+    %dt Car
     %dd= @car.brand
     %dt Model
     %dd= @car.car_model
     - if @car.last_refueling
       %dt Last refueling
       %dd= "#{time_ago_in_words(@car.last_refueling.date)} ago"
+    - if @car.fuel_consumption
+      %dt Fuel consuption
+      %dd= "1/#{@car.fuel_consumption}"
+    %dt Total amount
+    %dd= number_to_currency(@car.total_amount)
+    %dt Total mileage
+    %dd= @car.total_mileage
+    %dt Total liter
+    %dd= @car.total_liter
 
 %div{ :'data-role' => 'footer', :'data-position' => "fixed" }
   %div{ :'data-role' => 'navbar' }
