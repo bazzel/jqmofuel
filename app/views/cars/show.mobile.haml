@@ -14,12 +14,10 @@
     - if @car.fuel_consumption
       %dt Fuel consuption
       %dd= "1/#{@car.fuel_consumption}"
-    %dt Total amount
+    %dt Total
     %dd= number_to_currency(@car.total_amount)
-    %dt Total mileage
-    %dd= @car.total_mileage
-    %dt Total liter
-    %dd= @car.total_liter
+    %dd= "#{number_with_delimiter(@car.total_mileage)} km."
+    %dd= "#{number_with_delimiter(@car.total_liter)} l."
 
 %div{ :'data-role' => 'footer', :'data-position' => "fixed" }
   %div{ :'data-role' => 'navbar' }
