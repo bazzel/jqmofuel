@@ -8,5 +8,7 @@ jQuery(function($) {
     var $form = $(this).parents('form');
     $form.validate();
   });
-  
+
+  $('input.decimals').numeric();
+  $('input.integers').numeric(false);
 });

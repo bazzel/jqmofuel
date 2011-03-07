@@ -6,9 +6,9 @@
     = f.date_select :date, {:start_year => Date.current.year - 2, :end_year => Date.current.year + 1, :order => [:day, :month, :year]}, {:'data-native-menu' => true}
 
   %div{ :'data-role' => "fieldcontain" }
-    = f.number_field :mileage, :placeholder => "Mileage"
-    = f.number_field :liter, :placeholder => "Liters"
-    = f.number_field :amount, :placeholder => "Amount"
+    = f.number_field :mileage, :placeholder => "Mileage", :class => "integers"
+    = f.number_field :liter, :placeholder => "Liters", :class => "decimals"
+    = f.number_field :amount, :placeholder => "Amount", :class => "decimals"
     - if current_user.cars.size > 1
       = f.collection_select :car_id, current_user.cars, :id, :brand, {}, {:'data-native-menu' => true}
     - else
