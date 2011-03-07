@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110306065819) do
+ActiveRecord::Schema.define(:version => 20110307184208) do
 
   create_table "cars", :force => true do |t|
     t.string   "brand"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20110306065819) do
   add_index "cars", ["user_id"], :name => "index_cars_on_user_id"
 
   create_table "refuelings", :force => true do |t|
-    t.datetime "date"
+    t.date     "date"
     t.decimal  "amount",     :precision => 8, :scale => 2
     t.decimal  "liter",      :precision => 8, :scale => 2
     t.integer  "mileage"
