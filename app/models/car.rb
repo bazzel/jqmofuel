@@ -83,7 +83,7 @@ class Car < ActiveRecord::Base
 
   def liter_per_month
     if liter_per_year
-      @liter_per_month ||= (liter_per_year / 12)
+      @liter_per_month ||= (liter_per_year / 12).round(2)
     end
   end
 
