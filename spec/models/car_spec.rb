@@ -165,4 +165,124 @@ describe Car do
     end
   end
 
+  describe "amount_per_year" do
+    it "returns nil for zero refueling" do
+      @car.amount_per_year.should be_nil
+    end
+
+    it "returns nil for one refueling" do
+      first = Factory(:refueling, :car => @car, :date => 10.days.ago)
+
+      @car.amount_per_year.should be_nil
+    end
+
+    it "returns amount per year by multiplying amount per day by 365" do
+      first = Factory(:refueling, :car => @car, :mileage => 100, :liter => 50, :amount => 100.5, :date => 10.days.ago)
+      second = Factory(:refueling, :car => @car, :mileage => 500, :liter => 40, :amount => 80.3, :date => 9.days.ago)
+      third = Factory(:refueling, :car => @car, :mileage => 900, :liter => 35.6, :amount => 80.28, :date => 1.day.ago)
+
+      @car.amount_per_year.should eql(6511.6)
+    end
+  end
+
+  describe "mileage_per_year" do
+    it "returns nil for zero refueling" do
+      @car.mileage_per_year.should be_nil
+    end
+
+    it "returns nil for one refueling" do
+      first = Factory(:refueling, :car => @car, :date => 10.days.ago)
+
+      @car.mileage_per_year.should be_nil
+    end
+
+    it "returns mileage per year by multiplying mileage per day by 365" do
+      first = Factory(:refueling, :car => @car, :mileage => 100, :liter => 50, :amount => 100.5, :date => 10.days.ago)
+      second = Factory(:refueling, :car => @car, :mileage => 500, :liter => 40, :amount => 80.3, :date => 9.days.ago)
+      third = Factory(:refueling, :car => @car, :mileage => 900, :liter => 35.6, :amount => 80.28, :date => 1.day.ago)
+
+      @car.mileage_per_year.should eql(32444.85)
+    end
+  end
+
+  describe "liter_per_year" do
+    it "returns nil for zero refueling" do
+      @car.liter_per_year.should be_nil
+    end
+
+    it "returns nil for one refueling" do
+      first = Factory(:refueling, :car => @car, :date => 10.days.ago)
+
+      @car.liter_per_year.should be_nil
+    end
+
+    it "returns liter per year by multiplying liter per day by 365" do
+      first = Factory(:refueling, :car => @car, :mileage => 100, :liter => 50, :amount => 100.5, :date => 10.days.ago)
+      second = Factory(:refueling, :car => @car, :mileage => 500, :liter => 40, :amount => 80.3, :date => 9.days.ago)
+      third = Factory(:refueling, :car => @car, :mileage => 900, :liter => 35.6, :amount => 80.28, :date => 1.day.ago)
+
+      @car.liter_per_year.should eql(3066)
+    end
+  end
+
+  describe "amount_per_month" do
+    it "returns nil for zero refueling" do
+      @car.amount_per_month.should be_nil
+    end
+
+    it "returns nil for one refueling" do
+      first = Factory(:refueling, :car => @car, :date => 10.days.ago)
+
+      @car.amount_per_month.should be_nil
+    end
+
+    it "returns amount per month by dividing amount per year by 12" do
+      first = Factory(:refueling, :car => @car, :mileage => 100, :liter => 50, :amount => 100.5, :date => 10.days.ago)
+      second = Factory(:refueling, :car => @car, :mileage => 500, :liter => 40, :amount => 80.3, :date => 9.days.ago)
+      third = Factory(:refueling, :car => @car, :mileage => 900, :liter => 35.6, :amount => 80.28, :date => 1.day.ago)
+
+      @car.amount_per_month.should eql(542.63)
+    end
+  end
+
+  describe "mileage_per_month" do
+    it "returns nil for zero refueling" do
+      @car.mileage_per_month.should be_nil
+    end
+
+    it "returns nil for one refueling" do
+      first = Factory(:refueling, :car => @car, :date => 10.days.ago)
+
+      @car.mileage_per_month.should be_nil
+    end
+
+    it "returns mileage per month by dividing mileage per year by 12" do
+      first = Factory(:refueling, :car => @car, :mileage => 100, :liter => 50, :amount => 100.5, :date => 10.days.ago)
+      second = Factory(:refueling, :car => @car, :mileage => 500, :liter => 40, :amount => 80.3, :date => 9.days.ago)
+      third = Factory(:refueling, :car => @car, :mileage => 900, :liter => 35.6, :amount => 80.28, :date => 1.day.ago)
+
+      @car.mileage_per_month.should eql(2703.74)
+    end
+  end
+
+  describe "liter_per_month" do
+    it "returns nil for zero refueling" do
+      @car.liter_per_month.should be_nil
+    end
+
+    it "returns nil for one refueling" do
+      first = Factory(:refueling, :car => @car, :date => 10.days.ago)
+
+      @car.liter_per_month.should be_nil
+    end
+
+    it "returns liter per month by dividing liter per year by 12" do
+      first = Factory(:refueling, :car => @car, :mileage => 100, :liter => 50, :amount => 100.5, :date => 10.days.ago)
+      second = Factory(:refueling, :car => @car, :mileage => 500, :liter => 40, :amount => 80.3, :date => 9.days.ago)
+      third = Factory(:refueling, :car => @car, :mileage => 900, :liter => 35.6, :amount => 80.28, :date => 1.day.ago)
+
+      @car.liter_per_month.should eql(255.5)
+    end
+  end
+
 end

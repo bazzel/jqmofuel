@@ -47,15 +47,57 @@ class Car < ActiveRecord::Base
 
   def liter_per_day
     if more_than_one_refuelings?
-      p total_liter
-      p number_of_days
       @liter_per_day ||= (total_liter / number_of_days).round(2)
     end
   end
 
+  def amount_per_year
+    if amount_per_day
+      @amount_per_year ||= (amount_per_day * 365)
+    end
+  end
+
+  def mileage_per_year
+    if mileage_per_day
+      @mileage_per_year ||= mileage_per_day * 365
+    end
+  end
+
+  def liter_per_year
+    if liter_per_day
+      @liter_per_year ||= (liter_per_day * 365)
+    end
+  end
+
+  def amount_per_month
+    if amount_per_year
+      @amount_per_month ||= (amount_per_year / 12).round(2)
+    end
+  end
+
+  def mileage_per_month
+    if mileage_per_year
+      @mileage_per_month ||= (mileage_per_year / 12).round(2)
+    end
+  end
+
+  def liter_per_month
+    if liter_per_year
+      @liter_per_month ||= (liter_per_year / 12)
+    end
+  end
+
+  #
+  # def amount_per_month
+  #   if amount_per_year
+  #     amount_per_year / 12
+  #   end
+  # end
+  #
   def first_refueling
     @first_refueling ||= refuelings.order(:date).first
   end
+
 
   private
 
@@ -81,12 +123,6 @@ class Car < ActiveRecord::Base
   #   end
   # end
   #
-  # def liter_per_day
-  #   if refuelings.size > 1
-  #     (refuelings.sum(:liter) / number_of_days)
-  #   end
-  # end
-  #
   # def liter_per_year
   #   if liter_per_day
   #     liter_per_day * 365
@@ -97,10 +133,6 @@ class Car < ActiveRecord::Base
   #   if liter_per_year
   #     liter_per_year / 12
   #   end
-  # end
-  #
-  # def number_of_days
-  #   (refuelings.maximum(:date).to_date - refuelings.minimum(:date).to_date)
   # end
   #
 end

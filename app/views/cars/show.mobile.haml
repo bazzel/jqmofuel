@@ -24,6 +24,14 @@
       %dd= number_to_currency(@car.amount_per_day)
       %dd= "#{number_with_delimiter(@car.mileage_per_day)} km/d"
       %dd= "#{number_with_delimiter(@car.liter_per_day)} l/d"
+      %dt Per month
+      %dd= number_to_currency(@car.amount_per_month)
+      %dd= "#{number_with_delimiter(@car.mileage_per_month)} km/mo"
+      %dd= "#{number_with_delimiter(@car.liter_per_month)} l/mo"
+      %dt Per year
+      %dd= number_to_currency(@car.amount_per_year)
+      %dd= "#{number_with_delimiter(@car.mileage_per_year.to_i)} km/yr"
+      %dd= "#{number_with_delimiter(@car.liter_per_year.to_i)} l/yr"
 
 
 %div{ :'data-role' => 'footer', :'data-position' => "fixed" }
