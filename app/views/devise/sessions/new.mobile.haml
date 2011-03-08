@@ -5,8 +5,8 @@
   = form_for resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'validate'} do |f|
     = render "shared/flashes"
     = hidden_field_tag 'user[remember_me]', 1
-    = f.email_field :email, :placeholder => "Email", :class => "required"
-    = f.password_field :password, :placeholder => "Password", :class => "required"
+    = f.email_field :email, :placeholder => User.human_attribute_name("email"), :class => "required"
+    = f.password_field :password, :placeholder => User.human_attribute_name("password"), :class => "required"
 
-    = f.submit 'Sign In'
-  = link_to "Create Account", new_registration_path(resource_name), :'data-role' => "button", :'data-transition' => "flip"
+    = f.submit t('buttons.sign_in')
+  = link_to t('buttons.create_account'), new_registration_path(resource_name), :'data-role' => "button", :'data-transition' => "flip"

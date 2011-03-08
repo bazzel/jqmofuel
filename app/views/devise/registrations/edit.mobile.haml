@@ -1,15 +1,18 @@
 = jqm_header do
   %h1= current_user.email
-  =link_to "Sign Out", destroy_user_session_path, :class => "ui-btn-right", :'data-ajax' => false
+  =link_to t('buttons.sign_out'), destroy_user_session_path, :class => "ui-btn-right", :'data-ajax' => false
 
 = jqm_content do
   = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'validate' }) do |f|
     = render "shared/error_messages", :target => resource
-    = f.email_field :email, :placeholder => "Email", :class => "required"
-    = f.password_field :password, :placeholder => "Password"
-    = f.password_field :password_confirmation, :placeholder => "Repeat"
-    = f.password_field :current_password, :placeholder => "Current password", :class => "required"
-    = f.submit "Update"
+    = f.email_field :email, :placeholder => User.human_attribute_name("email"), :class => "required"
+    = f.password_field :password, :placeholder => User.human_attribute_name("password")
+    = f.password_field :password_confirmation, :placeholder => User.human_attribute_name("password_confirmation")
+    = f.password_field :current_password, :placeholder => User.human_attribute_name("current_password"), :class => "required"
+
+    = f.select :locale, options_for_select(locale_selection, I18n.locale), {}, {:'data-native-menu' => true}
+
+    = f.submit t('buttons.update')
 
 %div{ :'data-role' => 'footer', :'data-position' => "fixed" }
   %div{ :'data-role' => 'navbar' }

@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :prepare_for_mobile
   before_filter :authenticate_user!
+  before_filter :set_locale
 
   private
 
@@ -18,5 +19,12 @@ class ApplicationController < ActionController::Base
   def prepare_for_mobile
     session[:mobile_param] = params[:mobile] if params[:mobile]
     request.format = :mobile if mobile_device?
+  end
+
+  def set_locale
+    # Always convert to dash, so we can use the fallback mechanism of the plugin.
+    dasherized = (params[:locale] || current_user.locale || "#{I18n.default_locale}").dasherize
+    logger.debug "[#{self.class}.set_locale] Change locale to #{dasherized}."
+    I18n.locale = dasherized
   end
 end
