@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     # Always convert to dash, so we can use the fallback mechanism of the plugin.
-    dasherized = (params[:locale] || current_user.locale || "#{I18n.default_locale}").dasherize
+    dasherized = (params[:locale] || current_user.try(:locale) || "#{I18n.default_locale}").dasherize
     logger.debug "[#{self.class}.set_locale] Change locale to #{dasherized}."
     I18n.locale = dasherized
   end
