@@ -5,14 +5,22 @@ en:
   activerecord:
     models:
       user: User
+      refueling: Refueling
     attributes:
       user:
         email: Email
         password: Password
         password_confirmation: Repeat
         current_password: Current password
+      refueling:
+        mileage: Mileage
+        liter: Liters
+        amount: Amount
+        date: Date
+
   buttons:
     sign_in: Sign In
     create_account: Create Account
     sign_out: Sign Out
     update: Update
+    save: Save
