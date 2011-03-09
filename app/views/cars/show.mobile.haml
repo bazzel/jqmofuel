@@ -1,37 +1,39 @@
 = jqm_header(:'data-backbtn' => false) do
   %h1= @car.brand
-  = link_to 'Edit', edit_car_path(@car), :class => "ui-btn-right"
+  = link_to t('buttons.edit'), edit_car_path(@car), :class => "ui-btn-right"
 
 = jqm_content do
   %dl
-    %dt Car
+    %dt= Car.human_name
     %dd= @car.brand
-    %dt Model
+    %dt= Car.human_attribute_name("model")
     %dd= @car.car_model
     - if @car.last_refueling
-      %dt Last refueling
-      %dd= "#{time_ago_in_words(@car.last_refueling.date)} ago"
+      %dt= Car.human_attribute_name("last_refueling")
+      %dd= t(:'.date_ago_in_words', :date => time_ago_in_words(@car.last_refueling.date))
       - if @car.fuel_consumption
-        %dt Fuel consuption
-        %dd= "1/#{@car.fuel_consumption}"
+        %dt= Car.human_attribute_name("fuel_consumption")
+        -# 1/20 l/km
+        %dd= "1/#{@car.fuel_consumption} #{t('abbr.liter')}/#{t('abbr.kilometer')}"
       %dt
-        Total
-        = " - since #{l(@car.first_refueling.date)} (#{time_ago_in_words(@car.first_refueling.date)} ago)"
+        = t(:'.total')
+        = " - #{t(:'.since', :date => @car.first_refueling.date)}"
+        = " (#{t(:'.date_ago_in_words', :date => time_ago_in_words(@car.first_refueling.date))})"
       %dd= number_to_currency(@car.total_amount)
-      %dd= "#{number_with_delimiter(@car.total_mileage)} km"
-      %dd= "#{number_with_delimiter(@car.total_liter)} l"
-      %dt Per day
+      %dd= "#{number_with_delimiter(@car.total_mileage)} #{t('abbr.kilometer')}"
+      %dd= "#{number_with_delimiter(@car.total_liter)} #{t('abbr.liter')}"
+      %dt= t(:'.per_day')
       %dd= number_to_currency(@car.amount_per_day)
-      %dd= "#{number_with_delimiter(@car.mileage_per_day)} km/d"
-      %dd= "#{number_with_delimiter(@car.liter_per_day)} l/d"
-      %dt Per month
+      %dd= "#{number_with_delimiter(@car.mileage_per_day)} #{t('abbr.kilometer')}/#{t('abbr.day')}"
+      %dd= "#{number_with_delimiter(@car.liter_per_day)} #{t('abbr.liter')}/#{t('abbr.day')}"
+      %dt= t(:'.per_month')
       %dd= number_to_currency(@car.amount_per_month)
-      %dd= "#{number_with_delimiter(@car.mileage_per_month)} km/mo"
-      %dd= "#{number_with_delimiter(@car.liter_per_month)} l/mo"
-      %dt Per year
+      %dd= "#{number_with_delimiter(@car.mileage_per_month)} #{t('abbr.kilometer')}/#{t('abbr.month')}"
+      %dd= "#{number_with_delimiter(@car.liter_per_month)} #{t('abbr.liter')}/#{t('abbr.month')}"
+      %dt= t(:'.per_year')
       %dd= number_to_currency(@car.amount_per_year)
-      %dd= "#{number_with_delimiter(@car.mileage_per_year.to_i)} km/yr"
-      %dd= "#{number_with_delimiter(@car.liter_per_year.to_i)} l/yr"
+      %dd= "#{number_with_delimiter(@car.mileage_per_year.to_i)} #{t('abbr.kilometer')}/#{t('abbr.year')}"
+      %dd= "#{number_with_delimiter(@car.liter_per_year.to_i)} #{t('abbr.liter')}/#{t('abbr.year')}"
 
 
 %div{ :'data-role' => 'footer', :'data-position' => "fixed" }

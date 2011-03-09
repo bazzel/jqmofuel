@@ -17,12 +17,23 @@ en:
         liter: Liters
         amount: Amount
         date: Date
+      car:
+        last_refueling: Last Refueling
+        fuel_consumption: Fuel Consuption
+
   cars:
     index:
       title: My Cars
       new_car: Add
     new:
       title: Add Car
+    show:
+      date_ago_in_words: "%{date} ago"
+      total: Total
+      per_day: Per day
+      per_month: Per month
+      per_year: Per year
+      since: Since %{date}
 
   buttons:
     sign_in: Sign In
@@ -31,6 +42,13 @@ en:
     update: Update
     save: Save
     back: Back
+    edit: Edit
+  abbr:
+    day: d
+    month: mo
+    year: yr
+    liter: l
+    kilometer: km
 
   messages:
     loading: Loading

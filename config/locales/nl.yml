@@ -1,7 +1,16 @@
 --- 
 nl: 
+  abbr: 
+    day: d.
+    kilometer: km
+    liter: l
+    month: m.
+    year: jr.
   activerecord: 
     attributes: 
+      car: 
+        fuel_consumption: Verbruik
+        last_refueling: "Laatste tankbeurt"
       refueling: 
         amount: Bedrag
         date: Datum
@@ -22,6 +31,7 @@ nl:
   buttons: 
     back: Terug
     create_account: "Een account maken"
+    edit: Bewerken
     save: Opslaan
     sign_in: Aanmelden
     sign_out: Afmelden
@@ -32,6 +42,13 @@ nl:
       title: "Mijn auto's"
     new: 
       title: "Nieuwe auto"
+    show: 
+      date_ago_in_words: "%{date} geleden"
+      per_day: "Per dag"
+      per_month: "Per maand"
+      per_year: "Per jaar"
+      since: "Sinds %{date}"
+      total: Totaal
   date: 
     abbr_day_names: 
       - zon
