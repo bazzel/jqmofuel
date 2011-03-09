@@ -15,7 +15,7 @@ describe CarsHelper do
   describe "fuel_consumption" do
     it "returns 1:x (L:km)" do
       car = mock_model(Car, :fuel_consumption => 20)
-      helper.fuel_consumption(car).should eql("1:20 (L:km)")
+      helper.fuel_consumption(car).should eql("1:20.0 (L:km)")
     end
 
     it "returns nil if car is nil" do

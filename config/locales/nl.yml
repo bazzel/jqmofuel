@@ -83,7 +83,7 @@ nl:
       - vrijdag
       - zaterdag
     formats: 
-      default: "%d/%m/%Y"
+      default: "%d-%m-%Y"
       long: "%e %B %Y"
       short: "%e %b"
     month_names: 
