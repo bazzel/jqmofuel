@@ -285,4 +285,43 @@ describe Car do
     end
   end
 
+  describe "to_s" do
+    it "returns brand and model joined" do
+      car = Factory(:car, :brand => "Opel", :car_model => "Zafira")
+      car.to_s.should eql("Opel Zafira")
+    end
+
+    it "returns brand only if no model entered" do
+      car = Factory(:car, :brand => "Opel", :car_model => nil)
+      car.to_s.should eql("Opel")
+    end
+
+    it "returns previous brand if validation fails" do
+      car = Factory(:car, :brand => "Opel", :car_model => "Zafira")
+      car.brand = nil
+      car.to_s.should eql("Opel Zafira")
+    end
+  end
+
+  describe "more_than_one_refuelings?" do
+    before(:each) do
+      @car = Factory(:car)
+    end
+
+    it "returns false if there are 0 refuelings" do
+      @car.more_than_one_refuelings?.should be_false
+    end
+
+    it "returns false if there is 1 refueling" do
+      first = Factory(:refueling, :car => @car)
+      @car.more_than_one_refuelings?.should be_false
+    end
+
+    it "returns true if there are more than 1 refueling" do
+      first = Factory(:refueling, :car => @car)
+      second = Factory(:refueling, :car => @car)
+
+      @car.more_than_one_refuelings?.should be_true
+    end
+  end
 end

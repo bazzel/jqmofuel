@@ -19,7 +19,8 @@ en:
         date: Date
       car:
         last_refueling: Last Refueling
-        fuel_consumption: Fuel Consuption
+  car:
+    last_refueling_in_words: "%{date} ago"
 
   cars:
     index:
@@ -28,7 +29,6 @@ en:
     new:
       title: Add Car
     show:
-      date_ago_in_words: "%{date} ago"
       total: Total
       per_day: Per day
       per_month: Per month
@@ -43,11 +43,13 @@ en:
     save: Save
     back: Back
     edit: Edit
+    delete: Delete
+    confirm_delete: Are you sure you want to delete '%{target}'?
   abbr:
     day: d
     month: mo
     year: yr
-    liter: l
+    liter: L
     kilometer: km
 
   messages:

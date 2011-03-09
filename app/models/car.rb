@@ -5,6 +5,10 @@ class Car < ActiveRecord::Base
   # == Associations
   has_many :refuelings
 
+  def to_s
+    [brand_was, car_model_was].join(" ").rstrip
+  end
+
   def last_refueling
     @last_refueling ||= refuelings.order(:date).last
   end
@@ -87,52 +91,16 @@ class Car < ActiveRecord::Base
     end
   end
 
-  #
-  # def amount_per_month
-  #   if amount_per_year
-  #     amount_per_year / 12
-  #   end
-  # end
-  #
   def first_refueling
     @first_refueling ||= refuelings.order(:date).first
   end
 
+  def more_than_one_refuelings?
+    @more_than_one_refuelings ||= (refuelings.size > 1)
+  end
 
   private
-
-    def more_than_one_refuelings?
-      @more_than_one_refuelings ||= (refuelings.size > 1)
-    end
-
-
     def number_of_days
       @number_of_days ||= (last_refueling.date - first_refueling.date)
     end
-  #
-  #
-  # def amount_per_year
-  #   if amount_per_day
-  #     amount_per_day * 365
-  #   end
-  # end
-  #
-  # def amount_per_month
-  #   if amount_per_year
-  #     amount_per_year / 12
-  #   end
-  # end
-  #
-  # def liter_per_year
-  #   if liter_per_day
-  #     liter_per_day * 365
-  #   end
-  # end
-  #
-  # def liter_per_month
-  #   if liter_per_year
-  #     liter_per_year / 12
-  #   end
-  # end
-  #
 end

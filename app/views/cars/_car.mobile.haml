@@ -1,3 +1,6 @@
 %li
-  = link_to car.brand, car
-  -#= link_to 'edit car', edit_car_path(car), "data-icon" => "gear"
+  %h3= link_to "#{car}", car
+  - if car.last_refueling
+    %p
+      %strong= fuel_consumption(car)
+    %p.ui-li-aside= last_refueling_in_words(car)

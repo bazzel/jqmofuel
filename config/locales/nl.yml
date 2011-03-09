@@ -9,7 +9,6 @@ nl:
   activerecord: 
     attributes: 
       car: 
-        fuel_consumption: Verbruik
         last_refueling: "Laatste tankbeurt"
       refueling: 
         amount: Bedrag
@@ -30,12 +29,16 @@ nl:
       user: Account
   buttons: 
     back: Terug
+    confirm_delete: "Weet je zeker dat je '%{target}' wilt verwijderen?"
     create_account: "Een account maken"
+    delete: Verwijderen
     edit: Bewerken
     save: Opslaan
     sign_in: Aanmelden
     sign_out: Afmelden
     update: Bijwerken
+  car: 
+    last_refueling_in_words: "%{date} geleden"
   cars: 
     index: 
       new_car: Nieuw
@@ -43,7 +46,6 @@ nl:
     new: 
       title: "Nieuwe auto"
     show: 
-      date_ago_in_words: "%{date} geleden"
       per_day: "Per dag"
       per_month: "Per maand"
       per_year: "Per jaar"
