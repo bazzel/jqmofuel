@@ -5,6 +5,7 @@ gem 'capistrano',               '2.5.19'
 gem 'compass',                  '~>0.10.6'
 gem 'devise',                   '~>1.1.7'
 gem 'haml',                     '~>3.0.25'
+gem 'i18n-js',                  '~>1.0.0' # small library to provide the Rails I18n translations on the Javascript.
 gem 'jquery-rails',             '~>0.2.7' # Rails generator to install jQuery and the jQuery-ujs driver into your Rails 3 application,
                                           # and then have them included automatically instead of Prototype.
 gem 'mysql2',                   '~>0.2.6'

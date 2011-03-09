@@ -1,5 +1,5 @@
 = form_for car, :validations => true do |f|
   = render "shared/error_messages", :target => car
-  = f.text_field :brand, :placeholder => "Brand"
-  = f.text_field :car_model, :placeholder => "Model"
-  = f.submit 'Save'
+  = f.text_field :brand, :placeholder => Car.human_attribute_name("brand")
+  = f.text_field :car_model, :placeholder => Car.human_attribute_name("model")
+  = f.submit t('buttons.save')

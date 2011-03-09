@@ -17,6 +17,12 @@ en:
         liter: Liters
         amount: Amount
         date: Date
+  cars:
+    index:
+      title: My Cars
+      new_car: Add
+    new:
+      title: Add Car
 
   buttons:
     sign_in: Sign In
@@ -24,3 +30,7 @@ en:
     sign_out: Sign Out
     update: Update
     save: Save
+    back: Back
+
+  messages:
+    loading: Loading

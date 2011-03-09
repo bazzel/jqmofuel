@@ -11,7 +11,7 @@ nl:
         current_password: "Huidig wachtwoord"
         email: Email
         password: Wachtwoord
-        password_confirmation: Herhaal
+        password_confirmation: "Herhaal wachtwoord"
     errors: 
       messages: 
         record_invalid: "Validatie mislukt: %{errors}"
@@ -20,11 +20,18 @@ nl:
       refueling: Tankbeurt
       user: Account
   buttons: 
+    back: Terug
     create_account: "Een account maken"
     save: Opslaan
     sign_in: Aanmelden
     sign_out: Afmelden
     update: Bijwerken
+  cars: 
+    index: 
+      new_car: Nieuw
+      title: "Mijn auto's"
+    new: 
+      title: "Nieuwe auto"
   date: 
     abbr_day_names: 
       - zon
@@ -150,6 +157,8 @@ nl:
       create: "%{model} toevoegen"
       submit: "%{model} opslaan"
       update: "%{model} bewaren"
+  messages: 
+    loading: Bezig...
   number: 
     currency: 
       format: 

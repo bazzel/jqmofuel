@@ -3,12 +3,6 @@ class CarsController < ApplicationController
   # GET /cars
   def index
     @cars = current_user.cars
-
-    if @cars.size == 1
-      @car = @cars.first
-      logger.debug("[#{self.class}.index] Only 1 car found; redirect to #{car_path(@car)}")
-      redirect_to @car
-    end
   end
 
   # GET /cars/new

@@ -3,7 +3,7 @@ describe RefuelingsController do
   login_user
 
   before(:each) do
-    @current_user = mock_model(User)
+    @current_user = mock_model(User, :locale => 'en')
     controller.stub(:current_user).and_return(@current_user)
 
     @car = mock_model(Car)

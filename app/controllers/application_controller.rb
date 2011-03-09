@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_filter :prepare_for_mobile
   before_filter :authenticate_user!
   before_filter :set_locale
+  before_filter :export_i18n_messages
 
   private
 
@@ -27,4 +28,12 @@ class ApplicationController < ActionController::Base
     logger.debug "[#{self.class}.set_locale] Change locale to #{dasherized}."
     I18n.locale = dasherized
   end
+
+  # i18n-js related:
+  # Generate the translations messages defined in your configuration file
+  # See https://github.com/fnando/i18n-js
+  def export_i18n_messages
+    SimplesIdeias::I18n.export! if Rails.env.development?
+  end
+
 end

@@ -37,35 +37,35 @@
     background-image: url('/images/error.png');
   }
   #flash_notice {
-  color: #00529B;
-  background-color: #BDE5F8;
-  background-image: url('/images/info.png');
+    color: #00529B;
+    background-color: #BDE5F8;
+    background-image: url('/images/info.png');
   }
 
   &.portrait label.error, &.landscape label.error {
-      color: red;
-      font-size: 16px;
-      font-weight: normal;
-      line-height: 1.4;
-      margin-top: 0.5em;
-      width: 100%;
-      float: none;
+    color: red;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.4;
+    margin-top: 0.5em;
+    width: 100%;
+    float: none;
   }
 
   &.landscape label.error {
-      display: inline-block;
-      margin-left: 22%;
+    display: inline-block;
+    text-align: center;
   }
 
   &.portrait label.error {
-      margin-left: 0;
-      display: block;
+    text-align: center;
+    display: block;
   }
 
   em {
-      color: red;
-      font-weight: bold;
-      padding-right: .25em;
+    color: red;
+    font-weight: bold;
+    padding-right: .25em;
   }
 }
 

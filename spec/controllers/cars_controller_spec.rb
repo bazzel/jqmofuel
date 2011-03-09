@@ -3,7 +3,7 @@ describe CarsController do
   login_user
 
   before(:each) do
-    @current_user = mock_model(User)
+    @current_user = mock_model(User, :locale => 'en')
     controller.stub(:current_user).and_return(@current_user)
 
     @car = mock_model(Car)
@@ -22,16 +22,16 @@ describe CarsController do
         get :index
       end
 
-      describe "1 car only" do
-        it "redirects to show for car" do
-          @current_user.should_receive(:cars).and_return([@car])
-          do_get
-          response.should redirect_to(@car)
-        end
+      # describe "1 car only" do
+      #   it "redirects to show for car" do
+      #     @current_user.should_receive(:cars).and_return([@car])
+      #     do_get
+      #     response.should redirect_to(@car)
+      #   end
+      #
+      # end
 
-      end
-
-      describe "more than 1 cars available" do
+      # describe "more than 1 cars available" do
         before(:each) do
           @cars = Array.new(2, mock_model(Car))
           @current_user.stub(:cars).and_return(@cars)
@@ -47,7 +47,7 @@ describe CarsController do
           do_get
           response.should render_template("index")
         end
-      end
+      # end
 
 
     end
