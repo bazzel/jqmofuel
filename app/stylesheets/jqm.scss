@@ -1,2 +1,24 @@
 @import "compass/css3";
 @import "flash_messages";
+
+dl.car-summary {
+  border-bottom: 1px solid #999;
+  dt {
+    clear: left;
+    float: left;
+    width: 50%;
+    margin: 0;
+    padding: 5px;
+    border-top: 1px solid #999;
+    font-weight: bold;
+  }
+
+  dd {
+    margin: 0 0 0 50%;
+    padding: 5px;
+    text-align: right;
+    &.first {
+      border-top: 1px solid #999;
+    }
+  }
+}

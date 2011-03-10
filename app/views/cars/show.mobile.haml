@@ -3,34 +3,34 @@
   = link_to t('buttons.edit'), edit_car_path(@car), :class => "ui-btn-right"
 
 = jqm_content do
-  %dl
+  %dl.car-summary
     %dt= Car.human_name
-    %dd= "#{@car}"
+    %dd.first= "#{@car}"
     - if @car.last_refueling
       %dt= Car.human_attribute_name("last_refueling")
-      %dd= refueling_ago_in_words(@car.last_refueling)
+      %dd.first= refueling_ago_in_words(@car.last_refueling)
       - if @car.fuel_consumption
         %dt= Car.human_attribute_name("fuel_consumption")
         -# 1:20 (L:km)
-        %dd= fuel_consumption(@car)
+        %dd.first= fuel_consumption(@car)
       - if @car.more_than_one_refuelings?
         %dt
           = t(:'.total')
           = " - #{t(:'.since', :date => l(@car.first_refueling.date))}"
           = " (#{refueling_ago_in_words(@car.first_refueling)})"
-        %dd= number_to_currency(@car.total_amount)
+        %dd.first= number_to_currency(@car.total_amount)
         %dd= "#{number_with_delimiter(@car.total_mileage)} #{t('abbr.kilometer')}"
         %dd= "#{number_with_delimiter(@car.total_liter)} #{t('abbr.liter')}"
         %dt= t(:'.per_day')
-        %dd= number_to_currency(@car.amount_per_day)
+        %dd.first= number_to_currency(@car.amount_per_day)
         %dd= "#{number_with_delimiter(@car.mileage_per_day)} #{t('abbr.kilometer')}/#{t('abbr.day')}"
         %dd= "#{number_with_delimiter(@car.liter_per_day)} #{t('abbr.liter')}/#{t('abbr.day')}"
         %dt= t(:'.per_month')
-        %dd= number_to_currency(@car.amount_per_month)
+        %dd.first= number_to_currency(@car.amount_per_month)
         %dd= "#{number_with_delimiter(@car.mileage_per_month)} #{t('abbr.kilometer')}/#{t('abbr.month')}"
         %dd= "#{number_with_delimiter(@car.liter_per_month)} #{t('abbr.liter')}/#{t('abbr.month')}"
         %dt= t(:'.per_year')
-        %dd= number_to_currency(@car.amount_per_year)
+        %dd.first= number_to_currency(@car.amount_per_year)
         %dd= "#{number_with_delimiter(@car.mileage_per_year.to_i)} #{t('abbr.kilometer')}/#{t('abbr.year')}"
         %dd= "#{number_with_delimiter(@car.liter_per_year.to_i)} #{t('abbr.liter')}/#{t('abbr.year')}"
 
