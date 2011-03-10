@@ -1,18 +1,18 @@
 = jqm_header(:'data-backbtn' => false) do
-  %h1= @refueling.date
-  = link_to 'Edit', edit_refueling_path(@refueling), :class => "ui-btn-right"
+  %h1= "#{@refueling}"
+  = link_to t('buttons.edit'), edit_refueling_path(@refueling), :class => "ui-btn-right"
 
 = jqm_content do
-  %dl
-    %dt Date
-    %dd= l(@refueling.date.to_date)
-    %dt Liters
-    %dd= number_with_precision(@refueling.liter, :precision => 2)
-    %dt Amount
-    %dd= number_to_currency(@refueling.amount)
-    %dt Mileage
-    %dd= number_with_delimiter(@refueling.mileage)
-    
+  %dl.car-summary
+    %dt= Refueling.human_attribute_name("date")
+    %dd.first= l(@refueling.date.to_date)
+    %dt= Refueling.human_attribute_name("liter")
+    %dd.first= number_with_precision(@refueling.liter, :precision => 2)
+    %dt= Refueling.human_attribute_name("amount")
+    %dd.first= number_to_currency(@refueling.amount)
+    %dt= Refueling.human_attribute_name("mileage")
+    %dd.first= number_with_delimiter(@refueling.mileage)
+
 %div{ :'data-role' => 'footer', :'data-position' => "fixed" }
   %div{ :'data-role' => 'navbar' }
     %ul

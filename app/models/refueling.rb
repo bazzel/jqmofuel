@@ -1,4 +1,6 @@
 class Refueling < ActiveRecord::Base
+  include ActionView::Helpers::NumberHelper
+
   # == Validations
   validates_presence_of :mileage
   validates_presence_of :date
@@ -10,5 +12,9 @@ class Refueling < ActiveRecord::Base
   validates_numericality_of :mileage, :greater_than => 0
 
   belongs_to :car
+
+  def to_s
+    "#{number_with_delimiter(liter_was)} #{I18n.t('abbr.liter')} - #{number_to_currency(amount_was)}"
+  end
 
 end
