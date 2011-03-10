@@ -30,21 +30,16 @@ describe CarsHelper do
   end
 
 
-  describe "last_refueling_in_words" do
-    it "returns time_ago_in_words for date of last refueling" do
+  describe "refueling_ago_in_words" do
+    it "returns time_ago_in_words for date of refueling" do
       refueling = mock_model(Refueling, :date => 3.days.ago)
       car = mock_model(Car, :last_refueling => refueling)
 
-      helper.last_refueling_in_words(car).should eql("3 days ago")
-    end
-
-    it "returns nil if car is nil" do
-      helper.last_refueling_in_words(nil).should be_nil
+      helper.refueling_ago_in_words(car.last_refueling).should eql("3 days ago")
     end
 
     it "returns nil if car has no refuelings yet" do
-      car = Factory(:car)
-      helper.last_refueling_in_words(car).should be_nil
+      helper.refueling_ago_in_words(nil).should be_nil
     end
   end
 end

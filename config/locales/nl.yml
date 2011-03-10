@@ -1,33 +1,33 @@
---- 
-nl: 
-  abbr: 
+---
+nl:
+  abbr:
     day: d.
     kilometer: km
     liter: l
     month: mnd.
     year: jr.
-  activerecord: 
-    attributes: 
-      car: 
+  activerecord:
+    attributes:
+      car:
         last_refueling: "Laatste tankbeurt"
-      refueling: 
+      refueling:
         amount: Bedrag
         date: Datum
         liter: Liters
         mileage: Kilometerstand
-      user: 
+      user:
         current_password: "Huidig wachtwoord"
         email: Email
         password: Wachtwoord
         password_confirmation: "Herhaal wachtwoord"
-    errors: 
-      messages: 
+    errors:
+      messages:
         record_invalid: "Validatie mislukt: %{errors}"
         taken: "is al in gebruik"
-    models: 
+    models:
       refueling: Tankbeurt
       user: Account
-  buttons: 
+  buttons:
     back: Terug
     confirm_delete: "Weet je zeker dat je '%{target}' wilt verwijderen?"
     create_account: "Een account maken"
@@ -37,22 +37,22 @@ nl:
     sign_in: Aanmelden
     sign_out: Afmelden
     update: Bijwerken
-  car: 
-    last_refueling_in_words: "%{date} geleden"
-  cars: 
-    index: 
+  car:
+    refueling_ago_in_words: "%{date} geleden"
+  cars:
+    index:
       new_car: Nieuw
       title: "Mijn auto's"
-    new: 
+    new:
       title: "Nieuwe auto"
-    show: 
+    show:
       per_day: "Per dag"
       per_month: "Per maand"
       per_year: "Per jaar"
       since: "Sinds %{date}"
       total: Totaal
-  date: 
-    abbr_day_names: 
+  date:
+    abbr_day_names:
       - zon
       - maa
       - din
@@ -60,7 +60,7 @@ nl:
       - don
       - vri
       - zat
-    abbr_month_names: 
+    abbr_month_names:
       - ~
       - jan
       - feb
@@ -74,7 +74,7 @@ nl:
       - okt
       - nov
       - dec
-    day_names: 
+    day_names:
       - zondag
       - maandag
       - dinsdag
@@ -82,11 +82,11 @@ nl:
       - donderdag
       - vrijdag
       - zaterdag
-    formats: 
+    formats:
       default: "%d-%m-%Y"
       long: "%e %B %Y"
       short: "%e %b"
-    month_names: 
+    month_names:
       - ~
       - januari
       - februari
@@ -100,56 +100,56 @@ nl:
       - oktober
       - november
       - december
-    order: 
+    order:
       - !ruby/symbol day
       - !ruby/symbol month
       - !ruby/symbol year
-  datetime: 
-    distance_in_words: 
-      about_x_hours: 
+  datetime:
+    distance_in_words:
+      about_x_hours:
         one: "ongeveer één uur"
         other: "ongeveer %{count} uur"
-      about_x_months: 
+      about_x_months:
         one: "ongeveer één maand"
         other: "ongeveer %{count} maanden"
-      about_x_years: 
+      about_x_years:
         one: "ongeveer één jaar"
         other: "ongeveer %{count} jaar"
-      almost_x_years: 
+      almost_x_years:
         one: "bijna één jaar"
         other: "bijna %{count} jaar"
       half_a_minute: "een halve minuut"
-      less_than_x_minutes: 
+      less_than_x_minutes:
         one: "minder dan één minuut"
         other: "minder dan %{count} minuten"
-      less_than_x_seconds: 
+      less_than_x_seconds:
         one: "minder dan één seconde"
         other: "minder dan %{count} seconden"
-      over_x_years: 
+      over_x_years:
         one: "meer dan één jaar"
         other: "meer dan %{count} jaar"
-      x_days: 
+      x_days:
         one: "1 dag"
         other: "%{count} dagen"
-      x_minutes: 
+      x_minutes:
         one: "1 minuut"
         other: "%{count} minuten"
-      x_months: 
+      x_months:
         one: "1 maand"
         other: "%{count} maanden"
-      x_seconds: 
+      x_seconds:
         one: "1 seconde"
         other: "%{count} seconden"
-    prompts: 
+    prompts:
       day: dag
       hour: uur
       minute: minuut
       month: maand
       second: seconde
       year: jaar
-  errors: 
+  errors:
     format: "%{attribute} %{message}"
-    messages: 
+    messages:
       accepted: "moet worden geaccepteerd"
       blank: "moet opgegeven zijn"
       confirmation: "komt niet met de bevestiging overeen"
@@ -169,58 +169,58 @@ nl:
       too_long: "is te lang (maximaal %{count} tekens)"
       too_short: "is te kort (minimaal %{count} tekens)"
       wrong_length: "heeft onjuiste lengte (moet %{count} tekens lang zijn)"
-  helpers: 
-    select: 
+  helpers:
+    select:
       prompt: Selecteer
-    submit: 
+    submit:
       create: "%{model} toevoegen"
       submit: "%{model} opslaan"
       update: "%{model} bewaren"
-  messages: 
+  messages:
     loading: Bezig...
-  number: 
-    currency: 
-      format: 
+  number:
+    currency:
+      format:
         delimiter: "."
         format: "%u%n"
         precision: 2
         separator: ","
         unit: €
-    format: 
+    format:
       delimiter: "."
       precision: 2
       separator: ","
-    human: 
-      decimal_units: 
+    human:
+      decimal_units:
         format: "%n %u"
-        units: 
+        units:
           billion: miljard
           million: miljoen
           quadrillion: biljard
           thousand: duizend
           trillion: biljoen
-      format: 
+      format:
         precision: 3
         significant: true
         strip_insignificant_zeros: true
-      storage_units: 
+      storage_units:
         format: "%n %u"
-        units: 
-          byte: 
+        units:
+          byte:
             one: Byte
             other: Bytes
           gb: GB
           kb: KB
           mb: MB
           tb: TB
-  support: 
-    array: 
+  support:
+    array:
       last_word_connector: " en "
       two_words_connector: " en "
       words_connector: ", "
-  time: 
+  time:
     am: "'s ochtends"
-    formats: 
+    formats:
       default: "%a %d %b %Y %H:%M:%S %Z"
       long: "%d %B %Y %H:%M"
       short: "%d %b %H:%M"

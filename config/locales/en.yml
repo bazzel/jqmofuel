@@ -20,7 +20,7 @@ en:
       car:
         last_refueling: Last Refueling
   car:
-    last_refueling_in_words: "%{date} ago"
+    refueling_ago_in_words: "%{date} ago"
 
   cars:
     index:

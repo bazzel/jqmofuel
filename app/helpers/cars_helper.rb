@@ -7,9 +7,9 @@ module CarsHelper
     end
   end
 
-  def last_refueling_in_words(car)
-    if car && car.last_refueling
-      t('car.last_refueling_in_words', :date => time_ago_in_words(car.last_refueling.date))
+  def refueling_ago_in_words(refueling)
+    if refueling
+      t('car.refueling_ago_in_words', :date => time_ago_in_words(refueling.date))
     end
   end
 end

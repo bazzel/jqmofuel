@@ -8,7 +8,7 @@
     %dd= "#{@car}"
     - if @car.last_refueling
       %dt= Car.human_attribute_name("last_refueling")
-      %dd= last_refueling_in_words(@car)
+      %dd= refueling_ago_in_words(@car.last_refueling)
       - if @car.fuel_consumption
         %dt= Car.human_attribute_name("fuel_consumption")
         -# 1:20 (L:km)
@@ -17,7 +17,7 @@
         %dt
           = t(:'.total')
           = " - #{t(:'.since', :date => l(@car.first_refueling.date))}"
-          = " (#{last_refueling_in_words(@car)})"
+          = " (#{refueling_ago_in_words(@car.first_refueling)})"
         %dd= number_to_currency(@car.total_amount)
         %dd= "#{number_with_delimiter(@car.total_mileage)} #{t('abbr.kilometer')}"
         %dd= "#{number_with_delimiter(@car.total_liter)} #{t('abbr.liter')}"
