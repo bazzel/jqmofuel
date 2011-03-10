@@ -4,6 +4,7 @@
 en:
   activerecord:
     models:
+      car: Car
       user: User
       refueling: Refueling
     attributes:
@@ -17,6 +18,7 @@ en:
         liter: Liters
         amount: Amount
         date: Date
+        car: Car
       car:
         last_refueling: Last Refueling
   car:
@@ -34,6 +36,9 @@ en:
       per_month: Per month
       per_year: Per year
       since: Since %{date}
+  refuelings:
+    form:
+      car_prompt: Please select a car
 
   buttons:
     sign_in: Sign In

@@ -10,7 +10,7 @@
     = f.number_field :liter, :placeholder => Refueling.human_attribute_name("liter"), :class => "decimals"
     = f.number_field :amount, :placeholder => Refueling.human_attribute_name("amount"), :class => "decimals"
     - if current_user.cars.size > 1
-      = f.collection_select :car_id, current_user.cars, :id, :brand, {}, {:'data-native-menu' => true}
+      = f.collection_select :car_id, current_user.cars, :id, :brand, {:prompt => t(:'.car_prompt')}, {:'data-native-menu' => true}
     - else
       = hidden_field_tag "refueling[car_id]", current_user.cars.first.id
 
