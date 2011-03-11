@@ -14,9 +14,4 @@
 
     = f.submit t('buttons.update')
 
-%div{ :'data-role' => 'footer', :'data-position' => "fixed" }
-  %div{ :'data-role' => 'navbar' }
-    %ul
-      %li= link_to('Refueling', new_refueling_path, :'data-ajax' => false)
-      %li= link_to('Cars', cars_path, :'data-ajax' => false)
-      %li= link_to('My Info', edit_user_registration_path, :class => "ui-btn-active", :'data-transition' => "none")
+= jqm_footer

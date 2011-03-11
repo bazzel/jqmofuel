@@ -16,4 +16,26 @@ describe JqueryMobileHelper do
       jqm_content.should have_selector(:div, :'data-role' => "content", :content => "Foo")
     end
   end
+
+  describe "jqm_footer" do
+    it "returns html for the footer bar" do
+      jqm_footer = helper.jqm_footer
+
+      jqm_footer.should have_selector(:div, :'data-role' => 'footer', :'data-position' => "fixed") do |footer|
+        footer.should have_selector(:div, :'data-role' => 'navbar') do |navbar|
+          navbar.should have_selector(:ul) do |ul|
+            ul.should have_selector(:li) do |li|
+              li.should have_selector("a[href='#{new_refueling_path}']", :content => "Refueling")
+              li.should have_selector("a[href='#{cars_path}']", :content => "Cars")
+              li.should have_selector("a[href='#{edit_user_registration_path}']", :content => "My Info")
+            end
+          end
+        end
+      end
+    end
+
+    it "highlights " do
+
+    end
+  end
 end
