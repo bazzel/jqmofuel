@@ -21,6 +21,7 @@ en:
         car: Car
       car:
         last_refueling: Last Refueling
+        fuel_consumption: Fuel consumption
   car:
     refueling_ago_in_words: "%{date} ago"
 

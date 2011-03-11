@@ -9,7 +9,8 @@ nl:
   activerecord: 
     attributes: 
       car: 
-        last_refueling: "Laatste tankbeurt"
+        fuel_consumption: Verbruik
+        last_refueling: "Laatst getankt"
       refueling: 
         amount: Bedrag
         car: Auto
