@@ -26,15 +26,33 @@ module JqueryMobileHelper
     content_tag(:div, :'data-role' => "content", &block)
   end
 
-  def jqm_footer
-    list_items = content_tag(:li, link_to('Refueling', new_refueling_path, :'data-ajax' => false))
-    list_items << content_tag(:li, link_to('Cars', cars_path, :class => "ui-btn-active", :'data-ajax' => false))
-    list_items << content_tag(:li, link_to('My Info', edit_user_registration_path, :'data-ajax' => false))
+  def jqm_footer(active = nil)
+
+    html_options = {
+      :'data-ajax' => false
+    }
+
+    # :class => "ui-btn-active", :'data-ajax' => false
+
+    list_items = content_tag(:li, link_to('Refueling', new_refueling_path, link_to_footer_options(active == :refueling)))
+    list_items << content_tag(:li, link_to('Cars', cars_path, link_to_footer_options(active == :cars)))
+    list_items << content_tag(:li, link_to('My Info', edit_user_registration_path, link_to_footer_options(active == :my_info)))
 
     content_tag(:div, { :'data-role' => 'footer', :'data-position' => "fixed" }) do
       content_tag(:div, { :'data-role' => 'navbar' }) do
         content_tag(:ul, list_items)
       end
     end
+  end
+
+  private
+  def link_to_footer_options(active)
+    options = {
+      :'data-ajax' => false
+    }
+
+    options[:class] = 'ui-btn-active' if active
+
+    options
   end
 end

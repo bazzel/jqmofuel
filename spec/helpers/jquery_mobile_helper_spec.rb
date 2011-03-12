@@ -34,7 +34,61 @@ describe JqueryMobileHelper do
       end
     end
 
-    it "highlights " do
+    it "highlights 'Refueling'" do
+      jqm_footer = helper.jqm_footer(:refueling)
+
+      jqm_footer.should have_selector(:div, :'data-role' => 'footer', :'data-position' => "fixed") do |footer|
+        footer.should have_selector(:li) do |li|
+          li.should have_selector(:a, :class => "ui-btn-active", :content => "Refueling")
+
+          li.should have_selector(:a, :content => "Cars") do |a|
+            a.should_not have_selector(:class)
+          end
+
+          li.should have_selector(:a, :content => "My Info") do |a|
+            a.should_not have_selector(:class)
+          end
+        end
+      end
+
+    end
+
+    it "highlights 'Cars'" do
+      jqm_footer = helper.jqm_footer(:cars)
+
+      jqm_footer.should have_selector(:div, :'data-role' => 'footer', :'data-position' => "fixed") do |footer|
+        footer.should have_selector(:li) do |li|
+          li.should have_selector(:a, :content => "Refueling") do |a|
+            a.should_not have_selector(:class)
+          end
+
+          li.should have_selector(:a, :class => "ui-btn-active", :content => "Cars")
+
+
+          li.should have_selector(:a, :content => "My Info") do |a|
+            a.should_not have_selector(:class)
+          end
+        end
+      end
+
+    end
+
+    it "highlights 'My Info'" do
+      jqm_footer = helper.jqm_footer(:my_info)
+
+      jqm_footer.should have_selector(:div, :'data-role' => 'footer', :'data-position' => "fixed") do |footer|
+        footer.should have_selector(:li) do |li|
+          li.should have_selector(:a, :content => "Refueling") do |a|
+            a.should_not have_selector(:class)
+          end
+
+          li.should have_selector(:a, :content => "Cars") do |a|
+            a.should_not have_selector(:class)
+          end
+
+          li.should have_selector(:a, :class => "ui-btn-active", :content => "My Info")
+        end
+      end
 
     end
   end
