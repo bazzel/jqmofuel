@@ -4,6 +4,7 @@ gem 'client_side_validations',  '2.9.9' # Client Side Validations for Rails 2.xa
 gem 'capistrano',               '2.5.19'
 gem 'compass',                  '~>0.10.6'
 gem 'devise',                   '~>1.1.7'
+gem 'googlecharts',             '1.6.1'   # Generate charts using Google API & Ruby
 gem 'haml',                     '~>3.0.25'
 gem 'i18n-js',                  '~>1.0.0' # small library to provide the Rails I18n translations on the Javascript.
 gem 'jquery-rails',             '~>0.2.7' # Rails generator to install jQuery and the jQuery-ujs driver into your Rails 3 application,

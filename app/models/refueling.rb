@@ -17,4 +17,32 @@ class Refueling < ActiveRecord::Base
     "#{number_with_delimiter(liter_was)} #{I18n.t('abbr.liter')} - #{number_to_currency(amount_was)}"
   end
 
+  def predecessor
+    car.refuelings.order(:date).where("date < ?", date).last
+  end
+
+  def fuel_consumption
+    if predecessor
+      ((mileage - predecessor.mileage) / liter).round(1)
+    end
+  end
+
+  # Return the fuel consumption based on all refuelings up til the current one.
+  def moving_fuel_consumption
+    if predecessor
+      @moving_fuel_consumption ||= begin
+        running_refuelings = car.refuelings.order(:date).where("date <= ?", date)
+        first_refueling = running_refuelings.first
+        running_total_mileage = mileage - first_refueling.mileage
+        running_total_liter = running_refuelings.sum(:liter) - first_refueling.liter
+        moving_fuel_consumption = (running_total_mileage.to_f / running_total_liter).round(1)
+        logger.debug("[#{self.class}.moving_fuel_consumption] Calculating for #{description}: #{running_total_mileage} / #{running_total_liter} = #{moving_fuel_consumption}")
+        @moving_fuel_consumption = moving_fuel_consumption
+      end
+    end
+  end
+
+  def description
+    "#{self.class} ##{id}"
+  end
 end

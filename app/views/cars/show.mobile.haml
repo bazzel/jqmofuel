@@ -34,4 +34,6 @@
         %dd= "#{number_with_delimiter(@car.mileage_per_year.to_i)} #{t('abbr.kilometer')}/#{t('abbr.year')}"
         %dd= "#{number_with_delimiter(@car.liter_per_year.to_i)} #{t('abbr.liter')}/#{t('abbr.year')}"
 
+  = link_to t('buttons.charts'), car_chart_path(@car, 'moving_average'), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right"
+
 = jqm_footer(:cars)

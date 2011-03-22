@@ -35,14 +35,14 @@ describe Car do
       first = Factory(:refueling, :car => @car, :mileage => 100, :liter => 50, :amount => 100, :date => 10.days.ago)
       second = Factory(:refueling, :car => @car, :mileage => 500, :liter => 40, :amount => 80, :date => 1.day.ago)
 
-      @car.fuel_consumption.should eql("10.0")
+      @car.fuel_consumption.should eql(10.0)
     end
 
     it "returns fuel_consumption with 1 decimal" do
       first = Factory(:refueling, :car => @car, :mileage => 100, :liter => 50, :amount => 100, :date => 10.days.ago)
       second = Factory(:refueling, :car => @car, :mileage => 600, :liter => 42, :amount => 80, :date => 1.day.ago)
 
-      @car.fuel_consumption.should eql("11.9")
+      @car.fuel_consumption.should eql(11.9)
     end
   end
 
@@ -322,6 +322,31 @@ describe Car do
       second = Factory(:refueling, :car => @car)
 
       @car.more_than_one_refuelings?.should be_true
+    end
+  end
+
+  describe "relevant_refuelings" do
+    before(:each) do
+      @car = Factory(:car)
+    end
+
+    it "returns an empty array if there are 0 refuelings" do
+      @car.relevant_refuelings.should eql([])
+    end
+
+    it "returns an empty array if there is 1 refueling" do
+      first = Factory(:refueling, :car => @car)
+      @car.relevant_refuelings.should eql([])
+    end
+
+    it "returns an array with all but the first refueling if there are more than 1 refueling" do
+      first = Factory(:refueling, :car => @car, :date => 10.days.ago)
+      second = Factory(:refueling, :car => @car, :date => 8.days.ago)
+      third = Factory(:refueling, :car => @car, :date => 4.days.ago)
+
+      @car.relevant_refuelings.should_not include(first)
+      @car.relevant_refuelings.should include(second)
+      @car.relevant_refuelings.should include(third)
     end
   end
 end

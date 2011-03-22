@@ -15,7 +15,8 @@ class Car < ActiveRecord::Base
 
   def fuel_consumption
     if more_than_one_refuelings?
-      @fuel_consumption ||= ("%.1f" % (total_mileage / total_liter))
+      # @fuel_consumption ||= (total_mileage / total_liter).round(1)
+      @fuel_consumption ||= last_refueling.moving_fuel_consumption
     end
   end
 
@@ -97,6 +98,18 @@ class Car < ActiveRecord::Base
 
   def more_than_one_refuelings?
     @more_than_one_refuelings ||= (refuelings.size > 1)
+  end
+
+  def relevant_refuelings
+    @relevant_refuelings ||= begin
+      @relevant_refuelings = if more_than_one_refuelings?
+        relevant_refuelings = refuelings.order(:date)
+        relevant_refuelings.delete_at(0)
+        relevant_refuelings
+      else
+        []
+      end
+    end
   end
 
   private

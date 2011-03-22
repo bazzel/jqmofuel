@@ -1,0 +1,11 @@
+= jqm_header do
+  %h1= "#{@car}"
+
+= jqm_content do
+  = debug(@car.refuelings.order(:date).map(&:fuel_consumption).compact.join(' '))
+  -#= Gchart.line(:data => @car.refuelings.order(:date).map(&:fuel_consumption).compact, :axis_with_labels => 'y', :axis_range => [[0,@car.refuelings.order(:date).map(&:fuel_consumption).compact.max]], :title => "Fuel consumption", :background => 'F0F0F0', :size => '347x200')
+  = Gchart.line(:data => @car.refuelings.order(:date).map(&:fuel_consumption).compact, :axis_with_labels => 'y', :axis_range => [[0,@car.refuelings.order(:date).map(&:fuel_consumption).compact.max]], :title => "Fuel consumption", :background => 'F0F0F0', :size => '347x200', :format => 'image_tag').html_safe
+
+%div{ :'data-role' => "controlgroup", :'data-type' => "horizontal", :style => 'text-align: center'}
+  = link_to "Previous", '#', :'data-role' => "button", :'data-icon' => "arrow-l", :'data-rel' => "back"
+  = link_to "Next", car_chart_path(@car, 'moving_average'), :'data-role' => "button", :'data-icon' => "arrow-r"

@@ -52,6 +52,7 @@ class RefuelingsController < ApplicationController
     end
 
   end
+
   # # before_filter :find_car
   #
   # # GET /refuelings

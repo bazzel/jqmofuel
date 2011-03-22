@@ -24,7 +24,6 @@ en:
         fuel_consumption: Fuel consumption
   car:
     refueling_ago_in_words: "%{date} ago"
-
   cars:
     index:
       title: My Cars
@@ -51,12 +50,21 @@ en:
     edit: Edit
     delete: Delete
     confirm_delete: Are you sure you want to delete '%{target}'?
+    previous: Previous
+    next: Next
+    charts: Charts
   abbr:
     day: d
     month: mo
     year: yr
     liter: L
     kilometer: km
+  charts:
+    moving_average:
+      title: "Fuel consumption (%{kilometer}/%{liter})"
+      legend:
+        - "Fuel consumption"
+        - "Moving fuel consumption"
 
   messages:
     loading: Loading

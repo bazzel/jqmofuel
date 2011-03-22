@@ -4,8 +4,12 @@ Jqmofuel::Application.routes.draw do
   resources :refuelings
 
   resources :cars do
-    resources :refuelings
+    resources :refuelings do
+    end
+    resources :charts
   end
+
+  # match 'chart/:id' => 'cars#chart#:id'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
