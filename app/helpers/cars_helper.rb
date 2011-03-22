@@ -1,9 +1,9 @@
 module CarsHelper
 
   # 1:x (L:km)
-  def fuel_consumption(car)
-    if car && car.fuel_consumption
-      "1:#{number_with_precision(car.fuel_consumption, :precision => 1)} (#{t('abbr.liter')}:#{t('abbr.kilometer')})"
+  def fuel_efficiency(car)
+    if car && car.fuel_efficiency
+      "1:#{number_with_precision(car.fuel_efficiency, :precision => 1)} (#{t('abbr.liter')}:#{t('abbr.kilometer')})"
     end
   end
 

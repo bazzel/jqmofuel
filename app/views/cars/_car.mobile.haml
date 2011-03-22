@@ -2,5 +2,5 @@
   %h3= link_to "#{car}", car
   - if car.last_refueling
     %p
-      %strong= fuel_consumption(car)
+      %strong= fuel_efficiency(car)
     %p.ui-li-aside= refueling_ago_in_words(car.last_refueling)

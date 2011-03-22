@@ -21,7 +21,7 @@ en:
         car: Car
       car:
         last_refueling: Last Refueling
-        fuel_consumption: Fuel consumption
+        fuel_efficiency: Fuel efficiency
   car:
     refueling_ago_in_words: "%{date} ago"
   cars:
@@ -61,10 +61,10 @@ en:
     kilometer: km
   charts:
     moving_average:
-      title: "Fuel consumption (%{kilometer}/%{liter})"
+      title: "Fuel efficiency (%{kilometer}/%{liter})"
       legend:
-        - "Fuel consumption"
-        - "Moving fuel consumption"
+        - "Fuel efficiency"
+        - "Moving fuel efficiency"
 
   messages:
     loading: Loading

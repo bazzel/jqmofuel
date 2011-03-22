@@ -9,10 +9,10 @@
     - if @car.last_refueling
       %dt= Car.human_attribute_name("last_refueling")
       %dd.first= refueling_ago_in_words(@car.last_refueling)
-      - if @car.fuel_consumption
-        %dt= Car.human_attribute_name("fuel_consumption")
+      - if @car.fuel_efficiency
+        %dt= Car.human_attribute_name("fuel_efficiency")
         -# 1:20 (L:km)
-        %dd.first= fuel_consumption(@car)
+        %dd.first= fuel_efficiency(@car)
       - if @car.more_than_one_refuelings?
         %dt
           = t(:'.total')

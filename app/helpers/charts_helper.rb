@@ -2,14 +2,14 @@ module ChartsHelper
 
   def moving_average_chart(car)
     refuelings = car.relevant_refuelings
-    fuel_consumption = refuelings.map(&:fuel_consumption)
-    moving_fuel_consumption = refuelings.map(&:moving_fuel_consumption)
+    fuel_efficiency = refuelings.map(&:fuel_efficiency)
+    moving_fuel_efficiency = refuelings.map(&:moving_fuel_efficiency)
 
     Gchart.line({
-      :data => [fuel_consumption, moving_fuel_consumption],
+      :data => [fuel_efficiency, moving_fuel_efficiency],
       :axis_with_labels => 'y',
-      :max_value        => (fuel_consumption + moving_fuel_consumption).max*1.05,
-      :min_value        => (fuel_consumption + moving_fuel_consumption).min/1.05,
+      :max_value        => (fuel_efficiency + moving_fuel_efficiency).max*1.05,
+      :min_value        => (fuel_efficiency + moving_fuel_efficiency).min/1.05,
       :line_colors      => "F7A10A,4582E7",
       :title            => t('charts.moving_average.title', :kilometer => t('abbr.kilometer'), :liter => t('abbr.liter')),
       :legend           => t('charts.moving_average.legend'),

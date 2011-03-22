@@ -12,19 +12,19 @@ require 'spec_helper'
 # end
 describe CarsHelper do
 
-  describe "fuel_consumption" do
+  describe "fuel_efficiency" do
     it "returns 1:x (L:km)" do
-      car = mock_model(Car, :fuel_consumption => 20)
-      helper.fuel_consumption(car).should eql("1:20.0 (L:km)")
+      car = mock_model(Car, :fuel_efficiency => 20)
+      helper.fuel_efficiency(car).should eql("1:20.0 (L:km)")
     end
 
     it "returns nil if car is nil" do
-      helper.fuel_consumption(nil).should be_nil
+      helper.fuel_efficiency(nil).should be_nil
     end
 
     it "returns nil if car has no refuelings yet" do
       car = Factory(:car)
-      helper.fuel_consumption(car).should be_nil
+      helper.fuel_efficiency(car).should be_nil
     end
 
   end

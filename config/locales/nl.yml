@@ -9,7 +9,7 @@ nl:
   activerecord: 
     attributes: 
       car: 
-        fuel_consumption: Verbruik
+        fuel_efficiency: Brandstofverbruik
         last_refueling: "Laatst getankt"
       refueling: 
         amount: Bedrag
@@ -62,7 +62,7 @@ nl:
       legend: 
         - Verbruik
         - "Voortschrijdend verbruik"
-      title: "Verbruik (km/l)"
+      title: "Verbruik (%{kilometer}/%{liter})"
   date: 
     abbr_day_names: 
       - zon

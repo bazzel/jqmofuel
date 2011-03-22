@@ -33,22 +33,22 @@ describe Refueling do
     end
   end
 
-  describe "fuel_consumption" do
+  describe "fuel_efficiency" do
     before(:each) do
       @predecessor = Factory(:refueling, :date => Date.parse('31-12-2004'), :liter => 20.5, :mileage => 100)
       @refueling = Factory(:refueling, :date => Date.parse('13-1-2005'), :liter => 20.5, :mileage => 500, :car => @predecessor.car)
     end
 
     it "returns nil for 1st refueling" do
-      @predecessor.fuel_consumption.should be_nil
+      @predecessor.fuel_efficiency.should be_nil
     end
 
     it "diff. in mileage with predecessor divided by liters" do
-      @refueling.fuel_consumption.should eql(19.5)
+      @refueling.fuel_efficiency.should eql(19.5)
     end
   end
 
-  describe "moving_fuel_consumption" do
+  describe "moving_fuel_efficiency" do
     before(:each) do
       @first = Factory(:refueling, :date => Date.parse('1-1-2011'), :liter => 50, :mileage => 100)
       @second = Factory(:refueling, :date => Date.parse('1-2-2011'), :liter => 50, :mileage => 1100, :car => @first.car)
@@ -56,17 +56,17 @@ describe Refueling do
     end
 
     it "returns nil for 1st refueling" do
-      @first.moving_fuel_consumption.should be_nil
+      @first.moving_fuel_efficiency.should be_nil
     end
 
-    it "returns fuel_consumption for second refueling" do
-      @second.fuel_consumption.should eql(20.0)
-      @second.moving_fuel_consumption.should eql(20.0)
+    it "returns fuel_efficiency for second refueling" do
+      @second.fuel_efficiency.should eql(20.0)
+      @second.moving_fuel_efficiency.should eql(20.0)
     end
 
-    it "returns fuel_consumption up to current refueling" do
-      @third.fuel_consumption.should eql(10.0)
-      @third.moving_fuel_consumption.should eql(16.7)
+    it "returns fuel_efficiency up to current refueling" do
+      @third.fuel_efficiency.should eql(10.0)
+      @third.moving_fuel_efficiency.should eql(16.7)
     end
   end
 end

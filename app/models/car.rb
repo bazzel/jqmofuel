@@ -13,10 +13,9 @@ class Car < ActiveRecord::Base
     @last_refueling ||= refuelings.order(:date).last
   end
 
-  def fuel_consumption
+  def fuel_efficiency
     if more_than_one_refuelings?
-      # @fuel_consumption ||= (total_mileage / total_liter).round(1)
-      @fuel_consumption ||= last_refueling.moving_fuel_consumption
+      @fuel_efficiency ||= last_refueling.moving_fuel_efficiency
     end
   end
 

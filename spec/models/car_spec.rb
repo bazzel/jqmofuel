@@ -20,29 +20,29 @@ describe Car do
     end
   end
 
-  describe "fuel_consumption" do
+  describe "fuel_efficiency" do
     it "returns nil for zero refueling" do
-      @car.fuel_consumption.should be_nil
+      @car.fuel_efficiency.should be_nil
     end
 
     it "returns nil for one refueling" do
       first = Factory(:refueling, :car => @car, :date => 10.days.ago)
 
-      @car.fuel_consumption.should be_nil
+      @car.fuel_efficiency.should be_nil
     end
 
     it "returns numbers of kilometers per liter of last refueling" do
       first = Factory(:refueling, :car => @car, :mileage => 100, :liter => 50, :amount => 100, :date => 10.days.ago)
       second = Factory(:refueling, :car => @car, :mileage => 500, :liter => 40, :amount => 80, :date => 1.day.ago)
 
-      @car.fuel_consumption.should eql(10.0)
+      @car.fuel_efficiency.should eql(10.0)
     end
 
-    it "returns fuel_consumption with 1 decimal" do
+    it "returns fuel_efficiency with 1 decimal" do
       first = Factory(:refueling, :car => @car, :mileage => 100, :liter => 50, :amount => 100, :date => 10.days.ago)
       second = Factory(:refueling, :car => @car, :mileage => 600, :liter => 42, :amount => 80, :date => 1.day.ago)
 
-      @car.fuel_consumption.should eql(11.9)
+      @car.fuel_efficiency.should eql(11.9)
     end
   end
 
