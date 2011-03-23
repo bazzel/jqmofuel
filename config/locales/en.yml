@@ -61,11 +61,16 @@ en:
     liter: L
     kilometer: km
   charts:
-    moving_average:
+    fuel_efficiency:
       title: "Fuel efficiency (%{kilometer}/%{liter})"
       legend:
         - "Fuel efficiency"
         - "Moving fuel efficiency"
+    fuel_consumption:
+      title: "Fuel consumption (%{liter}/100 %{kilometer})"
+      legend:
+        - "Fuel consumption"
+        - "Moving fuel consumption"
 
   messages:
     loading: Loading

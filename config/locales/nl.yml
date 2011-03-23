@@ -59,7 +59,12 @@ nl:
       since: "Sinds %{date}"
       total: Totaal
   charts: 
-    moving_average: 
+    fuel_consumption: 
+      legend: 
+        - Verbruik
+        - "Voortschrijdend verbruik"
+      title: "Verbruik (%{liter}/100 %{kilometer})"
+    fuel_efficiency: 
       legend: 
         - Verbruik
         - "Voortschrijdend verbruik"
