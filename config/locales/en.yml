@@ -22,6 +22,7 @@ en:
       car:
         last_refueling: Last Refueling
         fuel_efficiency: Fuel efficiency
+        fuel_economy: Fuel Economy
   car:
     refueling_ago_in_words: "%{date} ago"
   cars:
@@ -68,3 +69,6 @@ en:
 
   messages:
     loading: Loading
+  date:
+    formats:
+      traditional: "%m/%d/%y"

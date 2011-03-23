@@ -3,4 +3,7 @@
   - if car.last_refueling
     %p
       %strong= fuel_efficiency(car)
+      = "-"
+      = fuel_consumption(car)
+
     %p.ui-li-aside= refueling_ago_in_words(car.last_refueling)

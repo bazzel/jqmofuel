@@ -9,6 +9,7 @@ nl:
   activerecord: 
     attributes: 
       car: 
+        fuel_economy: Brandstofverbruik
         fuel_efficiency: Brandstofverbruik
         last_refueling: "Laatst getankt"
       refueling: 
@@ -98,6 +99,7 @@ nl:
       default: "%d-%m-%Y"
       long: "%e %B %Y"
       short: "%e %b"
+      traditional: "%d-%m-%y"
     month_names: 
       - ~
       - januari

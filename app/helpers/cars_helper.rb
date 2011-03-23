@@ -7,6 +7,13 @@ module CarsHelper
     end
   end
 
+  def fuel_consumption(car)
+    if car && car.fuel_consumption
+      "#{number_with_precision(car.fuel_consumption, :precision => 1)} (#{t('abbr.liter')}/100 #{t('abbr.kilometer')})"
+    end
+  end
+
+
   def refueling_ago_in_words(refueling)
     if refueling
       t('car.refueling_ago_in_words', :date => time_ago_in_words(refueling.date))
