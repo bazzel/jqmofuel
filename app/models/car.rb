@@ -19,6 +19,12 @@ class Car < ActiveRecord::Base
     end
   end
 
+  def fuel_consumption
+    if more_than_one_refuelings?
+      @fuel_consumption ||= last_refueling.moving_fuel_consumption
+    end
+  end
+
   def total_mileage
     if more_than_one_refuelings?
       @total_mileage ||= (last_refueling.mileage - first_refueling.mileage)
