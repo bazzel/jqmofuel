@@ -1,4 +1,4 @@
-= jqm_header(:'data-backbtn' => false) do
+= jqm_header(:'data-backbtn' => params[:backbtn]) do
   %h1= "#{@refueling}"
   = link_to t('buttons.edit'), edit_refueling_path(@refueling), :class => "ui-btn-right"
 

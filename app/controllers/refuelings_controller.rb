@@ -21,7 +21,7 @@ class RefuelingsController < ApplicationController
     @refueling = current_user.refuelings.build(params[:refueling])
 
     if @refueling.save
-      redirect_to @refueling
+      redirect_to refueling_path(@refueling, :backbtn => 'false')
     else
       render :action => "new"
     end
