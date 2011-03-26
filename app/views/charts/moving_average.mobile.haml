@@ -1,9 +1,0 @@
-= jqm_header do
-  %h1= "#{@car}"
-
-= jqm_content do
-  .chart= moving_average_chart(@car)
-
-.chart-navigation{ :'data-role' => "controlgroup", :'data-type' => "horizontal"}
-  = link_to t('buttons.previous'), '#', :'data-role' => "button", :'data-icon' => "arrow-l", :'data-rel' => "back"
-  = link_to t('buttons.next'), '#', :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right"
