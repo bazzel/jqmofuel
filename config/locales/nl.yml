@@ -103,6 +103,7 @@ nl:
     formats: 
       default: "%d-%m-%Y"
       long: "%e %B %Y"
+      month-year: "%b., %Y"
       short: "%e %b"
       traditional: "%d-%m-%y"
     month_names: 
@@ -235,6 +236,11 @@ nl:
   refuelings: 
     form: 
       car_prompt: "Selecteer een auto"
+    index: 
+      new_refueling: Nieuw
+      title: "Tanken - %{car}"
+    new: 
+      title: Tanken
   support: 
     array: 
       last_word_connector: " en "

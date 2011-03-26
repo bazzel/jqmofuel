@@ -57,6 +57,15 @@ class Refueling < ActiveRecord::Base
   end
   memoize :moving_fuel_consumption
 
+  class << self
+    # Returns a hash
+    # where each key is a date marking the beginning of a month
+    # and where it's value is an array of refuelings of that month.
+    def grouped_by_month
+      order('date DESC').group_by { |r| r.date.beginning_of_month }
+    end
+  end
+
   private
     def running_refuelings
       car.refuelings.order(:date).where("date <= ?", date)

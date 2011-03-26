@@ -1,5 +1,11 @@
 class RefuelingsController < ApplicationController
 
+  # GET /refuelings
+  def index
+    @car = current_user.cars.find(params[:car_id])
+    @refueling_months = @car.refuelings.grouped_by_month
+  end
+
   # GET /refuelings/new
   def new
     if current_user.cars.empty?

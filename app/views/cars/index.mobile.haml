@@ -3,7 +3,7 @@
   = link_to t(:'.new_car'), new_car_path, :'data-icon' => "plus", :class => "ui-btn-right", :'data-iconpos' => "notext"
 
 = jqm_content do
-  %ul{ :'data-role' => "listview" }
+  %ul{ :'data-role' => "listview", :'data-split-icon' => "grid", :'data-split-theme' => "d" }
     = render @cars
 
 = jqm_footer(:cars)

@@ -1,8 +1,12 @@
 = jqm_header do
-  %h1 Refuelings
+  %h1= t(:'.title', :car => @car.to_s)
 
 = jqm_content do
   %ul{ :'data-role' => "listview" }
-    = render @refuelings
+    - @refueling_months.each do |month, refuelings|
+      %li{ :'data-role' => 'list-divider'}
+        = l(month, :format => :'month-year')
+        %span.ui-li-count= refuelings.count
+      = render refuelings
 
-= jqm_footer(:refueling)
+= jqm_footer(:refuelings)

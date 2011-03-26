@@ -1,3 +1,4 @@
 %li
-  = link_to "#{refueling}", refueling
-  -#= link_to 'edit car', edit_car_path(car), "data-icon" => "gear"
+  %h3= link_to "#{refueling}", refueling
+  %p
+    = l(refueling.date, :format => :traditional)

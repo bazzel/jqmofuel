@@ -116,4 +116,35 @@ describe Refueling do
     end
   end
 
+  describe "grouped_by_month" do
+    before(:each) do
+      @first = Factory(:refueling, :date => Date.parse('13-1-2011'))
+      @car = @first.car
+      @second = Factory(:refueling, :date => Date.parse('31-1-2011'), :car => @car)
+      @third = Factory(:refueling, :date => Date.parse('17-2-2011'), :car => @car)
+      @fourth = Factory(:refueling, :date => Date.parse('28-2-2011'))
+    end
+
+    it "groups refeulings of the same months" do
+      january = Refueling.grouped_by_month[Date.parse('1-1-2011')]
+      january.should include(@first)
+      january.should include(@second)
+
+      februari = Refueling.grouped_by_month[Date.parse('1-2-2011')]
+      februari.should include(@third)
+      februari.should include(@fourth)
+    end
+
+    it "includes only refueling for specific car" do
+      january = @car.refuelings.grouped_by_month[Date.parse('1-1-2011')]
+      january.should include(@first)
+      january.should include(@second)
+
+      februari = @car.refuelings.grouped_by_month[Date.parse('1-2-2011')]
+      februari.should include(@third)
+      februari.should_not include(@fourth)
+
+    end
+  end
+
 end

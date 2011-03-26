@@ -38,6 +38,11 @@ en:
       per_year: Per year
       since: Since %{date}
   refuelings:
+    index:
+      title: Refuelings for %{car}
+      new_refueling: Add
+    new:
+      title: Add Refueling
     form:
       car_prompt: Please select a car
 
@@ -77,3 +82,4 @@ en:
   date:
     formats:
       traditional: "%m/%d/%y"
+      month-year: "%b., %Y"

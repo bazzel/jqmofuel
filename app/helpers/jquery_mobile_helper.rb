@@ -32,8 +32,6 @@ module JqueryMobileHelper
       :'data-ajax' => false
     }
 
-    # :class => "ui-btn-active", :'data-ajax' => false
-
     list_items = content_tag(:li, link_to('Refueling', new_refueling_path, link_to_footer_options(active == :refueling)))
     list_items << content_tag(:li, link_to('Cars', cars_path, link_to_footer_options(active == :cars)))
     list_items << content_tag(:li, link_to('My Info', edit_user_registration_path, link_to_footer_options(active == :my_info)))

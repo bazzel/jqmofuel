@@ -5,12 +5,12 @@
 = jqm_content do
   %dl.car-summary
     %dt= Refueling.human_attribute_name("date")
-    %dd.first= l(@refueling.date.to_date)
+    %dd.first= l(@refueling.date.to_date, :format => :traditional)
     %dt= Refueling.human_attribute_name("liter")
     %dd.first= number_with_precision(@refueling.liter, :precision => 2)
     %dt= Refueling.human_attribute_name("amount")
     %dd.first= number_to_currency(@refueling.amount)
     %dt= Refueling.human_attribute_name("mileage")
-    %dd.first= number_with_delimiter(@refueling.mileage)
+    %dd.first= "#{number_with_delimiter(@refueling.mileage)} #{t('abbr.kilometer')}"
 
 = jqm_footer

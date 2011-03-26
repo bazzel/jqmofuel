@@ -8,14 +8,51 @@ describe RefuelingsController do
 
     @car = mock_model(Car)
     @cars = [@car]
+    @cars.stub(:find).and_return(@car)
 
-    @refueling = mock_model(Refueling)
+
+    @refueling_months = {}
+    @refueling = mock_model(Refueling, :date => Date.today)
     @refuelings = [@refueling]
+    @car.stub(:refuelings).and_return(@refuelings)
     @refuelings.stub(:build).and_return(@refueling)
     @refuelings.stub(:find).and_return(@refueling)
+    # @refuelings.stub(:order).and_return(@refuelings)
+    @refuelings.stub(:grouped_by_month).and_return(@refueling_months)
+
+
 
     @current_user.stub(:cars).and_return(@cars)
     @current_user.stub(:refuelings).and_return(@refuelings)
+
+  end
+
+  describe "GET index" do
+    describe "iphone" do
+      def do_get
+        get :index, :car_id => 1
+      end
+
+      it "finds current_user's car for given car_id and assigns it for the view" do
+        @current_user.should_receive(:cars).and_return(@cars)
+        @cars.should_receive(:find).with(1).and_return(@car)
+        do_get
+        assigns[:car].should eql(@car)
+      end
+
+      it "groups car's refuelings by month and assigns it to the view" do
+        @car.should_receive(:refuelings).and_return(@refuelings)
+        @refuelings.should_receive(:grouped_by_month).and_return(@refueling_months)
+        do_get
+        assigns(:refueling_months).should eq(@refueling_months)
+      end
+
+      it "render the 'index' template" do
+        do_get
+        response.should render_template("index")
+      end
+
+    end
   end
 
   describe "GET new" do
