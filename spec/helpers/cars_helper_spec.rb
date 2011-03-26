@@ -48,7 +48,7 @@ describe CarsHelper do
 
   describe "refueling_ago_in_words" do
     it "returns time_ago_in_words for date of refueling" do
-      refueling = mock_model(Refueling, :date => 3.days.ago)
+      refueling = mock_model(Refueling, :date => 3.days.ago.to_date)
       car = mock_model(Car, :last_refueling => refueling)
 
       helper.refueling_ago_in_words(car.last_refueling).should eql("3 days ago")

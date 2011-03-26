@@ -16,7 +16,7 @@ module CarsHelper
 
   def refueling_ago_in_words(refueling)
     if refueling
-      t('car.refueling_ago_in_words', :date => time_ago_in_words(refueling.date))
+      t('car.refueling_ago_in_words', :date => distance_of_time_in_words(Date.today, refueling.date))
     end
   end
 end
