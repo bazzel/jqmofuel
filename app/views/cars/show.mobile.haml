@@ -15,6 +15,9 @@
         %dd.first= fuel_efficiency(@car)
         -# 5.0 (L/100 km)
         %dd= fuel_consumption(@car)
+      - if @car.fuel_cost
+        %dt= Car.human_attribute_name("fuel_cost")
+        %dd.first= fuel_cost(@car)
       - if @car.more_than_one_refuelings?
         %dt
           = "#{t(:'.since', :date => l(@car.first_refueling.date, :format => :traditional))}"
@@ -24,16 +27,16 @@
         %dd= "#{number_with_delimiter(@car.total_liter)} #{t('abbr.liter')}"
         %dt= t(:'.per_day')
         %dd.first= number_to_currency(@car.amount_per_day)
-        %dd= "#{number_with_delimiter(@car.mileage_per_day)} #{t('abbr.kilometer')}/#{t('abbr.day')}"
-        %dd= "#{number_with_delimiter(@car.liter_per_day)} #{t('abbr.liter')}/#{t('abbr.day')}"
+        %dd= "#{number_with_delimiter(@car.mileage_per_day)} #{t('abbr.kilometer')}"
+        %dd= "#{number_with_delimiter(@car.liter_per_day)} #{t('abbr.liter')}"
         %dt= t(:'.per_month')
         %dd.first= number_to_currency(@car.amount_per_month)
-        %dd= "#{number_with_delimiter(@car.mileage_per_month)} #{t('abbr.kilometer')}/#{t('abbr.month')}"
-        %dd= "#{number_with_delimiter(@car.liter_per_month)} #{t('abbr.liter')}/#{t('abbr.month')}"
+        %dd= "#{number_with_delimiter(@car.mileage_per_month)} #{t('abbr.kilometer')}"
+        %dd= "#{number_with_delimiter(@car.liter_per_month)} #{t('abbr.liter')}"
         %dt= t(:'.per_year')
         %dd.first= number_to_currency(@car.amount_per_year)
-        %dd= "#{number_with_delimiter(@car.mileage_per_year.to_i)} #{t('abbr.kilometer')}/#{t('abbr.year')}"
-        %dd= "#{number_with_delimiter(@car.liter_per_year.to_i)} #{t('abbr.liter')}/#{t('abbr.year')}"
+        %dd= "#{number_with_delimiter(@car.mileage_per_year.to_i)} #{t('abbr.kilometer')}"
+        %dd= "#{number_with_delimiter(@car.liter_per_year.to_i)} #{t('abbr.liter')}"
 
   = link_to t('buttons.charts'), car_chart_path(@car, 'fuel_efficiency'), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right"
 

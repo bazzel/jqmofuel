@@ -1,6 +1,7 @@
 --- 
 nl: 
   abbr: 
+    cent: c
     day: d.
     kilometer: km
     liter: l
@@ -9,6 +10,7 @@ nl:
   activerecord: 
     attributes: 
       car: 
+        fuel_cost: Brandstofkosten
         fuel_economy: Brandstofverbruik
         fuel_efficiency: Brandstofverbruik
         last_refueling: "Laatst getankt"
@@ -64,6 +66,11 @@ nl:
         - Verbruik
         - "Voortschrijdend verbruik"
       title: "Verbruik (%{liter}/100 %{kilometer})"
+    fuel_cost: 
+      legend: 
+        - Brandstofkosten
+        - "Gemiddelde brandstofkosten"
+      title: "Brandstofkosten (c/%{kilometer})"
     fuel_efficiency: 
       legend: 
         - Verbruik

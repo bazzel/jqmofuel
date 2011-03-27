@@ -4,4 +4,4 @@
 = jqm_content do
   .chart= fuel_consumption_chart(@car)
 
-= navigation_buttons('#')
+= navigation_buttons(car_chart_path(@car, 'fuel_cost'))

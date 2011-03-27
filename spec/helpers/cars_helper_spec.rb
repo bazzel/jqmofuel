@@ -46,6 +46,23 @@ describe CarsHelper do
 
   end
 
+  describe "fuel_cost" do
+    it "returns 8.5 c/L" do
+      car = mock_model(Car, :fuel_cost => 8.5)
+      helper.fuel_cost(car).should eql("8.5 c/L")
+    end
+
+    it "returns nil if car is nil" do
+      helper.fuel_cost(nil).should be_nil
+    end
+
+    it "returns nil if car has no refuelings yet" do
+      car = Factory(:car)
+      helper.fuel_cost(car).should be_nil
+    end
+
+  end
+
   describe "refueling_ago_in_words" do
     it "returns time_ago_in_words for date of refueling" do
       refueling = mock_model(Refueling, :date => 3.days.ago.to_date)

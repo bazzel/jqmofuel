@@ -13,6 +13,12 @@ module CarsHelper
     end
   end
 
+  def fuel_cost(car)
+    if car && car.fuel_cost
+      "#{number_with_precision(car.fuel_cost, :precision => 1)} #{t('abbr.cent')}/#{t('abbr.liter')}"
+    end
+  end
+
 
   def refueling_ago_in_words(refueling)
     if refueling

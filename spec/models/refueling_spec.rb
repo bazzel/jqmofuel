@@ -33,21 +33,6 @@ describe Refueling do
     end
   end
 
-  describe "fuel_efficiency" do
-    before(:each) do
-      @predecessor = Factory(:refueling, :date => Date.parse('31-12-2004'), :liter => 20.5, :mileage => 100)
-      @refueling = Factory(:refueling, :date => Date.parse('13-1-2005'), :liter => 20.5, :mileage => 500, :car => @predecessor.car)
-    end
-
-    it "returns nil for 1st refueling" do
-      @predecessor.fuel_efficiency.should be_nil
-    end
-
-    it "diff. in mileage with predecessor divided by liters" do
-      @refueling.fuel_efficiency.should eql(19.5)
-    end
-  end
-
   describe "fuel efficiency and consumption" do
     before(:each) do
       @predecessor = Factory(:refueling, :date => Date.parse('31-12-2004'), :liter => 20.5, :mileage => 100)
@@ -114,6 +99,44 @@ describe Refueling do
         @third.moving_fuel_consumption.should eql(6.0)
       end
     end
+  end
+
+  describe "fuel cost" do
+    before(:each) do
+      @predecessor = Factory(:refueling, :date => Date.parse('31-12-2004'), :liter => 20.5, :mileage => 100, :amount => 34.85)
+      @refueling = Factory(:refueling, :date => Date.parse('13-1-2005'), :liter => 20.5, :mileage => 500, :amount => 34.85, :car => @predecessor.car)
+    end
+
+    it "returns nil for 1st refueling" do
+      @predecessor.fuel_cost.should be_nil
+    end
+
+    it "diff. in mileage with predecessor divided by amount" do
+      @refueling.fuel_cost.should eql(8.7) # cents
+    end
+  end
+
+  describe "moving_fuel_cost" do
+    before(:each) do
+      @first = Factory(:refueling, :date => Date.parse('1-1-2011'), :liter => 50, :mileage => 100, :amount => 85.0)
+      @second = Factory(:refueling, :date => Date.parse('1-2-2011'), :liter => 50, :mileage => 1100, :amount => 82.5, :car => @first.car)
+      @third = Factory(:refueling, :date => Date.parse('1-3-2011'), :liter => 25, :mileage => 1350, :amount => 43.0, :car => @first.car)
+    end
+
+    it "returns nil for 1st refueling" do
+      @first.moving_fuel_cost.should be_nil
+    end
+
+    it "returns fuel_consumption for second refueling" do
+      @second.fuel_cost.should eql(8.3)
+      @second.moving_fuel_cost.should eql(8.3)
+    end
+
+    it "returns fuel_consumption up to current refueling" do
+      @third.fuel_cost.should eql(17.2)
+      @third.moving_fuel_cost.should eql(10.0)
+    end
+
   end
 
   describe "grouped_by_month" do

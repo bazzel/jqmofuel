@@ -23,6 +23,7 @@ en:
         last_refueling: Last Refueling
         fuel_efficiency: Fuel efficiency
         fuel_economy: Fuel Economy
+        fuel_cost: Fuel Cost
   car:
     refueling_ago_in_words: "%{date} ago"
   cars:
@@ -69,6 +70,7 @@ en:
     year: yr
     liter: L
     kilometer: km
+    cent: c
   charts:
     fuel_efficiency:
       title: "Fuel efficiency (%{kilometer}/%{liter})"
@@ -80,6 +82,11 @@ en:
       legend:
         - "Fuel consumption"
         - "Moving fuel consumption"
+    fuel_cost:
+      title: "Fuel cost (c/%{kilometer})"
+      legend:
+        - "Fuel cost"
+        - "Moving fuel cost"
 
   messages:
     loading: Loading

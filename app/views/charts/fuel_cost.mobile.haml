@@ -1,0 +1,7 @@
+= jqm_header do
+  %h1= "#{@car}"
+
+= jqm_content do
+  .chart= fuel_cost_chart(@car)
+
+= navigation_buttons(car_chart_path(@car, 'fuel_efficiency'))

@@ -29,7 +29,7 @@ class Refueling < ActiveRecord::Base
   end
   memoize :predecessor
 
-  # Returns kilometres per litre.
+  # Returns kilometres per liter.
   def fuel_efficiency
     ((mileage - predecessor.mileage) / liter).round(1) if predecessor
   end
@@ -39,6 +39,12 @@ class Refueling < ActiveRecord::Base
     (liter / (mileage - predecessor.mileage)*100).round(1) if predecessor
   end
   memoize :fuel_consumption
+
+  # Returns cost in cents/km.
+  def fuel_cost
+    ((amount * 100) / (mileage - predecessor.mileage)).round(1) if predecessor
+  end
+  memoize :fuel_cost
 
   # Return the fuel efficiency based on all refuelings up til the current one.
   def moving_fuel_efficiency
@@ -56,6 +62,13 @@ class Refueling < ActiveRecord::Base
     end
   end
   memoize :moving_fuel_consumption
+
+  def moving_fuel_cost
+    if predecessor
+      logger.debug("[#{self.class}.moving_fuel_cost] Calculating for #{description}: #{running_total_amount} * 100 / #{running_total_mileage} = #{(running_total_amount * 100 / running_total_mileage.to_f ).round(1)}")
+      (running_total_amount * 100 / running_total_mileage.to_f ).round(1)
+    end
+  end
 
   class << self
     # Returns a hash
@@ -86,4 +99,9 @@ class Refueling < ActiveRecord::Base
       running_refuelings.sum(:liter) - first_refueling.liter
     end
     memoize :running_total_liter
+
+    def running_total_amount
+      running_refuelings.sum(:amount) - first_refueling.amount
+    end
+    memoize :running_total_amount
 end

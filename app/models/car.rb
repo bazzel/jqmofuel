@@ -26,6 +26,11 @@ class Car < ActiveRecord::Base
   end
   memoize :fuel_consumption
 
+  def fuel_cost
+    last_refueling.moving_fuel_cost if more_than_one_refuelings?
+  end
+  memoize :fuel_cost
+
   def total_mileage
     (last_refueling.mileage - first_refueling.mileage) if more_than_one_refuelings?
   end
