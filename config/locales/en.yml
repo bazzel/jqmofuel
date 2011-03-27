@@ -59,6 +59,10 @@ en:
     previous: Previous
     next: Next
     charts: Charts
+  footer:
+    refueling: Refueling
+    cars: Cars
+    my-info: My Info
   abbr:
     day: d
     month: mo

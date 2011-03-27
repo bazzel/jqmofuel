@@ -25,9 +25,9 @@ describe JqueryMobileHelper do
         footer.should have_selector(:div, :'data-role' => 'navbar') do |navbar|
           navbar.should have_selector(:ul) do |ul|
             ul.should have_selector(:li) do |li|
-              li.should have_selector("a[href='#{new_refueling_path}']", :content => "Refueling")
-              li.should have_selector("a[href='#{cars_path}']", :content => "Cars")
-              li.should have_selector("a[href='#{edit_user_registration_path}']", :content => "My Info")
+              li.should have_selector("a[href='#{new_refueling_path}']", :content => "Refueling", :id => "refueling")
+              li.should have_selector("a[href='#{cars_path}']", :content => "Cars", :id => "cars")
+              li.should have_selector("a[href='#{edit_user_registration_path}']", :content => "My Info", :id => "my-info")
             end
           end
         end
@@ -90,6 +90,18 @@ describe JqueryMobileHelper do
         end
       end
 
+    end
+  end
+
+  describe "navigation_buttons" do
+    it "returns html for navigation buttons" do
+      next_url = 'http://www.example.com'
+      navigation_buttons = helper.navigation_buttons(next_url)
+
+      navigation_buttons.should have_selector(:div, :'data-role' => "controlgroup", :'data-type' => "horizontal") do |controlgroup|
+        controlgroup.should have_selector("a[href='#']", :content => "Previous", :'data-role' => "button", :'data-icon' => "arrow-l", :'data-rel' => "back")
+        controlgroup.should have_selector("a[href='#{next_url}']", :content => "Next", :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right")
+      end
     end
   end
 end

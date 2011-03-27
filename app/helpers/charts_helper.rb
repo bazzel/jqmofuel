@@ -1,12 +1,5 @@
 module ChartsHelper
 
-  def navigation_buttons
-
-    # .chart-navigation{ :'data-role' => "controlgroup", :'data-type' => "horizontal"}
-    #   = link_to t('buttons.previous'), '#', :'data-role' => "button", :'data-icon' => "arrow-l", :'data-rel' => "back"
-    #   = link_to t('buttons.next'), car_chart_path(@car, 'fuel_consumption'), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right"
-  end
-
   def fuel_efficiency_chart(car)
     refuelings = car.relevant_refuelings
     fuel_efficiency = refuelings.map(&:fuel_efficiency)

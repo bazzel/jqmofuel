@@ -111,7 +111,7 @@ describe RefuelingsController do
 
         it "redirects to refueling" do
           do_post
-          response.should redirect_to(refueling_path(@refueling))
+          response.should redirect_to(refueling_path(@refueling, :backbtn => 'false'))
         end
       end
 

@@ -189,6 +189,10 @@ nl:
       too_long: "is te lang (maximaal %{count} tekens)"
       too_short: "is te kort (minimaal %{count} tekens)"
       wrong_length: "heeft onjuiste lengte (moet %{count} tekens lang zijn)"
+  footer: 
+    cars: Auto's
+    my-info: "Mijn Info"
+    refueling: Tanken
   helpers: 
     select: 
       prompt: Selecteer
