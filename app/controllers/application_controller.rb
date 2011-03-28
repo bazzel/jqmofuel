@@ -1,9 +1,14 @@
 class ApplicationController < ActionController::Base
+
   protect_from_forgery
   before_filter :prepare_for_mobile
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => :test_exception_notifier
   before_filter :set_locale
   before_filter :export_i18n_messages
+
+  def test_exception_notifier
+    raise 'This is a test. This is only a test.'
+  end
 
   private
 
