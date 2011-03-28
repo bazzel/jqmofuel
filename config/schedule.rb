@@ -19,7 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every :day, :at => '4:30 am' do
+every 1.day, :at => '4:30 am' do
   # Periodically test the Exception Notifier
   command "wget -q http://efueling.nl/test_exception_notifier"
 end
