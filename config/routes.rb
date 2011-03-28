@@ -9,8 +9,8 @@ Jqmofuel::Application.routes.draw do
     resources :charts
   end
 
-  # map.connect 'test_exception_notifier', :controller => 'application', :action => 'test_exception_notifier'
   match 'test_exception_notifier' => 'application#test_exception_notifier'
+
   # match 'chart/:id' => 'cars#chart#:id'
 
   # The priority is based upon order of creation:
