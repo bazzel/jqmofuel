@@ -3,7 +3,7 @@ $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require 'rvm/capistrano'
 
 # See https://github.com/javan/whenever
-# set :whenever_command, "bundle exec whenever"
+set :whenever_command, "bundle exec whenever"
 require 'whenever/capistrano'
 
 set :rvm_ruby_string, '1.9.2-p136'
