@@ -56,9 +56,12 @@ end
 
 after 'deploy:update_code', 'deploy:symlink_shared'
 
+# We don't want the clear_crontab task to be called, 'cause this will raise an error
+# (Could not find aaronh-chronic-0.3.9 in any of the sources) and rollback deployment.
+# Overriding it will solve this.
 namespace :whenever do
-    desc "Clear application's crontab entries using Whenever"
-    task :clear_crontab, :roles => whenever_roles do
-      p "Do nothing..."
-    end
+  desc "Clear application's crontab entries using Whenever"
+  task :clear_crontab, :roles => whenever_roles do
+    p "Do nothing..."
   end
+end
