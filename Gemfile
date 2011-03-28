@@ -12,6 +12,7 @@ gem 'jquery-rails',             '~>0.2.7' # Rails generator to install jQuery an
                                           # and then have them included automatically instead of Prototype.
 gem 'mysql2',                   '~>0.2.6'
 gem 'rails',                    '3.0.5'
+gem 'whenever',                 '0.6.7', :require => false # Clean ruby syntax for writing and deploying cron jobs.
 
 group :development do
   gem 'cucumber-rails',           '~>0.3.2'     # Cucumber Generators and Runtime for Rails
