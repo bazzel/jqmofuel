@@ -62,6 +62,6 @@ after 'deploy:update_code', 'deploy:symlink_shared'
 namespace :whenever do
   desc "Clear application's crontab entries using Whenever"
   task :clear_crontab, :roles => whenever_roles do
-    p "Do nothing..."
+    # Override whenever's clear_crontab
   end
 end
