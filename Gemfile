@@ -1,6 +1,5 @@
 source 'http://rubygems.org'
 
-gem 'aaronh-chronic',           '0.3.9'
 gem 'client_side_validations',  '2.9.9' # Client Side Validations for Rails 2.xand 3.x
 gem 'capistrano',               '2.5.19'
 gem 'compass',                  '~>0.10.6'
