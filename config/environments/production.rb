@@ -47,6 +47,8 @@ Jqmofuel::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
+  # Turn off 'enable_starttls_auto' to avoid
+  # 'OpenSSL::SSL::SSLError (hostname was not match with the server certificate)'
   ActionMailer::Base.smtp_settings = {
     :enable_starttls_auto => false
   }
