@@ -38,6 +38,7 @@
         %dd= "#{number_with_delimiter(@car.mileage_per_year.to_i)} #{t('abbr.kilometer')}"
         %dd= "#{number_with_delimiter(@car.liter_per_year.to_i)} #{t('abbr.liter')}"
 
-  = link_to t('buttons.charts'), car_chart_path(@car, 'fuel_efficiency'), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right"
+  - if @car.more_than_one_refuelings?
+    = link_to t('buttons.charts'), car_chart_path(@car, 'fuel_efficiency'), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right"
 
 = jqm_footer(:cars)

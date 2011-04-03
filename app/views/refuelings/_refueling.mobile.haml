@@ -1,4 +1,5 @@
 %li
-  %h3= link_to "#{refueling}", refueling
-  %p
-    = l(refueling.date, :format => :traditional)
+  = link_to refueling do
+    %h3= refueling.to_s
+    %p
+      = l(refueling.date, :format => :traditional)

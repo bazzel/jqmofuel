@@ -10,7 +10,7 @@
     = f.password_field :password_confirmation, :placeholder => User.human_attribute_name("password_confirmation")
     = f.password_field :current_password, :placeholder => User.human_attribute_name("current_password"), :class => "required"
 
-    = f.select :locale, options_for_select(locale_selection, I18n.locale), {}, {:'data-native-menu' => true}
+    = f.select :locale, options_for_select(locale_selection, I18n.locale)
 
     = f.submit t('buttons.update')
 
