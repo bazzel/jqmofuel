@@ -21,9 +21,10 @@ en:
         car: Car
       car:
         last_refueling: Last Refueling
-        fuel_efficiency: Fuel efficiency
-        fuel_economy: Fuel Economy
-        fuel_cost: Fuel Cost
+        fuel: Fuel
+        fuel_efficiency: Efficiency
+        fuel_economy: Economy
+        fuel_cost: Cost
   car:
     refueling_ago_in_words: "%{date} ago"
   cars:

@@ -1,4 +1,5 @@
 @import "compass/css3";
+@import "compass/css3/border-radius";
 @import "flash_messages";
 
 dl.car-summary {
@@ -19,6 +20,36 @@ dl.car-summary {
     text-align: right;
     &.first {
       border-top: 1px solid #999;
+    }
+  }
+}
+
+.car-summary, .refueling-summary {
+  li {
+    &.numbers {
+      text-align: right;
+    }
+    &.ui-li {
+      padding: {
+        right: 15px;
+      }
+      overflow: auto;
+      .ui-li-aside {
+        font-weight: normal;
+        margin: 0;
+        color: #385487;
+        width: auto;
+        padding: {
+          bottom: 0em;
+        }
+        clear: right;
+      }
+      .fuel-details {
+        padding-right: 40px;
+      }
+    }
+    &.ui-btn-icon-right {
+      padding-right: 0;
     }
   }
 }

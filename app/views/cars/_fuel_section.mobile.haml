@@ -1,0 +1,19 @@
+%h4= Car.human_attribute_name("fuel")
+%ul{ :'data-role' => "listview", :'data-inset' => "true" }
+  %li
+    = link_to car_chart_path(car, 'fuel_efficiency'), :class => 'fuel-details' do
+      = Car.human_attribute_name("fuel_efficiency")
+      .ui-li-aside
+        -# 1:20 (L:km)
+        = fuel_efficiency(car)
+  %li
+    = link_to car_chart_path(car, 'fuel_consumption'), :class => 'fuel-details' do
+      = Car.human_attribute_name("fuel_economy")
+      .ui-li-aside
+        -# 5.0 (L/100 km)
+        = fuel_consumption(car)
+  %li
+    = link_to car_chart_path(car, 'fuel_cost'), :class => 'fuel-details' do
+      = Car.human_attribute_name("fuel_cost")
+      .ui-li-aside
+        = fuel_cost(car)

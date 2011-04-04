@@ -10,9 +10,10 @@ nl:
   activerecord: 
     attributes: 
       car: 
-        fuel_cost: Brandstofkosten
-        fuel_economy: Brandstofverbruik
-        fuel_efficiency: Brandstofverbruik
+        fuel: Brandstof
+        fuel_cost: Kosten
+        fuel_economy: Verbruik
+        fuel_efficiency: Efficiëntie
         last_refueling: "Laatst getankt"
       refueling: 
         amount: Bedrag
