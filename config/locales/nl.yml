@@ -66,7 +66,7 @@ nl:
       legend: 
         - Verbruik
         - "Voortschrijdend verbruik"
-      title: "Verbruik (%{liter}/100 %{kilometer})"
+      title: "Brandstofverbruik (%{liter}/100 %{kilometer})"
     fuel_cost: 
       legend: 
         - Brandstofkosten
@@ -76,7 +76,7 @@ nl:
       legend: 
         - Verbruik
         - "Voortschrijdend verbruik"
-      title: "Verbruik (%{kilometer}/%{liter})"
+      title: "Brandstofefficiëntie (%{kilometer}/%{liter})"
   date: 
     abbr_day_names: 
       - zon
