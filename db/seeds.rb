@@ -5,3 +5,21 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+  fuels = [
+    ["Gasoline", "Benzine"],
+    ["Diesel", "Diesel"],
+    ["Electric", "Elektrisch"],
+    ["Hybrid", "Hybride"],
+    ["LPG", "LPG"],
+    ["Natural gas", "Aardgas"],
+    ["Other", "Overig"]
+  ]
+
+  fuels.each do |fuel|
+    I18n.locale = 'en'
+    f = Fuel.find_or_initialize_by_name(fuel.first)
+    I18n.locale = 'nl'
+    f.name = fuel.last
+    f.save
+  end

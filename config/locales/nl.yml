@@ -50,6 +50,8 @@ nl:
   car: 
     refueling_ago_in_words: "%{date} geleden"
   cars: 
+    form: 
+      fuel_prompt: "Selecteer een type brandstof"
     index: 
       new_car: Nieuw
       title: "Mijn auto's"

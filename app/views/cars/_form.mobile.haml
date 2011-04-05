@@ -2,4 +2,5 @@
   = render "shared/error_messages", :target => car
   = f.text_field :brand, :placeholder => Car.human_attribute_name("brand")
   = f.text_field :car_model, :placeholder => Car.human_attribute_name("model")
+  = f.collection_select :fuel_id, Fuel.all, :id, :name, {:prompt => t(:'.fuel_prompt')}
   = f.submit t('buttons.save')

@@ -39,6 +39,9 @@ en:
       per_month: Per month
       per_year: Per year
       since: Since %{date}
+    form:
+      fuel_prompt: Please select a fuel type
+
   refuelings:
     index:
       title: Refuelings for %{car}

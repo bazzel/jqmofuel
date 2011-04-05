@@ -2,6 +2,11 @@
   = Car.human_name
   .ui-li-aside= "#{car}"
 
+- if car.fuel
+  %li
+    = Car.human_attribute_name("fuel")
+    .ui-li-aside= car.fuel.name
+
 - if car.more_than_one_refuelings?
   %li
     = Car.human_attribute_name("last_refueling")

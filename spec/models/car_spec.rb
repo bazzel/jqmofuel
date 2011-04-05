@@ -7,6 +7,7 @@ describe Car do
 
   it { should validate_presence_of(:brand) }
   it { should have_many(:refuelings) }
+  it { should belong_to(:fuel) }
 
   describe "last_fueling" do
     it "returns nil if refuelings are empty" do

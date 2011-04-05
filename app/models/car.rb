@@ -6,6 +6,7 @@ class Car < ActiveRecord::Base
 
   # == Associations
   has_many :refuelings
+  belongs_to :fuel
 
   def to_s
     [brand_was, car_model_was].join(" ").rstrip

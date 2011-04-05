@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110308192643) do
+ActiveRecord::Schema.define(:version => 20110405162331) do
 
   create_table "cars", :force => true do |t|
     t.string   "brand"
@@ -18,9 +18,27 @@ ActiveRecord::Schema.define(:version => 20110308192643) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "fuel_id"
   end
 
+  add_index "cars", ["fuel_id"], :name => "index_cars_on_fuel_id"
   add_index "cars", ["user_id"], :name => "index_cars_on_user_id"
+
+  create_table "fuel_translations", :force => true do |t|
+    t.integer  "fuel_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "fuel_translations", ["fuel_id"], :name => "index_fuel_translations_on_fuel_id"
+
+  create_table "fuels", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "refuelings", :force => true do |t|
     t.date     "date"
