@@ -41,16 +41,12 @@ class CarsController < ApplicationController
     end
   end
 
-  # # DELETE /cars/1
-  # # DELETE /cars/1.xml
-  # def destroy
-  #   @car = Car.find(params[:id])
-  #   @car.destroy
-  #
-  #   respond_to do |format|
-  #     format.mobile { redirect_to(cars_url) }
-  #     format.html { redirect_to(cars_url) }
-  #     format.xml  { head :ok }
-  #   end
-  # end
+  # DELETE /cars/1
+  def destroy
+    @car = current_user.cars.find(params[:id])
+    @car.destroy
+
+    redirect_to cars_path
+  end
+
 end

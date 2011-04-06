@@ -199,87 +199,25 @@ describe CarsController do
     end
   end
 
+  describe "DELETE destroy" do
+    describe "iphone" do
+      use_iphone
 
-    # before(:each) do
-    #   @slideshow = Slideshow.new
-    #   Slideshow.stub(:new).and_return(@slideshow)
-    # end
-    #
-    # def do_get
-    #   get :new
-    # end
-    #
-    # it "should initiate a new slideshow object" do
-    #   Slideshow.should_receive(:new)
-    #   do_get
-    # end
-    #
-    # it "should assign a new slideshow for the view" do
-    #   do_get
-    #   assigns[:slideshow].should eql(@slideshow)
-    # end
+      def do_delete
+        delete :destroy, :id => "37"
+      end
 
-#
-#   def mock_car(stubs={})
-#     @mock_car ||= mock_model(Car, stubs).as_null_object
-#   end
-#
-#   describe "GET index" do
-#     it "assigns all cars as @cars" do
-#       Car.stub(:all) { [mock_car] }
-#       get :index
-#       assigns(:cars).should eq([mock_car])
-#     end
-#   end
-#
-#   describe "PUT update" do
-#     describe "with valid params" do
-#       it "updates the requested car" do
-#         Car.stub(:find).with("37") { mock_car }
-#         mock_car.should_receive(:update_attributes).with({'these' => 'params'})
-#         put :update, :id => "37", :car => {'these' => 'params'}
-#       end
-#
-#       it "assigns the requested car as @car" do
-#         Car.stub(:find) { mock_car(:update_attributes => true) }
-#         put :update, :id => "1"
-#         assigns(:car).should be(mock_car)
-#       end
-#
-#       it "redirects to the car" do
-#         Car.stub(:find) { mock_car(:update_attributes => true) }
-#         put :update, :id => "1"
-#         response.should redirect_to(car_url(mock_car))
-#       end
-#     end
-#
-#     describe "with invalid params" do
-#       it "assigns the car as @car" do
-#         Car.stub(:find) { mock_car(:update_attributes => false) }
-#         put :update, :id => "1"
-#         assigns(:car).should be(mock_car)
-#       end
-#
-#       it "re-renders the 'edit' template" do
-#         Car.stub(:find) { mock_car(:update_attributes => false) }
-#         put :update, :id => "1"
-#         response.should render_template("edit")
-#       end
-#     end
-#   end
-#
-#   describe "DELETE destroy" do
-#     it "destroys the requested car" do
-#       Car.stub(:find).with("37") { mock_car }
-#       mock_car.should_receive(:destroy)
-#       delete :destroy, :id => "37"
-#     end
-#
-#     it "redirects to the cars list" do
-#       Car.stub(:find) { mock_car }
-#       delete :destroy, :id => "1"
-#       response.should redirect_to(cars_url)
-#     end
-  # end
+      it "destroys the requested car" do
+        @current_user.should_receive(:cars).and_return(@cars)
+        @cars.should_receive(:find).with("37").and_return(@car)
+        @car.should_receive(:destroy)
+        do_delete
+      end
 
+      it "redirects to the cars list" do
+        do_delete
+        response.should redirect_to(cars_path)
+      end
+    end
+  end
 end
