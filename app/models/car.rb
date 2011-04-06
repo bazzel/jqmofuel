@@ -5,7 +5,7 @@ class Car < ActiveRecord::Base
   validates_presence_of :brand
 
   # == Associations
-  has_many :refuelings
+  has_many :refuelings, :dependent => :destroy
   belongs_to :fuel
 
   def to_s

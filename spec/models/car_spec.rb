@@ -6,7 +6,7 @@ describe Car do
   end
 
   it { should validate_presence_of(:brand) }
-  it { should have_many(:refuelings) }
+  it { should have_many(:refuelings, :dependent => :destroy) }
   it { should belong_to(:fuel) }
 
   describe "last_fueling" do
