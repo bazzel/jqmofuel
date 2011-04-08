@@ -2,10 +2,11 @@
   - if car.last_refueling
     = link_to car do
       %h3= car.to_s
-      %p
-        %strong= fuel_efficiency(car)
-        = "-"
-        = fuel_consumption(car)
+      - if car.more_than_one_refuelings?
+        %p
+          %strong= fuel_efficiency(car)
+          = "-"
+          = fuel_consumption(car)
 
       %p.ui-li-aside= refueling_ago_in_words(car.last_refueling)
     = link_to 'Refuelings', car_refuelings_path(car), :'data-icon' => 'jqmofuel-fuel-station'
