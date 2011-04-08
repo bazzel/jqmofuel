@@ -25,6 +25,7 @@ en:
         fuel_efficiency: Efficiency
         fuel_economy: Economy
         fuel_cost: Cost
+        refuelings: Refuelings
   car:
     refueling_ago_in_words: "%{date} ago"
   cars:

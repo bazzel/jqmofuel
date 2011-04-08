@@ -15,6 +15,7 @@ nl:
         fuel_economy: Verbruik
         fuel_efficiency: Efficiëntie
         last_refueling: "Laatst getankt"
+        refuelings: Tankbeurten
       refueling: 
         amount: Bedrag
         car: Auto
