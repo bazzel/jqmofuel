@@ -268,3 +268,4 @@ nl:
       long: "%d %B %Y %H:%M"
       short: "%d %b %H:%M"
     pm: "'s middags"
+  today: Vandaag

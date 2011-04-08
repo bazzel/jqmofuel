@@ -64,6 +64,13 @@ describe CarsHelper do
   end
 
   describe "refueling_ago_in_words" do
+    it "returns 'Today' if it happened today" do
+      refueling = mock_model(Refueling, :date => Date.today)
+      car = mock_model(Car, :last_refueling => refueling)
+
+      helper.refueling_ago_in_words(car.last_refueling).should eql("Today")
+    end
+
     it "returns time_ago_in_words for date of refueling" do
       refueling = mock_model(Refueling, :date => 3.days.ago.to_date)
       car = mock_model(Car, :last_refueling => refueling)

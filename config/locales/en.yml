@@ -99,3 +99,4 @@ en:
     formats:
       traditional: "%m/%d/%y"
       month-year: "%b., %Y"
+  today: Today
