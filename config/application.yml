@@ -1,0 +1,24 @@
+defaults: &defaults
+  # Amazon S3 data is stored in environment vars.
+  #
+  # 1. You can set these values in the ~/.bashrc for the user:
+  #
+  #   export S3_KEY=mykey
+  #   export S3_SECRET=mysecret
+  #
+  # 2. Or, specify them when running the local server (or any other command, like a rake task) by prepending the shell command:
+  #
+  #   $ S3_KEY=mykey S3_SECRET=mysecret script/server
+  #
+  s3_credentials:
+    access_key_id: <%= ENV['S3_KEY'] %>
+    secret_access_key: <%= ENV['S3_SECRET'] %>
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
