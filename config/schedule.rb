@@ -23,3 +23,9 @@ every :day do
   # Periodically test the Exception Notifier
   command "wget -q http://efueling.nl/test_exception_notifier"
 end
+
+
+every :day do
+  # Backup the database and save it to Amazon S3.
+  rake "rake backup:run trigger='mysql-backup-efueling' RAILS_ENV=production"
+end

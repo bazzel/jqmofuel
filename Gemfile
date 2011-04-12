@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'backup',                   '2.4.5.1' # Currently backup 3 cannot be used with Rails
+gem 'backup',                   :git => 'git://github.com/bazzel/backup', :tag => '2.4.5.1.2' # Currently backup 3 cannot be used with Rails
 gem 'client_side_validations',  '2.9.9' # Client Side Validations for Rails 2.xand 3.x
 gem 'capistrano',               '2.5.19'
 gem 'compass',                  '~>0.10.6'
