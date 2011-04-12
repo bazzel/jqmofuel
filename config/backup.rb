@@ -14,7 +14,6 @@ backup 'mysql-backup-efueling' do
     user        db_config["username"]
     password    db_config["password"]
     database    db_config["database"]
-    skip_tables ['backup', 'tolk_locales', 'tolk_phrases', 'tolk_translations']
   end
 
   storage :s3 do
