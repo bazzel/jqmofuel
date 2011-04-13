@@ -25,7 +25,8 @@ every :day do
 end
 
 
-every :day do
+# every :day do
+every 1.hours do
   # Backup the database and save it to Amazon S3.
   rake 'backup:run trigger="mysql-backup-efueling"'
 end
