@@ -27,5 +27,5 @@ end
 
 every :day do
   # Backup the database and save it to Amazon S3.
-  rake "backup:run trigger='mysql-backup-efueling' RAILS_ENV=production"
+  rake 'backup:run trigger="mysql-backup-efueling"'
 end
