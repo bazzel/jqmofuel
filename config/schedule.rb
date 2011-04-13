@@ -25,8 +25,12 @@ every :day do
 end
 
 
-# every :day do
-every 1.hours do
+every :day do
   # Backup the database and save it to Amazon S3.
+  #
+  # Amazon S3 credentials should be set as environment variables:
+  #   export S3_KEY=mykey
+  #   export S3_SECRET=mysecret
   rake 'backup:run trigger="mysql-backup-efueling"'
+  # => 'cd /var/www/e-fueling/releases/20110413044942 && RAILS_ENV=production rake backup:run trigger="mysql-backup-efueling" --silent'
 end
