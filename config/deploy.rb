@@ -7,7 +7,7 @@ set :whenever_command, "bundle exec whenever"
 require 'whenever/capistrano'
 
 # set :rvm_ruby_string, '1.9.2-p136'
-set :rvm_ruby_string, '1.9.2@jqmofuel'
+set :rvm_ruby_string, '1.9.2-p136@jqmofuel'
 set :rvm_type, :user
 
 # bundler bootstrap
