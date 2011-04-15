@@ -4,7 +4,6 @@ require 'rvm/capistrano'
 
 # See https://github.com/javan/whenever
 set :whenever_command, "bundle exec whenever"
-set :job_template, "bash -l -i -c ':job'" # We need to add -i as an extra option, see https://github.com/javan/whenever/issues/106
 require 'whenever/capistrano'
 
 # set :rvm_ruby_string, '1.9.2-p136'

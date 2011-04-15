@@ -18,6 +18,7 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+set :job_template, "bash -l -i -c ':job'" # We need to add -i as an extra option, see https://github.com/javan/whenever/issues/106
 
 every :day do
   # Periodically test the Exception Notifier
