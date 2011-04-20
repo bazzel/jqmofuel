@@ -55,6 +55,6 @@ Jqmofuel::Application.configure do
 
   config.middleware.use ExceptionNotifier,
       :email_prefix => "[e-fueling #{Rails.env}] ",
-      :sender_address => %{"Exception Notifier" <notifier@#{App.host}>},
+      :sender_address => %{"Exception Notifier" <notifier@efueling.nl>},
       :exception_recipients => %w{patrick.baselier@gmail.com}
 end
