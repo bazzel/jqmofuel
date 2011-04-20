@@ -16,9 +16,12 @@ defaults: &defaults
 
 development:
   <<: *defaults
+  host: localhost:3000
 
 test:
   <<: *defaults
+  host: test.efueling.nl
 
 production:
   <<: *defaults
+  host: efueling.nl

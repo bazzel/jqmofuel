@@ -27,11 +27,6 @@ module JqueryMobileHelper
   end
 
   def jqm_footer(active = nil)
-
-    html_options = {
-      :'data-ajax' => false
-    }
-
     list_items = content_tag(:li, link_to_refueling(active))
     list_items << content_tag(:li, link_to_cars(active))
     list_items << content_tag(:li, link_to_my_info(active))

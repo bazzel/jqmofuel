@@ -39,6 +39,12 @@ X. Validation
   the entered data remains.
   Since we're using jquery mobile 1.0a3 it might be fixed in future versions.
 
+== Roadmap
+  Make 'volume', 'currency' and 'mileage' units configurable
+  Add data of equivalent cars to charts
+  Send localized 'forgot password' mail
+
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create

@@ -52,4 +52,9 @@ Jqmofuel::Application.configure do
   ActionMailer::Base.smtp_settings = {
     :enable_starttls_auto => false
   }
+
+  config.middleware.use ExceptionNotifier,
+      :email_prefix => "[e-fueling #{Rails.env}] ",
+      :sender_address => %{"Exception Notifier" <notifier@#{App.host}>},
+      :exception_recipients => %w{patrick.baselier@gmail.com}
 end

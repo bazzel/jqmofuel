@@ -8,5 +8,8 @@
     = f.email_field :email, :placeholder => User.human_attribute_name("email"), :class => "required"
     = f.password_field :password, :placeholder => User.human_attribute_name("password"), :class => "required"
 
-    = f.submit t('buttons.sign_in')
+    = f.submit t('buttons.sign_in'), :'data-theme' => 'a'
   = link_to t('buttons.create_account'), new_registration_path(resource_name), :'data-role' => "button", :'data-transition' => "flip"
+
+  - if devise_mapping.recoverable?
+    = link_to t('buttons.forgot_password'), new_password_path(resource_name), :'data-role' => "button", :'data-transition' => "flip"

@@ -47,9 +47,5 @@ module Jqmofuel
       g.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
 
-    config.middleware.use ExceptionNotifier,
-        :email_prefix => "[e-fueling #{Rails.env}] ",
-        :sender_address => %{"Exception Notifier" <notifier@efueling.nl>},
-        :exception_recipients => %w{patrick.baselier@gmail.com}
   end
 end
