@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110408214305) do
+ActiveRecord::Schema.define(:version => 20110423102151) do
 
   create_table "backup", :force => true do |t|
     t.string   "trigger"
@@ -48,6 +48,23 @@ ActiveRecord::Schema.define(:version => 20110408214305) do
 
   create_table "fuels", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mileage_translations", :force => true do |t|
+    t.integer  "mileage_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mileage_translations", ["mileage_id"], :name => "index_mileage_translations_on_mileage_id"
+
+  create_table "mileages", :force => true do |t|
+    t.string   "name"
+    t.string   "unit"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -106,6 +123,7 @@ ActiveRecord::Schema.define(:version => 20110408214305) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "locale"
+    t.integer  "mileage_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

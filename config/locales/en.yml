@@ -13,6 +13,7 @@ en:
         password: Password
         password_confirmation: Repeat
         current_password: Current password
+        mileage: Mileage
       refueling:
         mileage: Mileage
         liter: Liters
@@ -80,17 +81,17 @@ en:
     cent: c
   charts:
     fuel_efficiency:
-      title: "Fuel efficiency (%{kilometer}/%{liter})"
+      title: "Fuel efficiency (%{mileage}/%{liter})"
       legend:
         - "Fuel efficiency"
         - "Moving fuel efficiency"
     fuel_consumption:
-      title: "Fuel consumption (%{liter}/100 %{kilometer})"
+      title: "Fuel consumption (%{liter}/100 %{mileage})"
       legend:
         - "Fuel consumption"
         - "Moving fuel consumption"
     fuel_cost:
-      title: "Fuel cost (c/%{kilometer})"
+      title: "Fuel cost (c/%{mileage})"
       legend:
         - "Fuel cost"
         - "Moving fuel cost"

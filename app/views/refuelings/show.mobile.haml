@@ -16,6 +16,6 @@
         .ui-li-aside= number_to_currency(@refueling.amount)
       %li
         = Refueling.human_attribute_name("mileage")
-        .ui-li-aside= "#{number_with_delimiter(@refueling.mileage)} #{t('abbr.kilometer')}"
+        .ui-li-aside= "#{number_with_delimiter(@refueling.mileage)} #{current_user.mileage.unit}"
 
 = jqm_footer(:cars)

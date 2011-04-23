@@ -2,9 +2,13 @@
   %h1 Create Account
 
 = jqm_content do
-  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validations => true) do |f|
+  = form_for(User.new_default, :url => registration_path(resource_name), :validations => true) do |f|
     = render "shared/error_messages", :target => resource
     = f.email_field :email, :placeholder => "Email"
     = f.password_field :password, :placeholder => "Password"
     = f.password_field :password_confirmation, :placeholder => "Repeat"
+    %div{ :'data-role' => "fieldcontain" }
+      = f.label :mileage
+      = f.collection_select :mileage_id, Mileage.all, :id, :name
+
     = f.submit "Sign Up"

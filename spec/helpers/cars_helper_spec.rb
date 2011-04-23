@@ -11,9 +11,16 @@ require 'spec_helper'
 #   end
 # end
 describe CarsHelper do
+  before(:each) do
+    @current_user = mock_model(User)
+    controller.stub(:current_user).and_return(@current_user)
+    @kilometer = mock_model(Mileage, :unit => 'km', :name => 'kilometer')
+    @mile = mock_model(Mileage, :unit => 'mi', :name => 'mile')
+  end
 
   describe "fuel_efficiency" do
     it "returns 1:x (L:km)" do
+      @current_user.stub(:mileage).and_return(@kilometer)
       car = mock_model(Car, :fuel_efficiency => 20)
       helper.fuel_efficiency(car).should eql("1:20.0 (L:km)")
     end
@@ -27,10 +34,17 @@ describe CarsHelper do
       helper.fuel_efficiency(car).should be_nil
     end
 
+    it "returns user's preference for mileage" do
+      @current_user.stub(:mileage).and_return(@mile)
+      car = mock_model(Car, :fuel_efficiency => 20)
+
+      helper.fuel_efficiency(car).should eql("1:20.0 (L:mi)")
+    end
   end
 
   describe "fuel_consumption" do
     it "returns 5.5 (L/100 km)" do
+      @current_user.stub(:mileage).and_return(@kilometer)
       car = mock_model(Car, :fuel_consumption => 5.5)
       helper.fuel_consumption(car).should eql("5.5 (L/100 km)")
     end
@@ -44,6 +58,12 @@ describe CarsHelper do
       helper.fuel_consumption(car).should be_nil
     end
 
+    it "returns user's preference for mileage" do
+      @current_user.stub(:mileage).and_return(@mile)
+      car = mock_model(Car, :fuel_consumption => 5.5)
+
+      helper.fuel_consumption(car).should eql("5.5 (L/100 mi)")
+    end
   end
 
   describe "fuel_cost" do

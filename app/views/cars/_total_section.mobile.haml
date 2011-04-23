@@ -8,7 +8,7 @@
 
       %li.numbers= "#{car.refuelings.count} x"
       %li.numbers= number_to_currency(car.refuelings.sum(:amount))
-      %li.numbers= "#{number_with_delimiter(car.total_mileage)} #{t('abbr.kilometer')}"
+      %li.numbers= "#{number_with_delimiter(car.total_mileage)} #{current_user.mileage.unit}"
       %li.numbers= "#{number_with_delimiter(car.total_liter)} #{t('abbr.liter')}"
 
   %div{ :'data-role' => "collapsible", :'data-collapsed' => "true" }
@@ -16,7 +16,7 @@
       = t(:'cars.show.per_day')
     %ul{ :'data-role' => "listview", :'data-inset' => "true" }
       %li.numbers= number_to_currency(car.amount_per_day)
-      %li.numbers= "#{number_with_delimiter(car.mileage_per_day)} #{t('abbr.kilometer')}"
+      %li.numbers= "#{number_with_delimiter(car.mileage_per_day)} #{current_user.mileage.unit}"
       %li.numbers= "#{number_with_delimiter(car.liter_per_day)} #{t('abbr.liter')}"
 
   %div{ :'data-role' => "collapsible", :'data-collapsed' => "true" }
@@ -24,7 +24,7 @@
       = t(:'cars.show.per_month')
     %ul{ :'data-role' => "listview", :'data-inset' => "true" }
       %li.numbers= number_to_currency(car.amount_per_month)
-      %li.numbers= "#{number_with_delimiter(car.mileage_per_month)} #{t('abbr.kilometer')}"
+      %li.numbers= "#{number_with_delimiter(car.mileage_per_month)} #{current_user.mileage.unit}"
       %li.numbers= "#{number_with_delimiter(car.liter_per_month)} #{t('abbr.liter')}"
 
   %div{ :'data-role' => "collapsible", :'data-collapsed' => "true" }
@@ -32,5 +32,5 @@
       = t(:'cars.show.per_year')
     %ul{ :'data-role' => "listview", :'data-inset' => "true" }
       %li.numbers= number_to_currency(car.amount_per_year)
-      %li.numbers= "#{number_with_delimiter(car.mileage_per_year.to_i)} #{t('abbr.kilometer')}"
+      %li.numbers= "#{number_with_delimiter(car.mileage_per_year.to_i)} #{current_user.mileage.unit}"
       %li.numbers= "#{number_with_delimiter(car.liter_per_year.to_i)} #{t('abbr.liter')}"

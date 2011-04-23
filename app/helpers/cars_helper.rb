@@ -3,13 +3,13 @@ module CarsHelper
   # 1:x (L:km)
   def fuel_efficiency(car)
     if car && car.fuel_efficiency
-      "1:#{number_with_precision(car.fuel_efficiency, :precision => 1)} (#{t('abbr.liter')}:#{t('abbr.kilometer')})"
+      "1:#{number_with_precision(car.fuel_efficiency, :precision => 1)} (#{t('abbr.liter')}:#{mileage_unit})"
     end
   end
 
   def fuel_consumption(car)
     if car && car.fuel_consumption
-      "#{number_with_precision(car.fuel_consumption, :precision => 1)} (#{t('abbr.liter')}/100 #{t('abbr.kilometer')})"
+      "#{number_with_precision(car.fuel_consumption, :precision => 1)} (#{t('abbr.liter')}/100 #{mileage_unit})"
     end
   end
 
@@ -29,4 +29,5 @@ module CarsHelper
       end
     end
   end
+
 end

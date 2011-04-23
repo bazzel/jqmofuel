@@ -6,6 +6,7 @@ class Car < ActiveRecord::Base
 
   # == Associations
   has_many :refuelings, :dependent => :destroy
+  belongs_to :user
   belongs_to :fuel
 
   def to_s

@@ -6,4 +6,9 @@ module ApplicationHelper
     pairs = Locale::MAPPING.to_a.map(&:reverse).sort_by(&:first)
     pairs.select {|pair| existing_locale_names.include?(pair.last) }
   end
+
+  private
+    def mileage_unit
+      current_user.mileage.unit
+    end
 end

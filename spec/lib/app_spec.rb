@@ -9,7 +9,7 @@ describe App do
 
   describe "host" do
     it "should return host name" do
-      App.host.should eql('test.e-fueling.nl')
+      App.host.should eql('test.efueling.nl')
     end
   end
 end

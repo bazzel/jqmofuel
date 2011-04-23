@@ -25,6 +25,7 @@ nl:
       user: 
         current_password: "Huidig wachtwoord"
         email: Email
+        mileage: Kilometerstand
         password: Wachtwoord
         password_confirmation: "Herhaal wachtwoord"
     errors: 
@@ -42,9 +43,11 @@ nl:
     create_account: "Een account maken"
     delete: Verwijderen
     edit: Bewerken
+    forgot_password: "Wachtwoord vergeten"
     next: Volgende
     previous: Vorige
     save: Opslaan
+    send_reset_password_instruction: Versturen
     sign_in: Aanmelden
     sign_out: Afmelden
     update: Bijwerken
@@ -69,17 +72,17 @@ nl:
       legend: 
         - Verbruik
         - "Voortschrijdend verbruik"
-      title: "Brandstofverbruik (%{liter}/100 %{kilometer})"
+      title: "Brandstofverbruik (%{liter}/100 %{mileage})"
     fuel_cost: 
       legend: 
         - Brandstofkosten
         - "Gemiddelde brandstofkosten"
-      title: "Brandstofkosten (c/%{kilometer})"
+      title: "Brandstofkosten (c/%{mileage})"
     fuel_efficiency: 
       legend: 
         - Verbruik
         - "Voortschrijdend verbruik"
-      title: "Brandstofefficiëntie (%{kilometer}/%{liter})"
+      title: "Brandstofefficiëntie (%{mileage}/%{liter})"
   date: 
     abbr_day_names: 
       - zon

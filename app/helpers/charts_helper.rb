@@ -11,7 +11,7 @@ module ChartsHelper
       :max_value        => (fuel_efficiency + moving_fuel_efficiency).max*1.05,
       :min_value        => (fuel_efficiency + moving_fuel_efficiency).min/1.05,
       :line_colors      => "F7A10A,4582E7",
-      :title            => t('charts.fuel_efficiency.title', :kilometer => t('abbr.kilometer'), :liter => t('abbr.liter')),
+      :title            => t('charts.fuel_efficiency.title', :mileage => mileage_unit, :liter => t('abbr.liter')),
       :legend           => t('charts.fuel_efficiency.legend'),
       :bg               => {
         :color => 'ECECEC,0,E5E5E5,1',
@@ -37,7 +37,7 @@ module ChartsHelper
       :max_value        => (fuel_consumption + moving_fuel_consumption).max*1.05,
       :min_value        => (fuel_consumption + moving_fuel_consumption).min/1.05,
       :line_colors      => "F7A10A,4582E7",
-      :title            => t('charts.fuel_consumption.title', :kilometer => t('abbr.kilometer'), :liter => t('abbr.liter')),
+      :title            => t('charts.fuel_consumption.title', :mileage => mileage_unit, :liter => t('abbr.liter')),
       :legend           => t('charts.fuel_consumption.legend'),
       :bg               => {
         :color => 'ECECEC,0,E5E5E5,1',
@@ -63,7 +63,7 @@ module ChartsHelper
       :max_value        => (fuel_cost + moving_fuel_cost).max*1.05,
       :min_value        => (fuel_cost + moving_fuel_cost).min/1.05,
       :line_colors      => "F7A10A,4582E7",
-      :title            => t('charts.fuel_cost.title', :kilometer => t('abbr.kilometer')),
+      :title            => t('charts.fuel_cost.title', :mileage => mileage_unit),
       :legend           => t('charts.fuel_cost.legend'),
       :bg               => {
         :color => 'ECECEC,0,E5E5E5,1',

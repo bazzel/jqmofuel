@@ -23,3 +23,17 @@
     f.name = fuel.last
     f.save
   end
+
+  mileages = {
+    :km => ["kilometre", "kilometer"],
+    :mi => ["mile", "mijl"]
+  }
+
+  mileages.each do |unit, name|
+    I18n.locale = 'en'
+    f = Mileage.find_or_initialize_by_unit(unit.to_s)
+    f.name = name.first
+    I18n.locale = 'nl'
+    f.name = name.last
+    f.save
+  end

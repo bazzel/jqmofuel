@@ -11,6 +11,6 @@ class CreateFuels < ActiveRecord::Migration
 
   def self.down
     drop_table :fuels
-    # Fuel.drop_translation_table!
+    Fuel.drop_translation_table!
   end
 end
