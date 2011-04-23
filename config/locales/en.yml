@@ -65,7 +65,8 @@ en:
     previous: Previous
     next: Next
     charts: Charts
-    send_reset_password_instruction: Instruct me
+    send_reset_password_instruction: Submit
+    forgot_password: Forgot Password
   footer:
     refueling: Refueling
     cars: Cars
