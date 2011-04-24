@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110423102151) do
+ActiveRecord::Schema.define(:version => 20110424172317) do
 
   create_table "backup", :force => true do |t|
     t.string   "trigger"
@@ -124,9 +124,28 @@ ActiveRecord::Schema.define(:version => 20110423102151) do
     t.datetime "updated_at"
     t.string   "locale"
     t.integer  "mileage_id"
+    t.integer  "volume_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "volume_translations", :force => true do |t|
+    t.integer  "volume_id"
+    t.string   "locale"
+    t.string   "unit"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "volume_translations", ["volume_id"], :name => "index_volume_translations_on_volume_id"
+
+  create_table "volumes", :force => true do |t|
+    t.string   "unit"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

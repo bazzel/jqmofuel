@@ -20,14 +20,16 @@ nl:
         amount: Bedrag
         car: Auto
         date: Datum
-        liter: Liters
+        liter: Volume
         mileage: Kilometerstand
       user: 
         current_password: "Huidig wachtwoord"
         email: Email
+        locale: Taal
         mileage: Kilometerstand
         password: Wachtwoord
         password_confirmation: "Herhaal wachtwoord"
+        volume: Volume
     errors: 
       messages: 
         record_invalid: "Validatie mislukt: %{errors}"
@@ -72,7 +74,7 @@ nl:
       legend: 
         - Verbruik
         - "Voortschrijdend verbruik"
-      title: "Brandstofverbruik (%{liter}/100 %{mileage})"
+      title: "Brandstofverbruik (%{volume}/100 %{mileage})"
     fuel_cost: 
       legend: 
         - Brandstofkosten
@@ -82,7 +84,7 @@ nl:
       legend: 
         - Verbruik
         - "Voortschrijdend verbruik"
-      title: "Brandstofefficiëntie (%{mileage}/%{liter})"
+      title: "Brandstofefficiëntie (%{mileage}/%{volume})"
   date: 
     abbr_day_names: 
       - zon

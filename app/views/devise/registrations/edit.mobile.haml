@@ -11,10 +11,15 @@
       = f.password_field :password_confirmation, :placeholder => User.human_attribute_name("password_confirmation")
       = f.password_field :current_password, :placeholder => User.human_attribute_name("current_password"), :class => "required"
 
+    %div{ :'data-role' => "fieldcontain" }
+      = f.label :locale
       = f.select :locale, options_for_select(locale_selection, I18n.locale)
 
       = f.label :mileage
-      = f.collection_select :mileage_id, Mileage.all, :id, :name, :prompt => t(:'.mileage_prompt')
+      = f.collection_select :mileage_id, Mileage.all, :id, :name
+
+      = f.label :volume
+      = f.collection_select :volume_id, Volume.all, :id, :name
 
     = f.submit t('buttons.update')
 

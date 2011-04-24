@@ -13,9 +13,10 @@ class Refueling < ActiveRecord::Base
   validates_numericality_of :mileage, :greater_than => 0
 
   belongs_to :car
+  belongs_to :user
 
   def to_s
-    "#{number_with_delimiter(liter_was)} #{I18n.t('abbr.liter')} - #{number_to_currency(amount_was)}"
+    "#{number_with_delimiter(liter_was)} #{user.volume.unit} - #{number_to_currency(amount_was)}"
   end
 
   def description

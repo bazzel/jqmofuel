@@ -16,6 +16,12 @@ describe CarsHelper do
     controller.stub(:current_user).and_return(@current_user)
     @kilometer = mock_model(Mileage, :unit => 'km', :name => 'kilometer')
     @mile = mock_model(Mileage, :unit => 'mi', :name => 'mile')
+
+    @gallon = mock_model(Volume, :unit => 'gal', :name => 'gallon')
+    @litre = mock_model(Volume, :unit => 'L', :name => 'litre')
+
+    @current_user.stub(:mileage).and_return(@kilometer)
+    @current_user.stub(:volume).and_return(@litre)
   end
 
   describe "fuel_efficiency" do
@@ -39,6 +45,13 @@ describe CarsHelper do
       car = mock_model(Car, :fuel_efficiency => 20)
 
       helper.fuel_efficiency(car).should eql("1:20.0 (L:mi)")
+    end
+
+    it "returns user's preference for volume" do
+      @current_user.stub(:volume).and_return(@gallon)
+      car = mock_model(Car, :fuel_efficiency => 20)
+
+      helper.fuel_efficiency(car).should eql("1:20.0 (gal:km)")
     end
   end
 
@@ -64,6 +77,13 @@ describe CarsHelper do
 
       helper.fuel_consumption(car).should eql("5.5 (L/100 mi)")
     end
+
+    it "returns user's preference for volume" do
+      @current_user.stub(:volume).and_return(@gallon)
+      car = mock_model(Car, :fuel_consumption => 5.5)
+
+      helper.fuel_consumption(car).should eql("5.5 (gal/100 km)")
+    end
   end
 
   describe "fuel_cost" do
@@ -81,6 +101,12 @@ describe CarsHelper do
       helper.fuel_cost(car).should be_nil
     end
 
+    it "returns user's preference for volume" do
+      @current_user.stub(:volume).and_return(@gallon)
+      car = mock_model(Car, :fuel_cost => 8.5)
+
+      helper.fuel_cost(car).should eql("8.5 c/gal")
+    end
   end
 
   describe "refueling_ago_in_words" do

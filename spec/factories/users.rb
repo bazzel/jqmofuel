@@ -5,5 +5,6 @@ Factory.define :user do |f|
   f.email 'john@example.com'
   f.password password
   f.password_confirmation password
-  f.mileage { |c| c.association(:mileage)}
+  f.mileage { |m| m.association(:mileage)}
+  f.volume { |v| v.association(:volume)}
 end

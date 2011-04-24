@@ -3,19 +3,19 @@ module CarsHelper
   # 1:x (L:km)
   def fuel_efficiency(car)
     if car && car.fuel_efficiency
-      "1:#{number_with_precision(car.fuel_efficiency, :precision => 1)} (#{t('abbr.liter')}:#{mileage_unit})"
+      "1:#{number_with_precision(car.fuel_efficiency, :precision => 1)} (#{volume_unit}:#{mileage_unit})"
     end
   end
 
   def fuel_consumption(car)
     if car && car.fuel_consumption
-      "#{number_with_precision(car.fuel_consumption, :precision => 1)} (#{t('abbr.liter')}/100 #{mileage_unit})"
+      "#{number_with_precision(car.fuel_consumption, :precision => 1)} (#{volume_unit}/100 #{mileage_unit})"
     end
   end
 
   def fuel_cost(car)
     if car && car.fuel_cost
-      "#{number_with_precision(car.fuel_cost, :precision => 1)} #{t('abbr.cent')}/#{t('abbr.liter')}"
+      "#{number_with_precision(car.fuel_cost, :precision => 1)} #{t('abbr.cent')}/#{volume_unit}"
     end
   end
 

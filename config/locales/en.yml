@@ -14,9 +14,11 @@ en:
         password_confirmation: Repeat
         current_password: Current password
         mileage: Mileage
+        locale: Language
+        volume: Volume
       refueling:
         mileage: Mileage
-        liter: Liters
+        liter: Volume
         amount: Amount
         date: Date
         car: Car
@@ -81,12 +83,12 @@ en:
     cent: c
   charts:
     fuel_efficiency:
-      title: "Fuel efficiency (%{mileage}/%{liter})"
+      title: "Fuel efficiency (%{mileage}/%{volume})"
       legend:
         - "Fuel efficiency"
         - "Moving fuel efficiency"
     fuel_consumption:
-      title: "Fuel consumption (%{liter}/100 %{mileage})"
+      title: "Fuel consumption (%{volume}/100 %{mileage})"
       legend:
         - "Fuel consumption"
         - "Moving fuel consumption"

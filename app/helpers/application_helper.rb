@@ -11,4 +11,8 @@ module ApplicationHelper
     def mileage_unit
       current_user.mileage.unit
     end
+
+    def volume_unit
+      current_user.volume.unit
+    end
 end

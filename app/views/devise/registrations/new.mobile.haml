@@ -10,5 +10,8 @@
     %div{ :'data-role' => "fieldcontain" }
       = f.label :mileage
       = f.collection_select :mileage_id, Mileage.all, :id, :name
+    %div{ :'data-role' => "fieldcontain" }
+      = f.label :volume
+      = f.collection_select :volume_id, Volume.all, :id, :name
 
     = f.submit "Sign Up"

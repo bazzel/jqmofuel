@@ -7,14 +7,28 @@ describe Refueling do
   it { should validate_presence_of(:amount) }
   it { should validate_presence_of(:car) }
 
-  it { should validate_numericality_of(:liter, :greater_than => 0)}
-  it { should validate_numericality_of(:amount, :greater_than => 0)}
-  it { should validate_numericality_of(:mileage, :greater_than => 0)}
+  it { should validate_numericality_of(:liter, :greater_than => 0) }
+  it { should validate_numericality_of(:amount, :greater_than => 0) }
+  it { should validate_numericality_of(:mileage, :greater_than => 0) }
+
+  it { should belong_to(:car) }
+  it { should belong_to(:user) }
 
   describe "to_s" do
+    before(:each) do
+      @refueling = Factory(:refueling, :date => Date.parse('31-12-2004'), :liter => 20.5, :amount => 35.75)
+    end
     it "returns liters and amount" do
-      refueling = Factory(:refueling, :date => Date.parse('31-12-2004'), :liter => 20.5, :amount => 35.75)
-      refueling.to_s.should eql("20.5 L - $35.75")
+      @current_user = mock_model(User, :volume => mock_model(Volume, :unit => 'L'))
+      @refueling.stub(:user).and_return(@current_user)
+      @refueling.to_s.should eql("20.5 L - $35.75")
+    end
+
+    it "returns volume in user's preference" do
+      @current_user = mock_model(User, :volume => mock_model(Volume, :unit => 'gal'))
+      @refueling.stub(:user).and_return(@current_user)
+
+      @refueling.to_s.should eql("20.5 gal - $35.75")
     end
   end
 

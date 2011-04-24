@@ -8,7 +8,6 @@ class CreateMileages < ActiveRecord::Migration
     end
 
     Mileage.create_translation_table! :name => :string
-
   end
 
   def self.down

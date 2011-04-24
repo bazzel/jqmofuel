@@ -6,6 +6,8 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
+  # Begin: Fuel
+  #
   fuels = [
     ["Gasoline", "Benzine"],
     ["Diesel", "Diesel"],
@@ -23,7 +25,11 @@
     f.name = fuel.last
     f.save
   end
+  #
+  # End: Fuel
 
+  # Begin: Mileage
+  #
   mileages = {
     :km => ["kilometre", "kilometer"],
     :mi => ["mile", "mijl"]
@@ -37,3 +43,33 @@
     f.name = name.last
     f.save
   end
+  #
+  # End: Mileage
+
+  # Begin: Volume
+  #
+  volumes = {
+    :l => {
+      :en => ['L', 'litre'],
+      :nl => ['l', 'liter']
+    },
+    :gal => {
+      :en => ['gal', "gallon"],
+      :nl => ['gal', "gallon"]
+    }
+  }
+
+  volumes.each do |unit, record|
+    I18n.locale = 'en'
+    volume = Volume.find_or_initialize_by_unit(unit.to_s)
+
+    record.each do |locale, attrs|
+      I18n.locale = locale.to_s
+      volume.unit = attrs.first
+      volume.name = attrs.last
+    end
+
+    volume.save
+  end
+  #
+  # End: Volume

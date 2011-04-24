@@ -7,7 +7,7 @@
 
   %div{ :'data-role' => "fieldcontain" }
     = f.number_field :mileage, :placeholder => "#{Refueling.human_attribute_name("mileage")} (#{current_user.mileage.unit})", :class => "integers"
-    = f.number_field :liter, :placeholder => Refueling.human_attribute_name("liter"), :class => "decimals"
+    = f.number_field :liter, :placeholder => "#{Refueling.human_attribute_name("liter")} (#{current_user.volume.unit})", :class => "decimals"
     = f.number_field :amount, :placeholder => Refueling.human_attribute_name("amount"), :class => "decimals"
     - if current_user.cars.size > 1
       = f.collection_select :car_id, current_user.cars, :id, :brand, {:prompt => t(:'.car_prompt')}
