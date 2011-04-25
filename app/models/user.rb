@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   # == Associations
   has_many :cars, :dependent => :destroy
-  has_many :refuelings
+  has_many :refuelings, :through => :cars
   belongs_to :mileage
   belongs_to :volume
 

@@ -12,7 +12,16 @@ describe Refueling do
   it { should validate_numericality_of(:mileage, :greater_than => 0) }
 
   it { should belong_to(:car) }
-  it { should belong_to(:user) }
+
+  describe "user" do
+    it "delegates user to car" do
+      @user = mock_model(User)
+      @car = Factory(:car, :user => @user)
+      @refueling = Factory(:refueling, :car => @car)
+
+      @refueling.user.should eql(@user)
+    end
+  end
 
   describe "to_s" do
     before(:each) do
@@ -31,6 +40,7 @@ describe Refueling do
       @refueling.to_s.should eql("20.5 gal - $35.75")
     end
   end
+
 
   describe "predecessor" do
     before(:each) do

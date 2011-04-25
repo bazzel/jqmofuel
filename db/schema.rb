@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110424172317) do
+ActiveRecord::Schema.define(:version => 20110425141347) do
 
   create_table "backup", :force => true do |t|
     t.string   "trigger"
@@ -77,10 +77,7 @@ ActiveRecord::Schema.define(:version => 20110424172317) do
     t.integer  "car_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
-
-  add_index "refuelings", ["user_id"], :name => "index_refuelings_on_user_id"
 
   create_table "tolk_locales", :force => true do |t|
     t.string   "name"
