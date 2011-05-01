@@ -67,6 +67,13 @@ describe CarsController do
         do_get
         assigns(:car).should be(@car)
       end
+
+      it "assigns all fuels as @fuels" do
+        @fuels = Fuel.all
+        Fuel.should_receive(:all).and_return(@fuels)
+        do_get
+        assigns(:fuels).should eql(@fuels)
+      end
     end
   end
 
@@ -152,6 +159,14 @@ describe CarsController do
         do_get
         assigns(:car).should be(@car)
       end
+
+      it "assigns all fuels as @fuels" do
+        @fuels = Fuel.all
+        Fuel.should_receive(:all).and_return(@fuels)
+        do_get
+        assigns(:fuels).should eql(@fuels)
+      end
+
     end
   end
 

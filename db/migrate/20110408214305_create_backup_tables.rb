@@ -8,7 +8,7 @@ class CreateBackupTables < ActiveRecord::Migration
       t.string :path
       t.string :bucket
       t.string :type
-      t.timestamps          
+      t.timestamps
     end
   end
 

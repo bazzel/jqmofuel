@@ -21,6 +21,7 @@ group :development do
   gem 'haml-rails',               '0.3.4'       # Haml generators for Rails 3
   gem 'hpricot',                  '0.8.4'       # Needed to run html2haml
   gem 'mongrel',                  '1.2.0.pre2'  # Need this version when running Ruby 1.9.2
+  gem 'rails_best_practices',     '0.8.2'     # a code metric tool for rails codes, written in Ruby
   gem 'rails3-generators',        '0.17.4'    # Rails 3 compatible generators for DataMapper,
                                                 # Factory-girl, Authlogic, Mongomapper, Mongoid,
                                                 # Shoulda, Formtastic, SimpleForm and Fabrication
