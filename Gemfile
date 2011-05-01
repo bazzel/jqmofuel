@@ -7,7 +7,7 @@ gem 'compass',                  '0.10.6'
 gem 'devise',                   '1.2.1'
 gem 'exception_notification',   '2.4.0', :require => 'exception_notifier' # Exception notification by email for Rails apps
 gem 'globalize3',               '0.0.11' # de-facto standard library for ActiveRecord 3 model/data translation.
-gem 'googlecharts',             '1.6.1'   # Generate charts using Google API & Ruby
+gem 'googlecharts',             '1.6.2'   # Generate charts using Google API & Ruby
 gem 'haml',                     '3.0.25'
 gem 'i18n-js',                  '1.0.0' # small library to provide the Rails I18n translations on the Javascript.
 gem 'jquery-rails',             '0.2.7' # Rails generator to install jQuery and the jQuery-ujs driver into your Rails 3 application,
