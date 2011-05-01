@@ -13,7 +13,7 @@ gem 'i18n-js',                  '1.0.0' # small library to provide the Rails I18
 gem 'jquery-rails',             '0.2.7' # Rails generator to install jQuery and the jQuery-ujs driver into your Rails 3 application,
                                           # and then have them included automatically instead of Prototype.
 gem 'mysql2',                   '0.2.6'
-gem 'rails',                    '3.0.6'
+gem 'rails',                    '3.0.7'
 gem 'whenever',                 '0.6.7', :require => false # Clean ruby syntax for writing and deploying cron jobs.
 
 group :development do
