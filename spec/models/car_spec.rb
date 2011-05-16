@@ -5,11 +5,43 @@ describe Car do
     @car = Factory(:car)
   end
 
-  it { should validate_presence_of(:brand) }
   it { should have_many(:refuelings, :dependent => :destroy) }
   it { should belong_to(:user) }
   it { should belong_to(:fuel) }
+  it { should belong_to(:mileage) }
 
+  it { should validate_presence_of(:brand) }
+  it { should validate_presence_of(:mileage) }
+
+  describe "#new_default" do
+    describe "mileage" do
+      before(:each) do
+        @mileage = Factory(:mileage, :unit => 'foo', :name => 'foo')
+        Mileage.stub(:find_by_unit).with('km').and_return(@mileage)
+      end
+
+      it "should set mileage if not provided" do
+        car = Car.new_default
+        car.mileage.should eql(@mileage)
+      end
+
+      it "should use provided mileage" do
+        mileage = Factory(:mileage, :unit => 'bar', :name => 'bar')
+        car = Car.new_default(:mileage => mileage)
+
+        car.mileage.should eql(mileage)
+      end
+
+      it "should use provided mileage_id" do
+        mileage = Factory(:mileage, :unit => 'bar', :name => 'bar')
+        car = Car.new_default(:mileage_id => mileage.id)
+
+        car.mileage.should eql(mileage)
+      end
+
+    end
+  end
+  
   describe "last_fueling" do
     it "returns nil if refuelings are empty" do
       @car.last_refueling.should be_nil
@@ -341,27 +373,17 @@ describe Car do
 
   describe "to_s" do
     it "returns brand and model joined" do
-      car = Factory(:car, :brand => "Opel", :car_model => "Zafira")
-      car.to_s.should eql("Opel Zafira")
-    end
-
-    it "returns brand only if no model entered" do
-      car = Factory(:car, :brand => "Opel", :car_model => nil)
-      car.to_s.should eql("Opel")
+      @car.to_s.should eql("#{@car.brand} #{@car.car_model}")
     end
 
     it "returns previous brand if validation fails" do
-      car = Factory(:car, :brand => "Opel", :car_model => "Zafira")
-      car.brand = nil
-      car.to_s.should eql("Opel Zafira")
+      brand = @car.brand
+      @car.brand = nil
+      @car.to_s.should eql("#{brand} #{@car.car_model}")
     end
   end
 
   describe "more_than_one_refuelings?" do
-    before(:each) do
-      @car = Factory(:car)
-    end
-
     it "returns false if there are 0 refuelings" do
       @car.more_than_one_refuelings?.should be_false
     end
@@ -380,10 +402,6 @@ describe Car do
   end
 
   describe "relevant_refuelings" do
-    before(:each) do
-      @car = Factory(:car)
-    end
-
     it "returns an empty array if there are 0 refuelings" do
       @car.relevant_refuelings.should eql([])
     end

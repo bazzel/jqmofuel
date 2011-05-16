@@ -15,9 +15,6 @@
       = f.label :locale
       = f.select :locale, options_for_select(locale_selection, I18n.locale)
 
-      = f.label :mileage
-      = f.collection_select :mileage_id, Mileage.all, :id, :name
-
       = f.label :volume
       = f.collection_select :volume_id, Volume.all, :id, :name
 

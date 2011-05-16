@@ -3,11 +3,13 @@ class Car < ActiveRecord::Base
 
   # == Validations
   validates_presence_of :brand
+  validates_presence_of :mileage
 
   # == Associations
   has_many :refuelings, :dependent => :destroy
   belongs_to :user
   belongs_to :fuel
+  belongs_to :mileage
 
   def to_s
     [brand_was, car_model_was].join(" ").rstrip
@@ -113,6 +115,17 @@ class Car < ActiveRecord::Base
     end
   end
   memoize :relevant_refuelings
+
+  class << self
+    def new_default(attrs={})
+      # # Accept :mileage as attributes key,
+      # # but use :mileage_id internally.
+      mileage = attrs.delete(:mileage)
+      attrs[:mileage_id] ||= mileage ? mileage.id : Mileage.find_by_unit('km').id
+
+      new(attrs)
+    end
+  end
 
   private
     def number_of_days

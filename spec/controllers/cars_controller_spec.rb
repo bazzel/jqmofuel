@@ -9,6 +9,7 @@ describe CarsController do
     @car = mock_model(Car)
     @cars = [@car]
     @cars.stub(:build).and_return(@car)
+    @cars.stub(:new_default).and_return(@car)
     @cars.stub(:find).and_return(@car)
 
     @current_user.stub(:cars).and_return(@cars)
@@ -63,7 +64,7 @@ describe CarsController do
 
       it "assigns a new car as @car" do
         @current_user.should_receive(:cars).and_return(@cars)
-        @cars.should_receive(:build).and_return(@car)
+        @cars.should_receive(:new_default).and_return(@car)
         do_get
         assigns(:car).should be(@car)
       end

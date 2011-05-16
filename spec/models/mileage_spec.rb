@@ -3,8 +3,11 @@ require 'spec_helper'
 describe Mileage do
   it { should validate_presence_of(:unit) }
   it { should validate_presence_of(:name) }
-  it { Factory(:mileage); should validate_uniqueness_of(:unit) }
-  it { Factory(:mileage); should validate_uniqueness_of(:name) }
+
+  describe "validations" do
+    it { should validate_uniqueness_of(:unit) }
+    it { should validate_uniqueness_of(:name) }
+  end
 
   describe "globalize" do
     it "translates name" do

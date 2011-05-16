@@ -41,9 +41,12 @@ X. Validation
 
 == Roadmap
   Make 'volume', 'currency' and 'mileage' units configurable
+  Make 'mileage' also property of user for display preferences
+  Convert volume, mileage and amount to SI units and EUR
+  Make app more attractive to users with less than 2 refuelings
   Add data of equivalent cars to charts
   Send localized 'forgot password' mail
-
+  
 
 == Welcome to Rails
 

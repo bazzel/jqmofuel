@@ -8,7 +8,7 @@ class CarsController < ApplicationController
 
   # GET /cars/new
   def new
-    @car = current_user.cars.build
+    @car = current_user.cars.new_default
     @fuels = Fuel.all
   end
 

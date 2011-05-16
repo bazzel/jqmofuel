@@ -3,4 +3,12 @@
   = f.text_field :brand, :placeholder => Car.human_attribute_name("brand")
   = f.text_field :car_model, :placeholder => Car.human_attribute_name("model")
   = f.collection_select :fuel_id, fuels, :id, :name, {:prompt => t(:'.fuel_prompt')}
+
+  %div{ :'data-role' => 'fieldcontain' }
+    %fieldset{ :'data-role' => 'controlgroup', :'data-type' => 'horizontal' }
+      %legend= "#{Car.human_attribute_name("mileage")}:"
+      - Mileage.all.each do |mileage|
+        = f.radio_button :mileage_id, mileage.id, :id => dom_id(mileage), :checked => (mileage.id == car.mileage_id)
+        = label_tag dom_id(mileage), mileage.name
+
   = f.submit t('buttons.save')
