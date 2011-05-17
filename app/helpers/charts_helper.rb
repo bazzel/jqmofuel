@@ -9,7 +9,7 @@ module ChartsHelper
       :data      => [fuel_efficiency, moving_fuel_efficiency],
       :max_value => (fuel_efficiency + moving_fuel_efficiency).max*1.05,
       :min_value => (fuel_efficiency + moving_fuel_efficiency).min/1.05,
-      :title     => t('charts.fuel_efficiency.title', :mileage => mileage_unit, :volume => volume_unit),
+      :title     => t('charts.fuel_efficiency.title', :mileage => car.mileage.unit, :volume => volume_unit),
       :legend    => t('charts.fuel_efficiency.legend')
     }
 
@@ -25,7 +25,7 @@ module ChartsHelper
       :data      => [fuel_consumption, moving_fuel_consumption],
       :max_value => (fuel_consumption + moving_fuel_consumption).max*1.05,
       :min_value => (fuel_consumption + moving_fuel_consumption).min/1.05,
-      :title     => t('charts.fuel_consumption.title', :mileage => mileage_unit, :volume => volume_unit),
+      :title     => t('charts.fuel_consumption.title', :mileage => car.mileage.unit, :volume => volume_unit),
       :legend    => t('charts.fuel_consumption.legend')
     }
 
@@ -41,7 +41,7 @@ module ChartsHelper
       :data      => [fuel_cost, moving_fuel_cost],
       :max_value => (fuel_cost + moving_fuel_cost).max*1.05,
       :min_value => (fuel_cost + moving_fuel_cost).min/1.05,
-      :title     => t('charts.fuel_cost.title', :mileage => mileage_unit),
+      :title     => t('charts.fuel_cost.title', :mileage => car.mileage.unit),
       :legend    => t('charts.fuel_cost.legend'),
     }
 

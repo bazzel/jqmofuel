@@ -8,7 +8,6 @@ describe ChartsHelper do
     @mileage = mock_model(Mileage, :unit => 'km', :name => 'kilometer')
     @volume = mock_model(Volume, :unit => 'L', :name => 'litre')
 
-    @current_user.stub(:mileage).and_return(@mileage)
     @current_user.stub(:volume).and_return(@volume)
   end
 
@@ -16,6 +15,7 @@ describe ChartsHelper do
     before(:each) do
       refuelings = [mock_model(Refueling, :fuel_efficiency => 100, :moving_fuel_efficiency => 80)]
       @car = mock_model(Car, :relevant_refuelings => refuelings)
+      @car.stub(:mileage).and_return(@mileage)
     end
 
     it "should generate chart with severval parameters" do
@@ -47,6 +47,7 @@ describe ChartsHelper do
     before(:each) do
       refuelings = [mock_model(Refueling, :fuel_consumption => 100, :moving_fuel_consumption => 80)]
       @car = mock_model(Car, :relevant_refuelings => refuelings)
+      @car.stub(:mileage).and_return(@mileage)
     end
 
     it "should generate chart with severval parameters" do
@@ -78,6 +79,7 @@ describe ChartsHelper do
     before(:each) do
       refuelings = [mock_model(Refueling, :fuel_cost => 100, :moving_fuel_cost => 80)]
       @car = mock_model(Car, :relevant_refuelings => refuelings)
+      @car.stub(:mileage).and_return(@mileage)
     end
 
     it "should generate chart with severval parameters" do
