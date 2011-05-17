@@ -15,8 +15,12 @@
       = f.label :locale
       = f.select :locale, options_for_select(locale_selection, I18n.locale)
 
-      = f.label :volume
-      = f.collection_select :volume_id, Volume.all, :id, :name
+    %div{ :'data-role' => 'fieldcontain' }
+      %fieldset{ :'data-role' => 'controlgroup', :'data-type' => 'horizontal' }
+        %legend= t('helpers.label.user.volume')
+        - Volume.all.each do |volume|
+          = f.radio_button :volume_id, volume.id, :id => dom_id(volume), :checked => (volume.id == current_user.volume_id)
+          = label_tag dom_id(volume), volume.name
 
     = f.submit t('buttons.update')
 

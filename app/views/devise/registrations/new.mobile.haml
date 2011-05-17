@@ -2,7 +2,7 @@
   %h1 Create Account
 
 = jqm_content do
-  = form_for(User.new_default, :url => registration_path(resource_name), :validations => true) do |f|
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validations => true) do |f|
     = render "shared/error_messages", :target => resource
     = f.email_field :email, :placeholder => "Email"
     = f.password_field :password, :placeholder => "Password"
@@ -11,4 +11,11 @@
       = f.label :volume
       = f.collection_select :volume_id, Volume.all, :id, :name
 
+    %div{ :'data-role' => "fieldcontain" }
+      %fieldset{ :'data-role' => 'controlgroup', :'data-type' => 'horizontal' }
+        %legend= t('helpers.label.user.volume')
+        - Volume.all.each do |volume|
+          = f.radio_button :volume_id, volume.id, :id => dom_id(volume), :checked => (volume.id == resource.volume_id)
+          = label_tag dom_id(volume), volume.name
+    
     = f.submit "Sign Up"

@@ -16,20 +16,11 @@ class User < ActiveRecord::Base
   # == Validations
   validates_presence_of :volume
 
-  class << self
-    def new_default(attrs={})
-      # # Accept :mileage as attributes key,
-      # # but use :mileage_id internally.
-      # # Note: attr_accessible doesn't have to include :mileage this way.
-      # mileage = attrs.delete(:mileage)
-      # attrs[:mileage_id] ||= mileage ? mileage.id : Mileage.find_by_unit('km').id
+  # == Callbacks
+  after_initialize :init
 
-      volume = attrs.delete(:volume)
-      # Note: use +find_first_by_unit+ since unit is a translated attribute.
-      attrs[:volume_id] ||= volume ? volume.id : Volume.find_first_by_unit('l').id
-
-      user = new(attrs)
+  private
+    def init
+      self.volume ||= Volume.find_first_by_unit('l')
     end
-  end
-
 end
