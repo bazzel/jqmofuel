@@ -30,7 +30,6 @@ class RefuelingsController < ApplicationController
 
   # GET /refuelings/1
   def show
-    @cars = current_user.cars
   end
 
   # GET /refuelings/1/edit

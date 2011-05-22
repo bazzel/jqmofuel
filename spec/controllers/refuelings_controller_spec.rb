@@ -142,12 +142,6 @@ describe RefuelingsController do
         do_get
         assigns(:refueling).should be(@refueling)
       end
-
-      it "assigns the user's  cars as @cars" do
-        @current_user.should_receive(:cars).and_return(@cars)
-        do_get
-        assigns(:cars).should == @cars
-      end
     end
   end
 
