@@ -1,16 +1,14 @@
-= form_for @car do |f|
-  -if @car.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@car.errors.count, "error")} prohibited this car from being saved:"
-      %ul
-        - @car.errors.full_messages.each do |msg|
-          %li= msg
+= form_for car, :validations => true do |f|
+  = render "shared/error_messages", :target => car
+  = f.text_field :brand, :placeholder => Car.human_attribute_name("brand")
+  = f.text_field :car_model, :placeholder => Car.human_attribute_name("model")
+  = f.collection_select :fuel_id, fuels, :id, :name, {:prompt => t(:'.fuel_prompt')}
 
-  .field
-    = f.label :brand
-    = f.text_field :brand
-  .field
-    = f.label :car_model
-    = f.text_field :car_model
-  .actions
-    = f.submit 'Save'
+  %div{ :'data-role' => 'fieldcontain' }
+    %fieldset{ :'data-role' => 'controlgroup', :'data-type' => 'horizontal' }
+      %legend= t('helpers.label.car.mileage')
+      - Mileage.all.each do |mileage|
+        = f.radio_button :mileage_id, mileage.id, :id => dom_id(mileage), :checked => (mileage.id == car.mileage_id)
+        = label_tag dom_id(mileage), mileage.name
+
+  = f.submit t('buttons.save')

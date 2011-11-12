@@ -1,6 +1,0 @@
-= jqm_header do
-  %h1= "#{@refueling}"
-  = link_to t('buttons.delete'), @refueling, :method => :delete, :confirm => t(:'buttons.confirm_delete', :target => "#{@refueling}"), :"data-icon" => "delete", :class => "ui-btn-right"
-
-= jqm_content do
-  = render 'form', :refueling => @refueling

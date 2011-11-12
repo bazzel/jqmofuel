@@ -1,21 +1,9 @@
-%h1 Listing cars
+= jqm_header do
+  %h1= t(:'.title')
+  = link_to t(:'.new_car'), new_car_path, :'data-icon' => "plus", :class => "ui-btn-right", :'data-iconpos' => "notext"
 
-%table
-  %tr
-    %th Brand
-    %th Car model
-    %th
-    %th
-    %th
+= jqm_content do
+  %ul{ :'data-role' => "listview", :'data-split-icon' => "grid", :'data-split-theme' => "d" }
+    = render @cars
 
-  - @cars.each do |car|
-    %tr
-      %td= car.brand
-      %td= car.car_model
-      %td= link_to 'Show', car
-      %td= link_to 'Edit', edit_car_path(car)
-      %td= link_to 'Destroy', car, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Car', new_car_path
+= jqm_footer(:cars)

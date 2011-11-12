@@ -1,12 +1,12 @@
-%p#notice= notice
-
-%p
-  %b Brand:
-  = @car.brand
-%p
-  %b Car model:
-  = @car.car_model
-
-= link_to 'Edit', edit_car_path(@car)
-\|
-= link_to 'Back', cars_path
+= jqm_header do
+  %h1= "#{@car}"
+  = link_to t('buttons.edit'), edit_car_path(@car), :class => "ui-btn-right"
+= jqm_content do
+  .car-summary
+    %ul{ :'data-role' => "listview", :'data-inset' => "true" }
+      = render 'car_section', :car => @car
+    - if @car.more_than_one_refuelings?
+      = render 'fuel_section', :car => @car
+      = render 'total_section', :car => @car
+      = link_to t('buttons.charts'), car_chart_path(@car, 'fuel_efficiency'), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right"
+= jqm_footer(:cars)

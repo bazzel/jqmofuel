@@ -1,23 +1,12 @@
-%h1 Listing refuelings
+= jqm_header do
+  %h1= t(:'.title', :car => @car.to_s)
 
-%table
-  %tr
-    %th Date
-    %th Amount
-    %th Liter
-    %th
-    %th
-    %th
+= jqm_content do
+  %ul{ :'data-role' => "listview" }
+    - @refueling_months.each do |month, refuelings|
+      %li{ :'data-role' => 'list-divider'}
+        = l(month, :format => :'month-year')
+        %span.ui-li-count= refuelings.count
+      = render refuelings
 
-  - @refuelings.each do |refueling|
-    %tr
-      %td= refueling.date
-      %td= refueling.amount
-      %td= refueling.liter
-      %td= link_to 'Show', refueling
-      %td= link_to 'Edit', edit_refueling_path(refueling)
-      %td= link_to 'Destroy', refueling, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Refueling', new_refueling_path
+= jqm_footer(:cars)

@@ -1,5 +1,7 @@
-%h1 New refueling
+= jqm_header(:'data-backbtn' => false) do
+  %h1= t(:'.title')
 
-= render 'form'
+= jqm_content do
+  = render 'form', :refueling => @refueling
 
-= link_to 'Back', refuelings_path
+= jqm_footer(:refueling)

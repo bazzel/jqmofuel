@@ -1,7 +1,6 @@
-%h1 Editing refueling
+= jqm_header do
+  %h1= "#{@refueling}"
+  = link_to t('buttons.delete'), @refueling, :method => :delete, :confirm => t(:'buttons.confirm_delete', :target => "#{@refueling}"), :"data-icon" => "delete", :class => "ui-btn-right"
 
-= render 'form'
-
-= link_to 'Show', @refueling
-\|
-= link_to 'Back', refuelings_path
+= jqm_content do
+  = render 'form', :refueling => @refueling

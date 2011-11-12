@@ -1,19 +1,17 @@
-= form_for @refueling do |f|
-  -if @refueling.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@refueling.errors.count, "error")} prohibited this refueling from being saved:"
-      %ul
-        - @refueling.errors.full_messages.each do |msg|
-          %li= msg
+= form_for refueling, :validations => true do |f|
+  = render "shared/error_messages", :target => refueling
 
-  .field
+  %div{ :'data-role' => "fieldcontain" }
     = f.label :date
-    = f.datetime_select :date
-  .field
-    = f.label :amount
-    = f.text_field :amount
-  .field
-    = f.label :liter
-    = f.text_field :liter
-  .actions
-    = f.submit 'Save'
+    = f.date_select :date, {:start_year => Date.current.year - 2, :end_year => Date.current.year + 1, :order => [:day, :month, :year]}
+
+  %div{ :'data-role' => "fieldcontain" }
+    = f.number_field :mileage, :placeholder => Refueling.human_attribute_name("mileage"), :class => "integers"
+    = f.number_field :liter, :placeholder => "#{Refueling.human_attribute_name("liter")} (#{current_user.volume.unit})", :class => "decimals"
+    = f.number_field :amount, :placeholder => Refueling.human_attribute_name("amount"), :class => "decimals"
+    - if current_user.cars.size > 1
+      = f.collection_select :car_id, current_user.cars, :id, :brand, {:prompt => t(:'.car_prompt')}
+    - else
+      = hidden_field_tag "refueling[car_id]", current_user.cars.first.id
+
+  = f.submit t('buttons.save')

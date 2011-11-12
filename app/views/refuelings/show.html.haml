@@ -1,15 +1,21 @@
-%p#notice= notice
+= jqm_header(:'data-backbtn' => params[:backbtn]) do
+  %h1= "#{@refueling}"
+  = link_to t('buttons.edit'), edit_refueling_path(@refueling), :class => "ui-btn-right"
 
-%p
-  %b Date:
-  = @refueling.date
-%p
-  %b Amount:
-  = @refueling.amount
-%p
-  %b Liter:
-  = @refueling.liter
+= jqm_content do
+  .refueling-summary
+    %ul{ :'data-role' => "listview", :'data-inset' => "true" }
+      %li
+        = Refueling.human_attribute_name("date")
+        .ui-li-aside= l(@refueling.date.to_date, :format => :traditional)
+      %li
+        = Refueling.human_attribute_name("liter")
+        .ui-li-aside= number_with_precision(@refueling.liter, :precision => 2)
+      %li
+        = Refueling.human_attribute_name("amount")
+        .ui-li-aside= number_to_currency(@refueling.amount)
+      %li
+        = Refueling.human_attribute_name("mileage")
+        .ui-li-aside= "#{number_with_delimiter(@refueling.mileage)} #{@refueling.car.mileage.unit}"
 
-= link_to 'Edit', edit_refueling_path(@refueling)
-\|
-= link_to 'Back', refuelings_path
+= jqm_footer(:cars)
