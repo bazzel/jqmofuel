@@ -32,7 +32,6 @@ group :development, :test do
   gem 'cucumber-rails',           '0.3.2'
   gem 'capybara',                 '0.4.1.2'
   gem 'database_cleaner',         '0.6.4'
-  gem 'factory_girl_rails',       '1.0.1'
   gem 'launchy',                  '0.3.7' # So you can do Then show me the page
   gem 'pickle',                   '0.4.4' # Easy model creation and reference in your cucumber features
   gem 'remarkable_activerecord',  '4.0.0.alpha4' # See http://ruby-lambda.blogspot.com/2010/05/remarkable-400alpha2.html
@@ -43,6 +42,9 @@ group :development, :test do
   gem 'webrat',                   '0.7.3'
 end
 
+group :test do
+  gem 'factory_girl_rails',       '1.0.1'
+end
 
 
 # Bundle edge Rails instead:
