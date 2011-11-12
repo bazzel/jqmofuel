@@ -4,20 +4,10 @@ Feature: Entering login screen
   As a role
   I want feature
 
-  Background:
-    Given I am using "mobile safari"
-
   Scenario: Entering sign in page
     Given I am not logged in
     When I go to the home page
-    Then I am on the sign in page
-
-  Scenario: Viewing the sign page
-    Given I am not logged in
-    When I go to the sign in page
-    Then I should see "e-fueling" in the header
-    Then I should see "Sign In" button in the content
-    And I should see "Create Account" in the content
+    Then I should see the sign in page
 
   Scenario: Creating new account
     Given I am not logged in
