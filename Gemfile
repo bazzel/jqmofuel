@@ -4,7 +4,7 @@ gem 'backup',                   :git => 'git://github.com/bazzel/backup', :tag =
 gem 'client_side_validations',  '~> 3.1.3' # Client Side Validations for Rails 2.xand 3.x
 gem 'capistrano',               '2.5.19'
 gem 'compass',                  '0.10.6'
-gem 'devise',                   '1.2.1'
+gem 'devise',                   '1.4.9'
 gem 'exception_notification',   '2.4.0', :require => 'exception_notifier' # Exception notification by email for Rails apps
 gem 'globalize3',               '0.0.11' # de-facto standard library for ActiveRecord 3 model/data translation.
 gem 'googlecharts',             '1.6.2'   # Generate charts using Google API & Ruby
@@ -12,8 +12,8 @@ gem 'haml',                     '3.1.3'
 gem 'i18n-js',                  '1.0.0' # small library to provide the Rails I18n translations on the Javascript.
 gem 'jquery-rails',             '0.2.7' # Rails generator to install jQuery and the jQuery-ujs driver into your Rails 3 application,
                                           # and then have them included automatically instead of Prototype.
-gem 'mysql2',                   '0.2.6'
-gem 'rails',                    '3.0.10'
+gem 'mysql2',                   '0.3.10'
+gem 'rails',                    '3.1.1'
 gem 'sass',                     '3.1.10'
 gem 'whenever',                 '0.6.7', :require => false # Clean ruby syntax for writing and deploying cron jobs.
 
@@ -35,7 +35,7 @@ group :development, :test do
   # gem 'remarkable_rails',         '3.1.13', :require => nil
   gem 'rspec-rails',              '2.5.0'
   gem 'spork',                    '0.8.4' # A forking Drb spec server
-  gem 'tolk',                     '1.0'
+  gem "karteek-tolk", "~> 1.0.3"
   gem 'webrat',                   '0.7.3'
 end
 

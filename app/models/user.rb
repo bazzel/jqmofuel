@@ -21,6 +21,6 @@ class User < ActiveRecord::Base
 
   private
     def init
-      self.volume ||= Volume.find_first_by_unit('l')
+      self.volume ||= Volume.where(:unit => 'l').first
     end
 end
