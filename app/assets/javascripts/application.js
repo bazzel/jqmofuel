@@ -2,6 +2,7 @@
 //= require jquery_ujs
 //= require_self
 //= require_tree .
+//= require rails.validations
 
 jQuery(function($) {
   $('[data-csv] :submit').live('click', function() {

@@ -42,24 +42,19 @@
     background-image: url('/images/info.png');
   }
 
-  &.portrait label.error, &.landscape label.error {
-    color: red;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 1.4;
-    margin-top: 0.5em;
-    width: 100%;
-    float: none;
-  }
-
-  &.landscape label.error {
-    display: inline-block;
-    text-align: center;
-  }
-
-  &.portrait label.error {
-    text-align: center;
-    display: block;
+  // http://www.elijahmanor.com/2011/02/jquery-mobile-form-validation.html
+  .field_with_errors {
+    label.message {
+      color: red;
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 1.4;
+      margin-top: 0.5em;
+      width: 100%;
+      float: none;
+      display: block;
+      margin-left: 0;
+    }
   }
 
   em {
