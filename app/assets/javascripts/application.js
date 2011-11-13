@@ -1,3 +1,8 @@
+//= require jquery
+//= require jquery_ujs
+//= require_self
+//= require_tree .
+
 jQuery(function($) {
   $('[data-csv] :submit').live('click', function() {
     var $form = $(this).parents('form');
@@ -9,6 +14,6 @@ jQuery(function($) {
     $form.validate();
   });
 
-  $('input.decimals').numeric();
-  $('input.integers').numeric(false);
+  // $('input.decimals').numeric();
+  // $('input.integers').numeric(false);
 });

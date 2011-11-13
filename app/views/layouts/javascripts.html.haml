@@ -1,24 +1,25 @@
-= javascript_include_tag('i18n')
-= javascript_include_tag('translations')
+= javascript_include_tag('application')
+-# = javascript_include_tag('i18n')
+-# = javascript_include_tag('translations')
 
 :javascript
   I18n.defaultLocale = "#{I18n.default_locale}";
   I18n.locale = "#{I18n.locale}";
 
 - if Rails.env.development?
-  = javascript_include_tag('http://code.jquery.com/jquery-1.6.4.js')
-  = javascript_include_tag('custom-scripting')
+  -# = javascript_include_tag('http://code.jquery.com/jquery-1.6.4.js')
+  -# = javascript_include_tag('custom-scripting')
   = javascript_include_tag('http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.js')
-  = javascript_include_tag(:defaults)
+  -# = javascript_include_tag(:defaults)
 - else
-  = javascript_include_tag('http://code.jquery.com/jquery-1.6.4.min.js')
-  = javascript_include_tag('custom-scripting')
+  -# = javascript_include_tag('http://code.jquery.com/jquery-1.6.4.min.js')
+  -# = javascript_include_tag('custom-scripting')
   = javascript_include_tag('http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js')
-  = javascript_include_tag(:defaults)
+  -# = javascript_include_tag(:defaults)
 
-= javascript_include_tag('jquery.validate')
-= javascript_include_tag('client_side_validations')
-= javascript_include_tag('jquery.numeric')
+-# = javascript_include_tag('jquery.validate')
+-# = javascript_include_tag('client_side_validations')
+-# = javascript_include_tag('jquery.numeric')
 
 -#  Append your own using content_for :javascripts
 = yield :javascripts

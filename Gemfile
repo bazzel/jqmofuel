@@ -3,19 +3,27 @@ source 'http://rubygems.org'
 gem 'backup',                   :git => 'git://github.com/bazzel/backup', :tag => '2.4.5.1.2' # Currently backup 3 cannot be used with Rails
 gem 'client_side_validations',  '~> 3.1.3' # Client Side Validations for Rails 2.xand 3.x
 gem 'capistrano',               '2.5.19'
-gem 'compass',                  '0.10.6'
+# gem 'compass',                  '0.10.6'
 gem 'devise',                   '1.4.9'
 gem 'exception_notification',   '2.4.0', :require => 'exception_notifier' # Exception notification by email for Rails apps
 gem 'globalize3',               '0.0.11' # de-facto standard library for ActiveRecord 3 model/data translation.
 gem 'googlecharts',             '1.6.2'   # Generate charts using Google API & Ruby
 gem 'haml',                     '3.1.3'
 gem 'i18n-js',                  '1.0.0' # small library to provide the Rails I18n translations on the Javascript.
-gem 'jquery-rails',             '0.2.7' # Rails generator to install jQuery and the jQuery-ujs driver into your Rails 3 application,
-                                          # and then have them included automatically instead of Prototype.
+gem 'jquery-rails',             '1.0.17' # provides jQuery and the jQuery-ujs driver for your Rails 3 application
 gem 'mysql2',                   '0.3.10'
 gem 'rails',                    '3.1.1'
-gem 'sass',                     '3.1.10'
+# gem 'sass',                     '3.1.10'
 gem 'whenever',                 '0.6.7', :require => false # Clean ruby syntax for writing and deploying cron jobs.
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'compass',                "~> 0.12.alpha.0"
+  gem 'sass-rails',             "~> 3.1.4"
+  gem 'coffee-rails',           "~> 3.1.1"
+  gem 'uglifier',               '1.0.4'
+end
 
 group :development do
   gem 'haml-rails',               '0.3.4'       # Haml generators for Rails 3

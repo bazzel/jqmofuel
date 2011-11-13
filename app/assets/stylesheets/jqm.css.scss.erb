@@ -59,21 +59,21 @@ dl.car-summary {
 }
 
 .ui-icon-jqmofuel-fuel-station {
-  background-image: url('/images/icons/fuel-station.png');
+  background-image: url(<%= asset_path 'icons/fuel-station.png' %>);
 }
 
 // Footer
 #cars .ui-icon {
-  background: url('/images/icons/car.png') 50% 50% no-repeat;
+  background: url(<%= asset_path 'icons/car.png' %>) 50% 50% no-repeat;
   background-size: 18px 15px;
 }
 #refueling .ui-icon {
-  background: url('/images/icons/fuel-station.png') 50% 50% no-repeat;
+  background: url(<%= asset_path 'icons/fuel-station.png' %>) 50% 50% no-repeat;
   background-size: 18px 18px;
 }
 
 #my-info .ui-icon {
-  background:  url('/images/icons/user.png') 50% 50% no-repeat;
+  background:  url(<%= asset_path 'icons/user.png' %>) 50% 50% no-repeat;
   background-size: 18px 18px;
 }
 // End Footer
