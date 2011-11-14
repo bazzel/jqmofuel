@@ -3,7 +3,6 @@ source 'http://rubygems.org'
 gem 'backup',                   :git => 'git://github.com/bazzel/backup', :tag => '2.4.5.1.2' # Currently backup 3 cannot be used with Rails
 gem 'client_side_validations',  '~> 3.1.3' # Client Side Validations for Rails 2.xand 3.x
 gem 'capistrano',               '2.5.19'
-# gem 'compass',                  '0.10.6'
 gem 'devise',                   '1.4.9'
 gem 'exception_notification',   '2.4.0', :require => 'exception_notifier' # Exception notification by email for Rails apps
 gem 'globalize3',               '0.0.11' # de-facto standard library for ActiveRecord 3 model/data translation.
@@ -13,7 +12,6 @@ gem 'i18n-js',                  '1.0.0' # small library to provide the Rails I18
 gem 'jquery-rails',             '1.0.17' # provides jQuery and the jQuery-ujs driver for your Rails 3 application
 gem 'mysql2',                   '0.3.10'
 gem 'rails',                    '3.1.1'
-# gem 'sass',                     '3.1.10'
 gem 'whenever',                 '0.6.7', :require => false # Clean ruby syntax for writing and deploying cron jobs.
 
 # Gems used only for assets and not required
