@@ -2,14 +2,14 @@
   %h1 e-fueling
 
 = jqm_content do
-  = form_for resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'validate'} do |f|
+  = form_for resource, as: resource_name, url: session_path(resource_name), html: {class: 'validate'} do |f|
     = render "shared/flashes"
     = hidden_field_tag 'user[remember_me]', 1
-    = f.email_field :email, :placeholder => User.human_attribute_name("email"), :class => "required"
-    = f.password_field :password, :placeholder => User.human_attribute_name("password"), :class => "required"
+    = f.email_field :email, placeholder: User.human_attribute_name("email"), class: "required"
+    = f.password_field :password, placeholder: User.human_attribute_name("password"), class: "required"
 
-    = f.submit t('buttons.sign_in'), :'data-theme' => 'a'
-  = link_to t('buttons.create_account'), new_registration_path(resource_name), :'data-role' => "button", :'data-transition' => "flip"
+    = f.submit t('buttons.sign_in'), data: { theme: 'a' }
+  = link_to t('buttons.create_account'), new_registration_path(resource_name), data: { role: "button", transition: "flip" }
 
   - if devise_mapping.recoverable?
-    = link_to t('buttons.forgot_password'), new_password_path(resource_name), :'data-role' => "button", :'data-transition' => "flip"
+    = link_to t('buttons.forgot_password'), new_password_path(resource_name), data: { role: "button", transition: "flip" }
