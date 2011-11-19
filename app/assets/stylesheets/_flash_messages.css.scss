@@ -22,6 +22,18 @@
   }
 }
 
+@mixin inline_error_message {
+  color: red;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.4;
+  margin-top: 0.5em;
+  width: 100%;
+  float: none;
+  display: block;
+  margin-left: 0;
+}
+
 //http://www.jankoatwarpspeed.com/post/2008/05/22/CSS-Message-Boxes-for-different-message-types.aspx
 .ui-mobile {
   #error_explanation, #flash_notice, #flash_error, #flash_alert {
@@ -34,26 +46,23 @@
   #error_explanation, #flash_error, #flash_alert {
     color: #D8000C;
     background-color: #FFBABA;
-    background-image: url('/images/error.png');
+    background-image: url(image-path('error.png'));
   }
   #flash_notice {
     color: #00529B;
     background-color: #BDE5F8;
-    background-image: url('/images/info.png');
+    background-image: url(image-path('info.png'));
   }
 
+
   // http://www.elijahmanor.com/2011/02/jquery-mobile-form-validation.html
+  label.error {
+    @include inline_error_message;
+  }
+
   .field_with_errors {
     label.message {
-      color: red;
-      font-size: 16px;
-      font-weight: normal;
-      line-height: 1.4;
-      margin-top: 0.5em;
-      width: 100%;
-      float: none;
-      display: block;
-      margin-left: 0;
+      @include inline_error_message;
     }
   }
 
@@ -63,4 +72,3 @@
     padding-right: .25em;
   }
 }
-
