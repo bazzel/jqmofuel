@@ -19,11 +19,7 @@ Feature: Entering login screen
     And I fill in "user[password_confirmation]" with "secret"
     And I press "Sign Up"
 
-  Scenario: Email is missing during sign in
-  Given I am not logged in
-  When I go to the sign in page
-  And I press "Sign In"
-
-  Scenario: title
-    Given I am logged in as a user with email "patrick@domain.com" and password "secret"
-    When I go to the home page
+  Scenario: Submitting an empty form
+    Given I am not logged in
+    When I submit an empty login form
+    Then I see that I should have entered credentials first
