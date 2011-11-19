@@ -3,6 +3,7 @@
 //= require_self
 //= require_tree .
 //= require rails.validations
+//= require jquery.validate
 
 jQuery(function($) {
   $('[data-csv] :submit').live('click', function() {
