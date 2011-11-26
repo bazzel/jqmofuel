@@ -1,5 +1,5 @@
 # == Given
-Given /^I am not logged in$/ do
+Given /^I am not signed in$/ do
   true
 end
 
