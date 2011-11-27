@@ -5,7 +5,7 @@
   = form_for(resource, as: resource_name, url: registration_path(resource_name), validate: true) do |f|
     = render "shared/error_messages", target: resource
     = f.email_field :email, placeholder: User.human_attribute_name("email"), validate: { presence: true }
-    = f.password_field :password, placeholder: "Password"
+    = f.password_field :password, placeholder: "Password", validate: true
     = f.password_field :password_confirmation, placeholder: "Repeat"
     -# %div{ data: { role: "fieldcontain" } }
     -#   = f.label :volume

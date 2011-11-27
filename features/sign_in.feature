@@ -19,12 +19,4 @@ Feature: Entering sign in screen
     When I submit the sign in form with invalid credentials
     Then I see that I have entered invalid credentials
 
-  Scenario: Creating new account
-    Given I am not signed in
-    When I choose to create a new account
-    And I enter valid data for a new account
-    Then I should see a page for entering a new car
-
-  Scenario: Creating invalid account
-
   Scenario: Forgot password
