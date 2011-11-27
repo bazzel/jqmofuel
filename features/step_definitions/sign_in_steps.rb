@@ -10,10 +10,6 @@ When /^I submit an empty sign in form$/ do
   click_button "Sign In"
 end
 
-When /^I enter no data for a new account$/ do
-  click_button "Sign Up"
-end
-
 Then /^I see that I should have entered credentials first$/ do
   within('form') do
     page.should have_css('.field_with_errors label', :text => "can't be blank", :count => 2)
@@ -35,35 +31,6 @@ Then /^I see that I have entered invalid credentials$/ do
   end
 end
 
-When /^I choose to create a new account$/ do
-  visit new_user_session_path
-  click_link "Create Account"
-  step %{I should see "Create Account" in the header}
-end
-
-When /^I enter valid data for a new account$/ do
-  within('#user_new') do
-    fill_in 'user[email]', :with => 'john.doe@example.com'
-    fill_in 'user[password]', :with => 'Secret.1'
-    fill_in 'user[password_confirmation]', :with => 'Secret.1'
-  end
-  click_button "Sign Up"
-end
-
-When /^I didn't confirm my password$/ do
-  within('#user_new') do
-    fill_in 'user[email]', :with => 'john.doe@example.com'
-    fill_in 'user[password]', :with => 'Secret.1'
-  end
-  click_button "Sign Up"
-end
-
 Then /^I should see a page for entering a new car$/ do
   step %{I should see "Add Car" in the header}
-end
-
-Then /^I see that the password I entered doesn't match confirmation$/ do
-  within('form') do
-    page.should have_css('.field_with_errors label', :text => "doesn't match confirmation")
-  end
 end

@@ -1,5 +1,5 @@
 @javascript
-Feature: Entering sign in screen
+Feature: Creating an account
   In order to value
   As a role
   I want feature
