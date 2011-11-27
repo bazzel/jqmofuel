@@ -12,10 +12,7 @@ end
 
 Then /^I see that I should have entered credentials first$/ do
   within('form') do
-    # page.should have_css('.field_with_errors label', :text => "can't be blank", :count => 2)
-    # Client side validation for login form is handled by jquery.validation plugin
-    # i.o. client_side_validation gem.
-    page.should have_css('label.error', :text => "This field is required", :count => 2)
+    page.should have_css('.field_with_errors label', :text => "can't be blank", :count => 2)
   end
 end
 

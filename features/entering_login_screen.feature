@@ -23,13 +23,6 @@ Feature: Entering sign in screen
     Given I am not signed in
     When I choose to create a new account
     And I enter valid data for a new account
-    # When I go to the sign in page
-    # And I follow "Create Account"
-    # Then I should see "Create Account" in the header
-    # And I fill in "user[email]" with "john@example.com"
-    # And I fill in "user[password]" with "secret"
-    # And I fill in "user[password_confirmation]" with "secret"
-    # And I press "Sign Up"
     Then I should see a page for entering a new car
 
   Scenario: Creating invalid account
