@@ -1,6 +1,7 @@
 # Read about factories at http://github.com/thoughtbot/factory_girl
-
-Factory.define :mileage do |f|
-  f.unit 'km'
-  f.name "kilometer"
+FactoryGirl.define do
+  factory :mileage do
+    unit 'km'
+    name "kilometer"
+  end
 end

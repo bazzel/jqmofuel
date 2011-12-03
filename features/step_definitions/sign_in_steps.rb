@@ -34,3 +34,39 @@ end
 Then /^I should see a page for entering a new car$/ do
   step %{I should see "Add Car" in the header}
 end
+
+When /^I forgot my password$/ do
+  visit new_user_session_path
+  click_link "Forgot Password"
+end
+
+Then /^I can ask for an email with instructions about how to reset my password$/ do
+  within('#user_new') do
+    fill_in 'user[email]', :with => 'john.doe@example.com'
+  end
+  click_button "Submit"
+  step %{"john.doe@example.com" should receive an email}
+end
+
+When /^I ask for reset password instructions without providing an email address$/ do
+  click_button "Submit"
+end
+
+Then /^I see that I should have entered an email address first$/ do
+  within('form') do
+    page.should have_css('.field_with_errors label', :text => "can't be blank")
+  end
+end
+
+When /^I ask for reset password instructions for an invalid email address$/ do
+  within('#user_new') do
+    fill_in 'user[email]', :with => 'unknown@example.com'
+  end
+  click_button "Submit"
+end
+
+Then /^I see that I should have entered a valid email address first$/ do
+  within('#error_explanation') do
+    page.should have_content('Email not found')
+  end
+end

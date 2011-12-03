@@ -3,6 +3,10 @@ Given /^I am not signed in$/ do
   true
 end
 
+Given /^I have an account with email "([^"]*)"$/ do |email|
+  @user = Factory(:user, :email => email)
+end
+
 Given /^I am logged in as a user with email "([^"]*)" and password "([^"]*)"$/ do |email, password|
   Given %{a user "current_user" exists with email: "#{email}", password: "#{password}"}
 

@@ -19,4 +19,21 @@ Feature: Entering sign in screen
     When I submit the sign in form with invalid credentials
     Then I see that I have entered invalid credentials
 
-  Scenario: Forgot password
+  # Scenario: Forgot password
+  #   Given I have an account with email "john.doe@example.com"
+  #   And I am not signed in
+  #   When I forgot my password
+  #   Then I can ask for an email with instructions about how to reset my password
+
+  Scenario: Asking for reset password instructions without email address
+    Given I am not signed in
+    When I forgot my password
+    And I ask for reset password instructions without providing an email address
+    Then I see that I should have entered an email address first
+
+  Scenario: Asking for reset password instructions for invalid email address
+    Given I am not signed in
+    When I forgot my password
+    And I ask for reset password instructions for an invalid email address
+    Then I see that I should have entered a valid email address first
+

@@ -1,9 +1,10 @@
 # Read about factories at http://github.com/thoughtbot/factory_girl
-
-Factory.define :user do |f|
-  password = 'secret'
-  f.email 'john@example.com'
-  f.password password
-  f.password_confirmation password
-  f.volume { |v| v.association(:volume)}
+FactoryGirl.define do
+  factory :user do
+    password = 'secret'
+    email 'john@example.com'
+    password password
+    password_confirmation password
+    volume { |v| v.association(:volume)}
+  end
 end

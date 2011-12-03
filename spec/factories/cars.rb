@@ -1,5 +1,5 @@
 # Read about factories at http://github.com/thoughtbot/factory_girl
-require "#{Rails.root}/spec/factories/mileages.rb"
+# require "#{Rails.root}/spec/factories/mileages.rb"
 
 Factory.define :car do |f|
   f.brand "MyString"
